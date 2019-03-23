@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application"
+             version="11.1.1.64.93" id="DataBindings" SeparateXMLFiles="false"
+             Package="checkcredithistoryform" ClientType="Generic">
+  <pageMap>
+    <page path="/taskDetails1.jspx"
+          usageId="checkcredithistoryform_taskDetails1PageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="checkcredithistoryform_taskDetails1PageDef"
+          path="checkcredithistoryform.pageDefs.taskDetails1PageDef"/>
+  </pageDefinitionUsages>
+  <dataControlUsages>
+    <dc id="PrepareInsuranceQuoteForm_PrepareInsuranceQuoteHumanTask"
+        path="prepareinsurancequoteform.PrepareInsuranceQuoteForm_PrepareInsuranceQuoteHumanTask"/>
+    <dc id="CheckCreditHistoryForm_AssessCreditHistoryHumanTask"
+        path="checkcredithistoryform.CheckCreditHistoryForm_AssessCreditHistoryHumanTask"/>
+  </dataControlUsages>
+</Application>

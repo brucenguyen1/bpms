@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<JavaBean xmlns="http://xmlns.oracle.com/adfm/beanmodel" version="11.1.1.64.93"
+          id="CreditHistoryReportType"
+          Package="TakeFinalDecisionForm_TakeFinalDecisionHumanTask"
+          BeanClass="TakeFinalDecisionForm_TakeFinalDecisionHumanTask.CreditHistoryReportType"
+          isJavaBased="false">
+  <Attribute Name="financialOfficerIdentifier" IsUpdateable="0"
+             Type="java.lang.String">
+    <Properties>
+      <CustomProperties>
+        <Property Name="nextSiblingNamespace"
+                  Value="http://xmlns.oracle.com/bpm/bpmobject/BusinessObjects/CreditHistoryReport"/>
+        <Property Name="nextSibling" Value="loanApplicationRef"/>
+        <Property Name="minOccurs" Value="1"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="Financial Officer Identifier"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="true"/>
+        <Property Name="originalName" Value="financialOfficerIdentifier"/>
+        <Property Name="targetNamespace"
+                  Value="http://xmlns.oracle.com/bpm/bpmobject/BusinessObjects/CreditHistoryReport"/>
+        <Property Name="type" Value="java.lang.String"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="loanApplicationRef" IsUpdateable="0" Type="java.lang.String">
+    <Properties>
+      <CustomProperties>
+        <Property Name="nextSiblingNamespace"
+                  Value="http://xmlns.oracle.com/bpm/bpmobject/BusinessObjects/CreditHistoryReport"/>
+        <Property Name="nextSibling" Value="creditAssessment"/>
+        <Property Name="minOccurs" Value="1"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="Loan Application Ref"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="true"/>
+        <Property Name="originalName" Value="loanApplicationRef"/>
+        <Property Name="targetNamespace"
+                  Value="http://xmlns.oracle.com/bpm/bpmobject/BusinessObjects/CreditHistoryReport"/>
+        <Property Name="type" Value="java.lang.String"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="creditAssessment" IsUpdateable="0" Type="java.lang.String">
+    <Properties>
+      <CustomProperties>
+        <Property Name="nextSiblingNamespace"
+                  Value="http://xmlns.oracle.com/bpm/bpmobject/BusinessObjects/CreditHistoryReport"/>
+        <Property Name="nextSibling" Value="loanApplicationHistory"/>
+        <Property Name="minOccurs" Value="1"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="Credit Assessment"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="true"/>
+        <Property Name="originalName" Value="creditAssessment"/>
+        <Property Name="targetNamespace"
+                  Value="http://xmlns.oracle.com/bpm/bpmobject/BusinessObjects/CreditHistoryReport"/>
+        <Property Name="type" Value="java.lang.String"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <AccessorAttribute id="loanApplicationHistory" IsCollection="true"
+                     BeanClass="TakeFinalDecisionForm_TakeFinalDecisionHumanTask.LoanInfoType1"
+                     CollectionBeanClass="TakeFinalDecisionForm_TakeFinalDecisionHumanTask.LoanInfoType1_loanApplicationHistory_Operations">
+    <Properties>
+      <Property Name="minOccurs" Value="1"/>
+      <Property Name="maxOccurs" Value="2147483640"/>
+      <Property Name="LABEL" Value="Loan Application History"/>
+      <Property Name="nillable" Value="true"/>
+      <Property Name="originalName" Value="loanApplicationHistory"/>
+      <Property Name="targetNamespace"
+                Value="http://xmlns.oracle.com/bpm/bpmobject/BusinessObjects/CreditHistoryReport"/>
+    </Properties>
+  </AccessorAttribute>
+</JavaBean>

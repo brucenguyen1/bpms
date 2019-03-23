@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<decisionServices xmlns="http://xmlns.oracle.com/bpel/rules" name="VerifyRepaymentAgreementHumanTaskRules">
+    <ruleEngineProvider provider="Oracle_11.0.0.0.0" name="myRuleEngine">
+        <repository type="SCA-Archive">
+            <path>LoanAssessment/oracle/rules/VerifyRepaymentAgreementHumanTaskRules.rules</path>
+        </repository>
+    </ruleEngineProvider>
+</decisionServices>

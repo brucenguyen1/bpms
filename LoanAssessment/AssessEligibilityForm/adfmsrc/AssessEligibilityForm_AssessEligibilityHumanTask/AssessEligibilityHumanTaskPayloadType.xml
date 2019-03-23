@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<JavaBean xmlns="http://xmlns.oracle.com/adfm/beanmodel" version="11.1.1.64.93"
+          id="AssessEligibilityHumanTaskPayloadType"
+          Package="AssessEligibilityForm_AssessEligibilityHumanTask"
+          BeanClass="AssessEligibilityForm_AssessEligibilityHumanTask.AssessEligibilityHumanTaskPayloadType"
+          isJavaBased="false">
+  <AccessorAttribute id="LoanApplication" IsCollection="true"
+                     BeanClass="AssessEligibilityForm_AssessEligibilityHumanTask.LoanApplicationType"
+                     CollectionBeanClass="AssessEligibilityForm_AssessEligibilityHumanTask.LoanApplicationType_LoanApplication_Operations">
+    <Properties>
+      <Property Name="nextSiblingNamespace"
+                Value="http://xmlns.oracle.com/bpm/bpmobject/BusinessObjects/RiskAssessment"/>
+      <Property Name="nextSibling" Value="RiskAssessment"/>
+      <Property Name="minOccurs" Value="1"/>
+      <Property Name="maxOccurs" Value="1"/>
+      <Property Name="LABEL" Value="Loan Application"/>
+      <Property Name="nillable" Value="false"/>
+      <Property Name="originalName" Value="LoanApplication"/>
+      <Property Name="targetNamespace"
+                Value="http://xmlns.oracle.com/bpm/bpmobject/BusinessObjects/LoanApplication"/>
+    </Properties>
+  </AccessorAttribute>
+  <AccessorAttribute id="RiskAssessment" IsCollection="true"
+                     BeanClass="AssessEligibilityForm_AssessEligibilityHumanTask.RiskAssessmentType"
+                     CollectionBeanClass="AssessEligibilityForm_AssessEligibilityHumanTask.RiskAssessmentType_RiskAssessment_Operations">
+    <Properties>
+      <Property Name="nextSiblingNamespace"
+                Value="http://xmlns.oracle.com/bpm/bpmobject/BusinessObjects/PropertyAppraisal"/>
+      <Property Name="nextSibling" Value="PropertyAppraisal"/>
+      <Property Name="minOccurs" Value="1"/>
+      <Property Name="maxOccurs" Value="1"/>
+      <Property Name="LABEL" Value="Risk Assessment"/>
+      <Property Name="nillable" Value="false"/>
+      <Property Name="originalName" Value="RiskAssessment"/>
+      <Property Name="targetNamespace"
+                Value="http://xmlns.oracle.com/bpm/bpmobject/BusinessObjects/RiskAssessment"/>
+    </Properties>
+  </AccessorAttribute>
+  <AccessorAttribute id="PropertyAppraisal" IsCollection="true"
+                     BeanClass="AssessEligibilityForm_AssessEligibilityHumanTask.PropertyAppraisalType"
+                     CollectionBeanClass="AssessEligibilityForm_AssessEligibilityHumanTask.PropertyAppraisalType_PropertyAppraisal_Operations">
+    <Properties>
+      <Property Name="minOccurs" Value="1"/>
+      <Property Name="maxOccurs" Value="1"/>
+      <Property Name="LABEL" Value="Property Appraisal"/>
+      <Property Name="nillable" Value="false"/>
+      <Property Name="originalName" Value="PropertyAppraisal"/>
+      <Property Name="targetNamespace"
+                Value="http://xmlns.oracle.com/bpm/bpmobject/BusinessObjects/PropertyAppraisal"/>
+    </Properties>
+  </AccessorAttribute>
+</JavaBean>

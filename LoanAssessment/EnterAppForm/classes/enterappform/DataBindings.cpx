@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application"
+             version="11.1.1.64.93" id="DataBindings" SeparateXMLFiles="false"
+             Package="enterappform" ClientType="Generic">
+  <pageMap>
+    <page path="/taskDetails1.jspx" usageId="enterappform_taskDetails1PageDef"/>
+    <page path="/enterLoanApplication.jspx"
+          usageId="enterappform_enterLoanApplicationPageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="enterappform_taskDetails1PageDef"
+          path="enterappform.pageDefs.taskDetails1PageDef"/>
+    <page id="enterappform_enterLoanApplicationPageDef"
+          path="enterappform.pageDefs.enterLoanApplicationPageDef"/>
+  </pageDefinitionUsages>
+  <dataControlUsages>
+    <dc id="EnterAppForm_EnterApplicationFormHumanTask"
+        path="enterappform.EnterAppForm_EnterApplicationFormHumanTask"/>
+  </dataControlUsages>
+</Application>

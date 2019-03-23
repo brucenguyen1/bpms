@@ -1,0 +1,442 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93" id="prepareInsuranceQuotePageDef"
+                Package="prepareinsurancequoteform.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <methodIterator Binds="getTaskDetails.result"
+                    DataControl="PrepareInsuranceQuoteForm_PrepareInsuranceQuoteHumanTask"
+                    RangeSize="25"
+                    BeanClass="PrepareInsuranceQuoteForm_PrepareInsuranceQuoteHumanTask.getTaskDetails"
+                    id="getTaskDetailsIterator"/>
+    <accessorIterator MasterBinding="getTaskDetailsIterator" Binds="task"
+                      RangeSize="25"
+                      DataControl="PrepareInsuranceQuoteForm_PrepareInsuranceQuoteHumanTask"
+                      BeanClass="PrepareInsuranceQuoteForm_PrepareInsuranceQuoteHumanTask.task"
+                      id="taskIterator" StateValidation="false"/>
+    <accessorIterator MasterBinding="taskIterator" Binds="systemAttributes"
+                      RangeSize="25"
+                      DataControl="PrepareInsuranceQuoteForm_PrepareInsuranceQuoteHumanTask"
+                      BeanClass="PrepareInsuranceQuoteForm_PrepareInsuranceQuoteHumanTask.systemAttributesType"
+                      id="systemAttributesIterator"/>
+    <accessorIterator MasterBinding="systemAttributesIterator"
+                      Binds="systemActions" RangeSize="50"
+                      DataControl="PrepareInsuranceQuoteForm_PrepareInsuranceQuoteHumanTask"
+                      BeanClass="PrepareInsuranceQuoteForm_PrepareInsuranceQuoteHumanTask.actionType"
+                      id="systemActionsIterator" StateValidation="false"/>
+    <accessorIterator MasterBinding="systemAttributesIterator"
+                      Binds="customActions" RangeSize="25"
+                      DataControl="PrepareInsuranceQuoteForm_PrepareInsuranceQuoteHumanTask"
+                      BeanClass="PrepareInsuranceQuoteForm_PrepareInsuranceQuoteHumanTask.actionType"
+                      id="customActionsIterator"/>
+    <accessorIterator MasterBinding="taskIterator" Binds="payload"
+                      RangeSize="25"
+                      DataControl="PrepareInsuranceQuoteForm_PrepareInsuranceQuoteHumanTask"
+                      BeanClass="PrepareInsuranceQuoteForm_PrepareInsuranceQuoteHumanTask.PrepareInsuranceQuoteHumanTaskPayloadType"
+                      id="payloadIterator"/>
+    <accessorIterator MasterBinding="payloadIterator" Binds="LoanApplication"
+                      RangeSize="25"
+                      DataControl="PrepareInsuranceQuoteForm_PrepareInsuranceQuoteHumanTask"
+                      BeanClass="PrepareInsuranceQuoteForm_PrepareInsuranceQuoteHumanTask.LoanApplicationType"
+                      id="LoanApplicationIterator"/>
+    <accessorIterator MasterBinding="LoanApplicationIterator"
+                      Binds="administration" RangeSize="25"
+                      DataControl="PrepareInsuranceQuoteForm_PrepareInsuranceQuoteHumanTask"
+                      BeanClass="PrepareInsuranceQuoteForm_PrepareInsuranceQuoteHumanTask.AdministrationInfoType"
+                      id="administrationIterator"/>
+    <accessorIterator MasterBinding="payloadIterator" Binds="HomeInsuranceQuote"
+                      RangeSize="25"
+                      DataControl="PrepareInsuranceQuoteForm_PrepareInsuranceQuoteHumanTask"
+                      BeanClass="PrepareInsuranceQuoteForm_PrepareInsuranceQuoteHumanTask.HomeInsuranceQuoteType"
+                      id="HomeInsuranceQuoteIterator"/>
+    <accessorIterator MasterBinding="taskIterator" Binds="userComment"
+                      RangeSize="25"
+                      DataControl="PrepareInsuranceQuoteForm_PrepareInsuranceQuoteHumanTask"
+                      BeanClass="PrepareInsuranceQuoteForm_PrepareInsuranceQuoteHumanTask.commentType"
+                      id="userCommentIterator" StateValidation="false"/>
+    <accessorIterator MasterBinding="userCommentIterator" Binds="updatedBy"
+                      RangeSize="25"
+                      DataControl="PrepareInsuranceQuoteForm_PrepareInsuranceQuoteHumanTask"
+                      BeanClass="PrepareInsuranceQuoteForm_PrepareInsuranceQuoteHumanTask.identityType"
+                      id="updatedByIterator" StateValidation="false"/>
+    <accessorIterator MasterBinding="taskIterator" Binds="attachment"
+                      RangeSize="25"
+                      DataControl="PrepareInsuranceQuoteForm_PrepareInsuranceQuoteHumanTask"
+                      BeanClass="PrepareInsuranceQuoteForm_PrepareInsuranceQuoteHumanTask.attachmentType"
+                      id="attachmentIterator" StateValidation="false"/>
+    <accessorIterator MasterBinding="attachmentIterator" Binds="ucmMetadataItem"
+                      RangeSize="25"
+                      DataControl="PrepareInsuranceQuoteForm_PrepareInsuranceQuoteHumanTask"
+                      BeanClass="PrepareInsuranceQuoteForm_PrepareInsuranceQuoteHumanTask.ucmMetadataItemType"
+                      id="ucmMetadataItemIterator" StateValidation="false"/>
+  </executables>
+  <bindings>
+    <methodAction id="getTaskDetails" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="getTaskDetails"
+                  IsViewObjectMethod="false"
+                  DataControl="PrepareInsuranceQuoteForm_PrepareInsuranceQuoteHumanTask"
+                  InstanceName="PrepareInsuranceQuoteForm_PrepareInsuranceQuoteHumanTask"
+                  ReturnName="data.PrepareInsuranceQuoteForm_PrepareInsuranceQuoteHumanTask.methodResults.getTaskDetails_PrepareInsuranceQuoteForm_PrepareInsuranceQuoteHumanTask_getTaskDetails_result">
+      <NamedData NDName="bpmWorklistContext" NDType="java.lang.String"/>
+      <NamedData NDName="bpmWorklistTaskId" NDType="java.lang.String"/>
+      <NamedData NDName="bpmWorklistTaskVersion" NDType="java.lang.String"/>
+    </methodAction>
+    <methodAction IterBinding="taskIterator" id="UpdateAction"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="UpdateAction" IsViewObjectMethod="false"
+                  DataControl="PrepareInsuranceQuoteForm_PrepareInsuranceQuoteHumanTask"
+                  InstanceName="bindings.taskIterator.currentRow.dataProvider"
+                  IsLocalObjectReference="true">
+      <NamedData NDName="action" NDType="java.lang.String"/>
+    </methodAction>
+    <methodAction IterBinding="taskIterator" id="update"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="update" IsViewObjectMethod="false"
+                  DataControl="PrepareInsuranceQuoteForm_PrepareInsuranceQuoteHumanTask"
+                  InstanceName="bindings.taskIterator.currentRow.dataProvider"
+                  IsLocalObjectReference="true"/>
+    <navigationlist IterBinding="systemActionsIterator"
+                    ListOperMode="navigation" ListIter="systemActionsIterator"
+                    id="systemActions">
+      <AttrNames>
+        <Item Value="action"/>
+        <Item Value="displayName"/>
+      </AttrNames>
+    </navigationlist>
+    <attributeValues IterBinding="systemAttributesIterator"
+                     id="digitalSignatureRequired">
+      <AttrNames>
+        <Item Value="digitalSignatureRequired"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="systemAttributesIterator"
+                     id="passwordRequiredOnUpdate">
+      <AttrNames>
+        <Item Value="passwordRequiredOnUpdate"/>
+      </AttrNames>
+    </attributeValues>
+    <navigationlist IterBinding="customActionsIterator"
+                    ListOperMode="navigation" ListIter="customActionsIterator"
+                    id="customActions">
+      <AttrNames>
+        <Item Value="action"/>
+        <Item Value="displayName"/>
+      </AttrNames>
+    </navigationlist>
+    <methodAction IterBinding="taskIterator" id="Claim"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="Claim" IsViewObjectMethod="false"
+                  DataControl="PrepareInsuranceQuoteForm_PrepareInsuranceQuoteHumanTask"
+                  InstanceName="bindings.taskIterator.currentRow.dataProvider"
+                  IsLocalObjectReference="true"/>
+    <methodAction IterBinding="taskIterator" id="Acknowledge"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="Acknowledge" IsViewObjectMethod="false"
+                  DataControl="PrepareInsuranceQuoteForm_PrepareInsuranceQuoteHumanTask"
+                  InstanceName="bindings.taskIterator.currentRow.dataProvider"
+                  IsLocalObjectReference="true"/>
+    <methodAction IterBinding="taskIterator" id="Resume"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="Resume" IsViewObjectMethod="false"
+                  DataControl="PrepareInsuranceQuoteForm_PrepareInsuranceQuoteHumanTask"
+                  InstanceName="bindings.taskIterator.currentRow.dataProvider"
+                  IsLocalObjectReference="true"/>
+    <methodAction IterBinding="taskIterator" id="Withdraw"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="Withdraw" IsViewObjectMethod="false"
+                  DataControl="PrepareInsuranceQuoteForm_PrepareInsuranceQuoteHumanTask"
+                  InstanceName="bindings.taskIterator.currentRow.dataProvider"
+                  IsLocalObjectReference="true"/>
+    <methodAction IterBinding="taskIterator" id="OK" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="OK"
+                  IsViewObjectMethod="false"
+                  DataControl="PrepareInsuranceQuoteForm_PrepareInsuranceQuoteHumanTask"
+                  InstanceName="bindings.taskIterator.currentRow.dataProvider"
+                  IsLocalObjectReference="true"/>
+    <attributeValues IterBinding="administrationIterator"
+                     id="applicationIdentifer">
+      <AttrNames>
+        <Item Value="applicationIdentifer"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="HomeInsuranceQuoteIterator" id="totalCost">
+      <AttrNames>
+        <Item Value="totalCost"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="HomeInsuranceQuoteIterator"
+                     id="monthlyLoanRepaymentAddCost">
+      <AttrNames>
+        <Item Value="monthlyLoanRepaymentAddCost"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="userCommentIterator" id="CreateInsert"
+            RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action IterBinding="userCommentIterator" id="Delete"
+            RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <attributeValues IterBinding="userCommentIterator" id="comment">
+      <AttrNames>
+        <Item Value="comment"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="userCommentIterator" id="commentScope">
+      <AttrNames>
+        <Item Value="commentScope"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="updatedByIterator" id="updatedBy">
+      <nodeDefinition DefName="PrepareInsuranceQuoteForm_PrepareInsuranceQuoteHumanTask.identityType"
+                      Name="updatedBy0">
+        <AttrNames>
+          <Item Value="id"/>
+          <Item Value="displayName"/>
+          <Item Value="type"/>
+          <Item Value="systemVersionFlag"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="attachmentIterator" id="attachment">
+      <nodeDefinition DefName="PrepareInsuranceQuoteForm_PrepareInsuranceQuoteHumanTask.attachmentType"
+                      Name="attachment0">
+        <AttrNames>
+          <Item Value="content"/>
+          <Item Value="mimeType"/>
+          <Item Value="name"/>
+          <Item Value="updatedBy"/>
+          <Item Value="URI"/>
+          <Item Value="systemVersionFlag"/>
+          <Item Value="taskId"/>
+          <Item Value="version"/>
+          <Item Value="acl"/>
+          <Item Value="doesBelongToParent"/>
+          <Item Value="updatedDate"/>
+          <Item Value="correlationId"/>
+          <Item Value="size"/>
+          <Item Value="description"/>
+          <Item Value="storageType"/>
+          <Item Value="ucmDocType"/>
+          <Item Value="securityGroup"/>
+          <Item Value="account"/>
+          <Item Value="revision"/>
+          <Item Value="releaseDate"/>
+          <Item Value="expirationDate"/>
+          <Item Value="title"/>
+          <Item Value="attachmentScope"/>
+          <Item Value="isContentEncoded"/>
+          <Item Value="updatedByDisplayName"/>
+          <Item Value="id"/>
+          <Item Value="operation"/>
+        </AttrNames>
+      </nodeDefinition>
+      <nodeDefinition DefName="PrepareInsuranceQuoteForm_PrepareInsuranceQuoteHumanTask.ucmMetadataItemType"
+                      Name="attachment1">
+        <AttrNames>
+          <Item Value="name"/>
+          <Item Value="value"/>
+          <Item Value="type"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="attachmentIterator" id="CreateInsert1"
+            RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action IterBinding="attachmentIterator" id="Delete1"
+            RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <attributeValues IterBinding="attachmentIterator" id="content">
+      <AttrNames>
+        <Item Value="content"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="attachmentIterator" id="mimeType">
+      <AttrNames>
+        <Item Value="mimeType"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="attachmentIterator" id="name">
+      <AttrNames>
+        <Item Value="name"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="attachmentIterator" id="updatedBy1">
+      <AttrNames>
+        <Item Value="updatedBy"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="attachmentIterator" id="URI">
+      <AttrNames>
+        <Item Value="URI"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="attachmentIterator" id="updatedDate">
+      <AttrNames>
+        <Item Value="updatedDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="attachmentIterator" id="ucmDocType">
+      <AttrNames>
+        <Item Value="ucmDocType"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="attachmentIterator" id="securityGroup">
+      <AttrNames>
+        <Item Value="securityGroup"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="attachmentIterator" id="account">
+      <AttrNames>
+        <Item Value="account"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="attachmentIterator" id="revision">
+      <AttrNames>
+        <Item Value="revision"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="attachmentIterator" id="releaseDate">
+      <AttrNames>
+        <Item Value="releaseDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="attachmentIterator" id="expirationDate">
+      <AttrNames>
+        <Item Value="expirationDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="attachmentIterator" id="attachmentScope">
+      <AttrNames>
+        <Item Value="attachmentScope"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="ucmMetadataItemIterator" id="CreateInsert2"
+            RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action IterBinding="ucmMetadataItemIterator" id="Delete2"
+            RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <tree IterBinding="ucmMetadataItemIterator" id="ucmMetadataItem">
+      <nodeDefinition DefName="PrepareInsuranceQuoteForm_PrepareInsuranceQuoteHumanTask.ucmMetadataItemType"
+                      Name="ucmMetadataItem0">
+        <AttrNames>
+          <Item Value="name"/>
+          <Item Value="value"/>
+          <Item Value="type"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="systemAttributesIterator"
+                     id="numberOfTimesModified">
+      <AttrNames>
+        <Item Value="numberOfTimesModified"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="systemAttributesIterator" id="version">
+      <AttrNames>
+        <Item Value="version"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="userCommentIterator" id="userComment1">
+      <nodeDefinition DefName="PrepareInsuranceQuoteForm_PrepareInsuranceQuoteHumanTask.commentType"
+                      Name="userComment10">
+        <AttrNames>
+          <Item Value="comment"/>
+          <Item Value="updatedDate"/>
+          <Item Value="displayNameLanguage"/>
+          <Item Value="action"/>
+          <Item Value="systemVersionFlag"/>
+          <Item Value="acl"/>
+          <Item Value="doesBelongToParent"/>
+          <Item Value="isSystemComment"/>
+          <Item Value="taskId"/>
+          <Item Value="commentScope"/>
+          <Item Value="id"/>
+          <Item Value="operation"/>
+        </AttrNames>
+        <Accessors>
+          <Item Value="updatedBy"/>
+        </Accessors>
+      </nodeDefinition>
+      <nodeDefinition DefName="PrepareInsuranceQuoteForm_PrepareInsuranceQuoteHumanTask.identityType"
+                      Name="userComment11">
+        <AttrNames>
+          <Item Value="id"/>
+          <Item Value="displayName"/>
+          <Item Value="type"/>
+          <Item Value="systemVersionFlag"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="updatedByIterator" id="updatedBy2">
+      <nodeDefinition DefName="PrepareInsuranceQuoteForm_PrepareInsuranceQuoteHumanTask.identityType"
+                      Name="updatedBy20">
+        <AttrNames>
+          <Item Value="id"/>
+          <Item Value="displayName"/>
+          <Item Value="type"/>
+          <Item Value="systemVersionFlag"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="attachmentIterator" id="attachment1">
+      <nodeDefinition DefName="PrepareInsuranceQuoteForm_PrepareInsuranceQuoteHumanTask.attachmentType"
+                      Name="attachment10">
+        <AttrNames>
+          <Item Value="content"/>
+          <Item Value="mimeType"/>
+          <Item Value="name"/>
+          <Item Value="updatedBy"/>
+          <Item Value="URI"/>
+          <Item Value="systemVersionFlag"/>
+          <Item Value="taskId"/>
+          <Item Value="version"/>
+          <Item Value="acl"/>
+          <Item Value="doesBelongToParent"/>
+          <Item Value="updatedDate"/>
+          <Item Value="correlationId"/>
+          <Item Value="size"/>
+          <Item Value="description"/>
+          <Item Value="storageType"/>
+          <Item Value="ucmDocType"/>
+          <Item Value="securityGroup"/>
+          <Item Value="account"/>
+          <Item Value="revision"/>
+          <Item Value="releaseDate"/>
+          <Item Value="expirationDate"/>
+          <Item Value="title"/>
+          <Item Value="attachmentScope"/>
+          <Item Value="isContentEncoded"/>
+          <Item Value="updatedByDisplayName"/>
+          <Item Value="id"/>
+          <Item Value="operation"/>
+        </AttrNames>
+      </nodeDefinition>
+      <nodeDefinition DefName="PrepareInsuranceQuoteForm_PrepareInsuranceQuoteHumanTask.ucmMetadataItemType"
+                      Name="attachment11">
+        <AttrNames>
+          <Item Value="name"/>
+          <Item Value="value"/>
+          <Item Value="type"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="ucmMetadataItemIterator" id="ucmMetadataItem1">
+      <nodeDefinition DefName="PrepareInsuranceQuoteForm_PrepareInsuranceQuoteHumanTask.ucmMetadataItemType"
+                      Name="ucmMetadataItem10">
+        <AttrNames>
+          <Item Value="name"/>
+          <Item Value="value"/>
+          <Item Value="type"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="administrationIterator"
+                     id="applicationStatus">
+      <AttrNames>
+        <Item Value="applicationStatus"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="HomeInsuranceQuoteIterator"
+                     id="insuranceSalesRepIdentifier">
+      <AttrNames>
+        <Item Value="insuranceSalesRepIdentifier"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

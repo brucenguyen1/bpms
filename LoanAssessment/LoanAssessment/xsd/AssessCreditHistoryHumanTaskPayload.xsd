@@ -1,0 +1,11 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<schema targetNamespace="http://xmlns.oracle.com/bpel/workflow/task" xmlns:tns="http://xmlns.oracle.com/bpel/workflow/task" attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:ns0="http://xmlns.oracle.com/bpm/bpmobject/BusinessObjects/LoanApplication" xmlns:ns1="http://xmlns.oracle.com/bpm/bpmobject/BusinessObjects/CreditHistoryReport">
+   <import namespace="http://xmlns.oracle.com/bpm/bpmobject/BusinessObjects/LoanApplication" schemaLocation="../businessCatalog/BusinessObjects/LoanApplication.xsd"/>
+   <import namespace="http://xmlns.oracle.com/bpm/bpmobject/BusinessObjects/CreditHistoryReport" schemaLocation="../businessCatalog/BusinessObjects/CreditHistoryReport.xsd"/>
+   <complexType name="AssessCreditHistoryHumanTaskPayloadType">
+      <sequence>
+         <element ref="ns0:LoanApplication"/>
+         <element ref="ns1:CreditHistoryReport"/>
+      </sequence>
+   </complexType>
+</schema>

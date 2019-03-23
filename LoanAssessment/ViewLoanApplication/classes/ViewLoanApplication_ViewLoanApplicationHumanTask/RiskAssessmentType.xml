@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<JavaBean xmlns="http://xmlns.oracle.com/adfm/beanmodel" version="11.1.1.64.93"
+          id="RiskAssessmentType"
+          Package="ViewLoanApplication_ViewLoanApplicationHumanTask"
+          BeanClass="ViewLoanApplication_ViewLoanApplicationHumanTask.RiskAssessmentType"
+          isJavaBased="false">
+  <Attribute Name="creditHistoryReportRef" IsUpdateable="0"
+             Type="java.lang.String">
+    <Properties>
+      <CustomProperties>
+        <Property Name="nextSiblingNamespace"
+                  Value="http://xmlns.oracle.com/bpm/bpmobject/BusinessObjects/RiskAssessment"/>
+        <Property Name="nextSibling" Value="riskWeight"/>
+        <Property Name="minOccurs" Value="1"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="Credit History Report Ref"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="false"/>
+        <Property Name="originalName" Value="creditHistoryReportRef"/>
+        <Property Name="targetNamespace"
+                  Value="http://xmlns.oracle.com/bpm/bpmobject/BusinessObjects/RiskAssessment"/>
+        <Property Name="type" Value="java.lang.String"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="riskWeight" IsUpdateable="0" Type="java.lang.Integer">
+    <Properties>
+      <CustomProperties>
+        <Property Name="minOccurs" Value="1"/>
+        <Property Name="fractionDigits" Value="0"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="maxInclusive" Value="2147483647"/>
+        <Property Name="LABEL" Value="Risk Weight"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="false"/>
+        <Property Name="originalName" Value="riskWeight"/>
+        <Property Name="minInclusive" Value="-2147483648"/>
+        <Property Name="targetNamespace"
+                  Value="http://xmlns.oracle.com/bpm/bpmobject/BusinessObjects/RiskAssessment"/>
+        <Property Name="type" Value="java.lang.Integer"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+</JavaBean>

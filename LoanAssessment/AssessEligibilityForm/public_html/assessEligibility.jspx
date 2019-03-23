@@ -1,0 +1,344 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:h="http://java.sun.com/jsf/html"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:c="http://java.sun.com/jsp/jstl/core"
+          xmlns:trh="http://myfaces.apache.org/trinidad/html"
+          xmlns:wf="http://xmlns.oracle.com/bpel/workflow/workflow-taglib.tld"
+          xmlns:wlc="http://xmlns.oracle.com/bpel/workflow/worklist">
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <f:view>
+    <af:document id="d1" title="#{bindings.title.inputValue}">
+      <af:messages id="m1"/>
+      <af:resource type="javascript" source="/jsLibs/taskDetails.js"/>
+      <af:resource type="javascript" source="/jsLibs/commonBPM.js"/>
+      <af:form id="f1">
+        <af:panelHeader text="Assess Eligibility" id="ph1"
+                        inlineStyle="height:83px;">
+          <f:facet name="context"/>
+          <f:facet name="menuBar"/>
+          <f:facet name="toolbar">
+            <af:panelGroupLayout layout="vertical" id="pgl3">
+              <af:toolbar visible="#{actionAvailable.toolbarAvailable}" id="t1">
+                <af:switcher id="customActionButtons"
+                             facetName="#{actionAvailable.isCustomActionButtons}">
+                  <f:facet name="true">
+                    <af:panelGroupLayout layout="horizontal" id="pgl2">
+                      <af:commandToolbarButton actionListener="#{invokeActionBean.setOperation}"
+                                               text="#{wf:getResourceValue('OK', 'bindings.customActions')}"
+                                               disabled="#{!bindings.OK.enabled}"
+                                               action="#{invokeActionBean.invokeOperation}"
+                                               partialSubmit="false"
+                                               visible="#{wf:isCustomActionAvailable('OK', 'bindings.customActions')}"
+                                               id="ctb1">
+                        <f:attribute name="DC_OPERATION_BINDING"
+                                     value="bindings.OK"/>
+                      </af:commandToolbarButton>
+                    </af:panelGroupLayout>
+                  </f:facet>
+                </af:switcher>
+                <af:commandToolbarButton actionListener="#{invokeActionBean.setOperation}"
+                                         text="#{resources.CLAIM}" id="Claim"
+                                         action="#{invokeActionBean.invokeOperation}"
+                                         partialSubmit="false"
+                                         visible="#{actionAvailable.claimAvailable}">
+                  <f:attribute name="DC_OPERATION_BINDING"
+                               value="bindings.Claim"/>
+                </af:commandToolbarButton>
+                <af:commandToolbarButton id="acknowledge"
+                                         actionListener="#{invokeActionBean.setOperation}"
+                                         text="#{resources.ACKNOWLEDGE}"
+                                         action="#{invokeActionBean.invokeOperation}"
+                                         partialSubmit="false"
+                                         visible="#{actionAvailable.isFyiTask}">
+                  <f:attribute name="DC_OPERATION_BINDING"
+                               value="bindings.Acknowledge"/>
+                </af:commandToolbarButton>
+                <af:commandToolbarButton id="resume"
+                                         actionListener="#{invokeActionBean.setOperation}"
+                                         text="#{resources.RESUME}"
+                                         action="#{invokeActionBean.invokeOperation}"
+                                         partialSubmit="false"
+                                         visible="#{actionAvailable.resumeAvailable}">
+                  <f:attribute name="DC_OPERATION_BINDING"
+                               value="bindings.Resume"/>
+                </af:commandToolbarButton>
+                <af:panelGroupLayout id="pgl11" layout="horizontal">
+                  <af:group rendered="#{!((empty actionAvailable.customActions) and (empty actionAvailable.redirectActions) and (empty actionAvailable.otherActions)) || bindings.update.enabled}"
+                            id="g1">
+                    <af:menuBar id="mb1">
+                      <af:menu id="acts" text="#{resources.TASK_ACTIONS}"
+                               visible="#{actionAvailable.actionsAvailable || bindings.update.enabled}">
+                        <af:group id="g2">
+                          <af:forEach var="childNode1"
+                                      items="#{actionAvailable.customActions}">
+                            <af:commandMenuItem textAndAccessKey="#{childNode1.displayName}"
+                                                actionListener="#{invokeActionBean.setAction}"
+                                                action="#{invokeActionBean.action}"
+                                                partialSubmit="false" id="cmi2">
+                              <f:attribute name="ACTION_MENU_ITEM"
+                                           value="#{childNode1.action}"/>
+                            </af:commandMenuItem>
+                          </af:forEach>
+                        </af:group>
+                        <af:group id="g3">
+                          <af:forEach var="childNode2"
+                                      items="#{actionAvailable.redirectActions}">
+                            <af:commandMenuItem textAndAccessKey="#{resources[childNode2]}"
+                                                actionListener="#{invokeActionBean.setAction}"
+                                                action="#{invokeActionBean.action}"
+                                                partialSubmit="true" id="cmi1">
+                              <f:attribute name="ACTION_MENU_ITEM"
+                                           value="#{childNode2}"/>
+                            </af:commandMenuItem>
+                          </af:forEach>
+                        </af:group>
+                        <af:group id="g4">
+                          <af:forEach var="childNode3"
+                                      items="#{actionAvailable.otherActions}">
+                            <af:commandMenuItem textAndAccessKey="#{resources[childNode3]}"
+                                                actionListener="#{invokeActionBean.setAction}"
+                                                action="#{invokeActionBean.action}"
+                                                partialSubmit="false" id="cmi4">
+                              <f:attribute name="ACTION_MENU_ITEM"
+                                           value="#{childNode3}"/>
+                            </af:commandMenuItem>
+                          </af:forEach>
+                        </af:group>
+                        <af:group id="g5">
+                          <af:commandMenuItem id="save"
+                                              textAndAccessKey="#{resources.SAVE}"
+                                              actionListener="#{invokeActionBean.setAction}"
+                                              action="#{invokeActionBean.action}"
+                                              partialSubmit="false"
+                                              rendered="#{actionAvailable.updateAvailable}">
+                            <f:attribute name="ACTION_MENU_ITEM"
+                                         value="bindings.update"/>
+                          </af:commandMenuItem>
+                        </af:group>
+                      </af:menu>
+                    </af:menuBar>
+                  </af:group>
+                </af:panelGroupLayout>
+                <af:spacer id="sp1112" width="10"/>
+                <af:commandImageLink shortDesc="#{resources.PREVIOUS_TASK}"
+                                     icon="/hw_images/previoustraversalarrow_ena.png"
+                                     id="cil11" action="fetchPreviousTask"
+                                     visible="#{param.enableNavigationButton != null}"/>
+                <af:spacer id="sp112" width="10"/>
+                <af:commandImageLink shortDesc="#{resources.NEXT_TASK}"
+                                     icon="/hw_images/nexttraversalarrow_ena.png"
+                                     id="cil12" action="fetchNextTask"
+                                     visible="#{param.enableNavigationButton != null}"/>
+                <af:spacer id="sp13" width="10"/>
+                <af:commandImageLink shortDesc="#{resources.SHORT_DESC_CLOSE}"
+                                     icon="/hw_images/close_ena.png"
+                                     id="cil1211" action="closeTaskFlow"
+                                     visible="#{param.enableNavigationButton != null}"/>
+              </af:toolbar>
+              <af:popup id="reassignPopup" contentDelivery="lazyUncached"
+                        childCreation="deferred">
+                <af:dialog id="reAsDg"
+                           dialogListener="#{invokeActionBean.reassignAction}"
+                           cancelTextAndAccessKey="#{resources.CANCEL_AK}"
+                           affirmativeTextAndAccessKey="#{resources.OK_AK}"
+                           title="#{resources.REASSIGNPAGE}">
+                  <wlc:identityBrowser identityBrowserView="#{pageFlowScope.identityBrowserView}"
+                                       workflowContext="#{pageFlowScope.taskFlowReassignBean.workflowContext}"
+                                       id="reAsIdB" mode="REASSIGN"
+                                       showActionButtons="false"
+                                       selectedTaskIds="#{pageFlowScope.taskFlowReassignBean.selectedTaskIds}"/>
+                </af:dialog>
+              </af:popup>
+              <af:popup id="requestInfoPopup" contentDelivery="lazyUncached"
+                        childCreation="deferred">
+                <af:dialog title="#{resources.INFOREQUESTEDPAGE}"
+                           cancelTextAndAccessKey="#{resources.CANCEL_AK}"
+                           affirmativeTextAndAccessKey="#{resources.OK_AK}"
+                           dialogListener="#{invokeActionBean.requestInfoAction}"
+                           id="reqIfD">
+                  <wlc:requestInfoDialog workflowContext="#{pageFlowScope.taskFlowReassignBean.workflowContext}"
+                                         id="rqIDgC"
+                                         selectedTaskId="#{pageFlowScope.taskFlowReassignBean.selectedTaskIds[0]}"/>
+                </af:dialog>
+              </af:popup>
+              <af:popup id="routePopup" contentDelivery="lazyUncached"
+                        childCreation="deferred">
+                <af:dialog title="#{resources.ROUTEPAGE}"
+                           cancelTextAndAccessKey="#{resources.CANCEL_AK}"
+                           affirmativeTextAndAccessKey="#{resources.OK_AK}"
+                           dialogListener="#{invokeActionBean.routeTaskAction}"
+                           id="rteDg">
+                  <wlc:identityBrowser identityBrowserView="#{pageFlowScope.identityBrowserView}"
+                                       workflowContext="#{pageFlowScope.taskFlowReassignBean.workflowContext}"
+                                       id="rteIdB" mode="ROUTE"
+                                       selectedTaskIds="#{pageFlowScope.taskFlowReassignBean.selectedTaskIds}"
+                                       showActionButtons="false"/>
+                </af:dialog>
+              </af:popup>
+              <af:popup id="decomposePopup" contentDelivery="lazyUncached"
+                        childCreation="deferred">
+                <af:dialog title="#{pageFlowScope.ADFHumanTaskBean.decomposeDialogTitle}"
+                           cancelTextAndAccessKey="#{resources.CANCEL_AK}"
+                           affirmativeTextAndAccessKey="#{resources.OK_AK}"
+                           dialogListener="#{invokeActionBean.decomposeTaskAction}"
+                           id="dcmpDg">
+                  <wlc:identityBrowser identityBrowserView="#{pageFlowScope.identityBrowserView}"
+                                       workflowContext="#{pageFlowScope.ADFHumanTaskBean.workflowContext}"
+                                       id="dcmpIdB" mode="DECOMPOSE"
+                                       selectedTaskObject="#{pageFlowScope.ADFHumanTaskBean.task}"
+                                       showActionButtons="false"/>
+                </af:dialog>
+              </af:popup>
+              <af:popup id="popupEnterPasswordDialog"
+                        contentDelivery="lazyUncached" childCreation="deferred">
+                <af:dialog title="#{resources.ENTER_PASSWORD}"
+                           dialogListener="#{invokeActionBean.validatePassword}"
+                           type="okCancel" modal="true"
+                           cancelTextAndAccessKey="#{resources.CANCEL_AK}"
+                           affirmativeTextAndAccessKey="#{resources.OK_AK}"
+                           closeIconVisible="false" id="pwdDlg">
+                  <af:panelGroupLayout id="pgl1">
+                    <af:panelFormLayout id="pfl1">
+                      <af:inputText id="pwdBox" rows="1" columns="50"
+                                    value="#{invokeActionBean.password}"
+                                    label="#{resources.PASSWORD}" secret="true"
+                                    required="true"/>
+                    </af:panelFormLayout>
+                  </af:panelGroupLayout>
+                </af:dialog>
+              </af:popup>
+            </af:panelGroupLayout>
+          </f:facet>
+          <f:facet name="legend">
+            <af:inputText value="#{bindings.applicationIdentifer.inputValue}"
+                          label="#{bindings.applicationIdentifer.hints.label}"
+                          required="#{bindings.applicationIdentifer.hints.mandatory}"
+                          columns="#{bindings.applicationIdentifer.hints.displayWidth}"
+                          maximumLength="#{bindings.applicationIdentifer.hints.precision}"
+                          shortDesc="#{bindings.applicationIdentifer.hints.tooltip}"
+                          id="it1" readOnly="true">
+              <f:validator binding="#{bindings.applicationIdentifer.validator}"/>
+            </af:inputText>
+          </f:facet>
+          <f:facet name="info"/>
+        </af:panelHeader>
+        <af:panelGroupLayout id="pgl4" inlineStyle="width:773px; height:92px;"
+                             layout="default">
+          <af:selectBooleanCheckbox value="#{bindings.eligibility.inputValue}"
+                                    label="#{bindings.eligibility.label}"
+                                    shortDesc="#{bindings.eligibility.hints.tooltip}"
+                                    id="sbc1"/>
+          <af:inputText value="#{bindings.applicationStatusComment.inputValue}"
+                        label="#{bindings.applicationStatusComment.hints.label}"
+                        required="#{bindings.applicationStatusComment.hints.mandatory}"
+                        columns="#{bindings.applicationStatusComment.hints.displayWidth}"
+                        maximumLength="#{bindings.applicationStatusComment.hints.precision}"
+                        shortDesc="#{bindings.applicationStatusComment.hints.tooltip}"
+                        id="it2">
+            <f:validator binding="#{bindings.applicationStatusComment.validator}"/>
+          </af:inputText>
+          <af:inputText
+                        label="#{bindings.loanOfficerIdentifier.hints.label}"
+                        required="#{bindings.loanOfficerIdentifier.hints.mandatory}"
+                        columns="#{bindings.loanOfficerIdentifier.hints.displayWidth}"
+                        maximumLength="#{bindings.loanOfficerIdentifier.hints.precision}"
+                        shortDesc="#{bindings.loanOfficerIdentifier.hints.tooltip}"
+                        id="it4" value="#{securityContext.userName}"
+                        disabled="true" inlineStyle="font-weight:bold;">
+            <f:validator binding="#{bindings.loanOfficerIdentifier.validator}"/>
+          </af:inputText>
+        </af:panelGroupLayout>
+        <af:panelBox text="Loan &amp; Financial Info" id="pb3">
+          <f:facet name="toolbar"/>
+          <af:panelFormLayout id="pfl2">
+            <af:panelLabelAndMessage label="#{bindings.amount.hints.label}"
+                                     id="plam3">
+              <af:outputText value="#{bindings.amount.inputValue}" id="ot5"/>
+            </af:panelLabelAndMessage>
+            <af:panelLabelAndMessage label="#{bindings.startDate.hints.label}"
+                                     id="plam6">
+              <af:outputText value="#{bindings.startDate.inputValue}" id="ot1">
+                <af:convertDateTime pattern="#{bindings.startDate.format}"/>
+              </af:outputText>
+            </af:panelLabelAndMessage>
+            <af:panelLabelAndMessage label="#{bindings.interestRate.hints.label}"
+                                     id="plam1">
+              <af:outputText value="#{bindings.interestRate.inputValue}"
+                             id="ot2"/>
+            </af:panelLabelAndMessage>
+            <af:panelLabelAndMessage label="#{bindings.interestType.hints.label}"
+                                     id="plam5">
+              <af:outputText value="#{bindings.interestType.inputValue}"
+                             id="ot6"/>
+            </af:panelLabelAndMessage>
+            <af:panelLabelAndMessage label="#{bindings.duration.hints.label}"
+                                     id="plam4">
+              <af:outputText value="#{bindings.duration.inputValue}" id="ot4"/>
+            </af:panelLabelAndMessage>
+            <af:panelLabelAndMessage label="#{bindings.endDate.hints.label}"
+                                     id="plam2">
+              <af:outputText value="#{bindings.endDate.inputValue}" id="ot3">
+                <af:convertDateTime pattern="#{bindings.endDate.format}"/>
+              </af:outputText>
+            </af:panelLabelAndMessage>
+          </af:panelFormLayout>
+          <af:panelFormLayout id="pfl3">
+            <af:panelLabelAndMessage label="#{bindings.currentEmployer.hints.label}"
+                                     id="plam8">
+              <af:outputText value="#{bindings.currentEmployer.inputValue}"
+                             id="ot8"/>
+            </af:panelLabelAndMessage>
+            <af:panelLabelAndMessage label="#{bindings.monthlyNetRevenue.hints.label}"
+                                     id="plam7">
+              <af:outputText value="#{bindings.monthlyNetRevenue.inputValue}"
+                             id="ot7">
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.monthlyNetRevenue.format}"/>
+              </af:outputText>
+            </af:panelLabelAndMessage>
+            <af:panelLabelAndMessage label="#{bindings.jobTitle.hints.label}"
+                                     id="plam9">
+              <af:outputText value="#{bindings.jobTitle.inputValue}" id="ot9"/>
+            </af:panelLabelAndMessage>
+          </af:panelFormLayout>
+        </af:panelBox>
+        <af:panelBox text="Credit Assessment" id="pb1">
+          <f:facet name="toolbar"/>
+          <af:inputText value="#{bindings.riskWeight.inputValue}"
+                        label="#{bindings.riskWeight.hints.label}"
+                        required="#{bindings.riskWeight.hints.mandatory}"
+                        columns="#{bindings.riskWeight.hints.displayWidth}"
+                        maximumLength="#{bindings.riskWeight.hints.precision}"
+                        shortDesc="#{bindings.riskWeight.hints.tooltip}"
+                        id="it3" readOnly="true">
+            <f:validator binding="#{bindings.riskWeight.validator}"/>
+            <af:convertNumber groupingUsed="false"
+                              pattern="#{bindings.riskWeight.format}"/>
+          </af:inputText>
+        </af:panelBox>
+        <af:panelBox text="Property Appraisal" id="pb2">
+          <f:facet name="toolbar"/>
+          <af:panelFormLayout id="pfl4">
+            <af:panelLabelAndMessage label="#{bindings.propertyAppraiserIdentifier.hints.label}"
+                                     id="plam13">
+              <af:outputText value="#{bindings.propertyAppraiserIdentifier.inputValue}"
+                             id="ot16"/>
+            </af:panelLabelAndMessage>
+            <af:panelLabelAndMessage label="#{bindings.estimateMarketValue.hints.label}"
+                                     id="plam10">
+              <af:outputText value="#{bindings.estimateMarketValue.inputValue}"
+                             id="ot17"/>
+            </af:panelLabelAndMessage>
+            <af:panelLabelAndMessage label="#{bindings.propertyComment.hints.label}"
+                                     id="plam11">
+              <af:outputText value="#{bindings.propertyComment.inputValue}"
+                             id="ot15"/>
+            </af:panelLabelAndMessage>
+          </af:panelFormLayout>
+        </af:panelBox>
+      </af:form>
+    </af:document>
+  </f:view>
+</jsp:root>

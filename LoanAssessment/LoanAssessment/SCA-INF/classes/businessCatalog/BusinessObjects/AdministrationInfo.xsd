@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?bpmo version="11.1.1.7.0.0.8" build="0.8" fullName="BusinessObjects.AdministrationInfo" modifiers="0"?>
+<!--########################################################################################-->
+<!--####                                                                                ####-->
+<!--####          THIS IS AN AUTO GENERATED FILE. PLEASE DO NOT MANUALLY MODIFY         ####-->
+<!--#### CHANGES TO THIS FILE MAY PRODUCE UNEXPECTED BEHAVIOR AND WOULD BE OVERWRITTEN  ####-->
+<!--####                                                                                ####-->
+<!--########################################################################################-->
+<xs:schema targetNamespace="http://xmlns.oracle.com/bpm/bpmobject/BusinessObjects/AdministrationInfo" elementFormDefault="qualified" xmlns="http://xmlns.oracle.com/bpm/bpmobject/BusinessObjects/AdministrationInfo"  xmlns:xs="http://www.w3.org/2001/XMLSchema"  xmlns:bpmo="http://xmlns.oracle.com/bpm/bpmobject/" >
+    <xs:complexType name="AdministrationInfoType">
+        <xs:sequence>
+            <xs:element name="applicationIdentifer" default="" type="xs:string"/>
+            <xs:element name="submissionDateTime" default="2014-03-16T12:16:01.679000+10:00" type="xs:dateTime"/>
+            <xs:element name="revisionDateTime" default="2014-03-16T12:16:06.634000+10:00" type="xs:dateTime"/>
+            <xs:element name="applicationStatus" default="" type="xs:string"/>
+            <xs:element name="applicationStatusComment" default="" type="xs:string"/>
+            <xs:element name="eligibility" default="false" type="xs:boolean"/>
+            <xs:element name="loanOfficerIdentifier" default="" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="AdministrationInfo" type="AdministrationInfoType"/>
+</xs:schema>

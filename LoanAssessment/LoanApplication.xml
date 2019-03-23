@@ -1,0 +1,88 @@
+<ns1:LoanApplication 
+	xmlns:ns1="http://xmlns.oracle.com/bpm/bpmobject/BusinessObjects/LoanApplication"
+	xmlns:ns2="http://xmlns.oracle.com/bpm/bpmobject/BusinessObjects/ApplicationInfo"
+	xmlns:ns3="http://xmlns.oracle.com/bpm/bpmobject/BusinessObjects/IdentificationInfo"
+	xmlns:ns4="http://xmlns.oracle.com/bpm/bpmobject/BusinessObjects/ContactInfo" 
+	xmlns:ns5="http://xmlns.oracle.com/bpm/bpmobject/BusinessObjects/AddressInfo"   	
+	xmlns:ns6="http://xmlns.oracle.com/bpm/bpmobject/BusinessObjects/FinancialInfo"	
+	xmlns:ns7="http://xmlns.oracle.com/bpm/bpmobject/BusinessObjects/JobInfo"		
+	xmlns:ns8="http://xmlns.oracle.com/bpm/bpmobject/BusinessObjects/BankAccountInfo"  
+	xmlns:ns9="http://xmlns.oracle.com/bpm/bpmobject/BusinessObjects/PropertyInfo" 
+	xmlns:ns10="http://xmlns.oracle.com/bpm/bpmobject/BusinessObjects/LoanInfo"
+	xmlns:ns11="http://xmlns.oracle.com/bpm/bpmobject/BusinessObjects/AdministrationInfo">	
+	<ns1:application>
+		<ns2:identification>
+			<ns3:firstName>Bruce</ns3:firstName>
+			<ns3:lastName>Nguyen</ns3:lastName>
+			<ns3:identificationNumber>0123456789</ns3:identificationNumber>
+			<ns3:identificationType>Passport Number</ns3:identificationType>
+		</ns2:identification>
+		<ns2:contact>
+			<ns4:email>bruce.nguyen@yahoo.com</ns4:email>
+			<ns4:homePhone>0711018181</ns4:homePhone>
+			<ns4:cellPhone>0421112345</ns4:cellPhone>
+		</ns2:contact>
+		<ns2:currentAddress>
+			<ns5:streetName>Queens Street</ns5:streetName>
+			<ns5:streetNumber>259</ns5:streetNumber>
+			<ns5:city>Brisbane</ns5:city>
+			<ns5:postalCode>4001</ns5:postalCode>
+			<ns5:state>QLD</ns5:state>
+			<ns5:surburb>East Brisbane</ns5:suburb>
+			<ns5:durationOfStay>5</ns5:durationOfStay>
+		</ns2:currentAddress>
+		<ns2:previousAddress>
+			<ns5:streetName>Grout Street</ns5:streetName>
+			<ns5:streetNumber>46</ns5:streetNumber>
+			<ns5:city>Brisbane</ns5:city>
+			<ns5:postalCode>4109</ns5:postalCode>
+			<ns5:state>QLD</ns5:state>
+			<ns5:surburb>MacGregor</ns5:suburb>
+			<ns5:durationOfStay>10</ns5:durationOfStay>
+		</ns2:previousAddress>
+		<ns2:financialInfo>
+			<ns6:jobInfo>
+				<ns7:currentEmployer>Bank of Queensland</ns7:currentEmployer>
+				<ns7:monthlyNetRevenue>4000</ns7:monthlyNetRevenue>
+				<ns7:jobTitle>Software Engineer</ns7:jobTitle>
+			</ns6:jobInfo>
+			<ns6:bankAccounts>
+				<ns6:BankAccountInfo>
+					<ns8:accountNumber>4011-123456</ns8:accountNumber>
+					<ns8:accountType>Saving</ns8:accountType>
+					<ns8:bankName>Commonwealth Bank of Australia</ns8:bankName>
+					<ns8:accountBalance>22000</ns8:accountBalance>
+				</ns6:BankAccountInfo>
+				<ns6:BankAccountInfo>
+					<ns8:accountNumber>4012-987654</ns8:accountNumber>
+					<ns8:accountType>Saving</ns8:accountType>
+					<ns8:bankName>ANZ</ns8:bankName>
+					<ns8:accountBalance>50000</ns8:accountBalance>
+				</ns6:BankAccountInfo>				
+			<ns6:bankAccounts>
+		</ns2:financialInfo>
+	</ns1:application>
+	<ns1:property>
+		<ns9:propertyType>House</ns9:propertyType>
+		<ns9:address>8 Monteith, Prudence Street, Robertson, Queensland, 4109</ns9:address>
+		<ns9:purchasingPrice>550000</ns9:purchasingPrice>
+	</ns1:PropertyInfo>
+	<ns1:loan>
+		<ns10:amount>75000</ns10:amount>
+		<ns10:startDate>2014-03-25T12:19:24.073000+10:00</ns10:startDate>
+		<ns10:interestRate>0.15</ns10:interestRate>
+		<ns10:interestType>Fixed</ns10:interestType>
+		<ns10:duration>24</ns10:duration>
+		<ns10:endDate>2016-03-25T12:52:55.957000+10:00</ns10:endDate>
+	</ns1:loan>
+	<ns1:administration>
+		<ns11:applicationIdentifer>APP-BRIS-1111111</ns11:applicationIdentifer>
+		<ns11:submissionDateTime>2014-03-16T12:16:01.679000+10:00</ns11:submissionDateTime>
+		<ns11:revisionDateTime>2014-03-16T12:16:06.634000+10:00</ns11:revisionDateTime>
+		<ns11:applicationStatus>NEW</ns11:applicationStatus>
+		<ns11:applicationStatusComment>New Application created</ns11:applicationStatusComment>
+		<ns11:eligibility>false</ns11:eligibility>
+		<ns11:loanOfficerIdentifier>082301981</ns11:loanOfficerIdentifier>
+	</ns1:administration>
+	<ns1:insuranceQuoteRequired>true</ns1:insuranceQuoteRequired>
+</ns1:LoanApplication>

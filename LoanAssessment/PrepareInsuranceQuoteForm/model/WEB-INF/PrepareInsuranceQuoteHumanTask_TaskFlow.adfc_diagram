@@ -1,0 +1,52 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<SDM>
+   <OverallProperties
+      id="OverallProperties1">
+      <property
+         name="y">985.00586</property>
+      <property
+         name="x">91.5</property>
+   </OverallProperties>
+   <TaskFlowReturn
+      id="TaskFlowReturn6">
+      <property
+         name="activityId">taskReturn</property>
+      <property
+         name="finish">true</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>taskReturn&lt;/b>&lt;/p>&lt;p>Activity Type:  Task Flow Return&lt;/p>&lt;p>Outcome:  done&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">69.09766</property>
+      <property
+         name="x">130.6875</property>
+   </TaskFlowReturn>
+   <View
+      id="View23">
+      <property
+         name="activityId">prepareInsuranceQuote</property>
+      <property
+         name="page">/prepareInsuranceQuote.jspx</property>
+      <property
+         name="start">true</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>prepareInsuranceQuote&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">59.98828</property>
+      <property
+         name="x">-89.0</property>
+   </View>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase24"
+      from="View23"
+      to="TaskFlowReturn6">
+      <property
+         name="fromOutcome">close</property>
+      <property
+         name="sdm:polyPoints">R50,-48.0,59.637695,89.6875,68.74707,L50</property>
+   </ControlFlowCase>
+</SDM>

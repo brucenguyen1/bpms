@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?bpmo version="11.1.1.7.0.0.8" build="0.8" fullName="BusinessObjects.ApplicationInfo" modifiers="268435456"?>
+<!--########################################################################################-->
+<!--####                                                                                ####-->
+<!--####          THIS IS AN AUTO GENERATED FILE. PLEASE DO NOT MANUALLY MODIFY         ####-->
+<!--#### CHANGES TO THIS FILE MAY PRODUCE UNEXPECTED BEHAVIOR AND WOULD BE OVERWRITTEN  ####-->
+<!--####                                                                                ####-->
+<!--########################################################################################-->
+<xs:schema targetNamespace="http://xmlns.oracle.com/bpm/bpmobject/BusinessObjects/ApplicationInfo" elementFormDefault="qualified" xmlns:ns1="http://xmlns.oracle.com/bpm/bpmobject/BusinessObjects/IdentificationInfo"  xmlns:xs="http://www.w3.org/2001/XMLSchema"  xmlns:ns3="http://xmlns.oracle.com/bpm/bpmobject/BusinessObjects/AddressInfo"  xmlns:ns2="http://xmlns.oracle.com/bpm/bpmobject/BusinessObjects/ContactInfo"  xmlns="http://xmlns.oracle.com/bpm/bpmobject/BusinessObjects/ApplicationInfo"  xmlns:ns4="http://xmlns.oracle.com/bpm/bpmobject/BusinessObjects/FinancialInfo"  xmlns:bpmo="http://xmlns.oracle.com/bpm/bpmobject/" >
+    <xs:import namespace="http://xmlns.oracle.com/bpm/bpmobject/BusinessObjects/FinancialInfo" schemaLocation="FinancialInfo.xsd"/>
+    <xs:import namespace="http://xmlns.oracle.com/bpm/bpmobject/BusinessObjects/AddressInfo" schemaLocation="AddressInfo.xsd"/>
+    <xs:import namespace="http://xmlns.oracle.com/bpm/bpmobject/BusinessObjects/IdentificationInfo" schemaLocation="IdentificationInfo.xsd"/>
+    <xs:import namespace="http://xmlns.oracle.com/bpm/bpmobject/BusinessObjects/ContactInfo" schemaLocation="ContactInfo.xsd"/>
+    <xs:complexType name="ApplicationInfoType">
+        <xs:sequence>
+            <xs:element name="identification" type="ns1:IdentificationInfoType"/>
+            <xs:element name="contact" type="ns2:ContactInfoType"/>
+            <xs:element name="currentAddress" type="ns3:AddressInfoType"/>
+            <xs:element name="previousAddress" nillable="true" type="ns3:AddressInfoType"/>
+            <xs:element name="financialInfo" type="ns4:FinancialInfoType"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="ApplicationInfo" type="ApplicationInfoType"/>
+</xs:schema>

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<JavaBean xmlns="http://xmlns.oracle.com/adfm/beanmodel" version="11.1.1.64.93"
+          id="ApplicationInfoType"
+          Package="AssessEligibilityForm_AssessEligibilityHumanTask"
+          BeanClass="AssessEligibilityForm_AssessEligibilityHumanTask.ApplicationInfoType"
+          isJavaBased="false">
+  <AccessorAttribute id="identification" IsCollection="true"
+                     BeanClass="AssessEligibilityForm_AssessEligibilityHumanTask.IdentificationInfoType"
+                     CollectionBeanClass="AssessEligibilityForm_AssessEligibilityHumanTask.IdentificationInfoType_identification_Operations">
+    <Properties>
+      <Property Name="nextSiblingNamespace"
+                Value="http://xmlns.oracle.com/bpm/bpmobject/BusinessObjects/ApplicationInfo"/>
+      <Property Name="nextSibling" Value="contact"/>
+      <Property Name="minOccurs" Value="1"/>
+      <Property Name="maxOccurs" Value="1"/>
+      <Property Name="LABEL" Value="Identification"/>
+      <Property Name="nillable" Value="false"/>
+      <Property Name="originalName" Value="identification"/>
+      <Property Name="targetNamespace"
+                Value="http://xmlns.oracle.com/bpm/bpmobject/BusinessObjects/ApplicationInfo"/>
+    </Properties>
+  </AccessorAttribute>
+  <AccessorAttribute id="contact" IsCollection="true"
+                     BeanClass="AssessEligibilityForm_AssessEligibilityHumanTask.ContactInfoType"
+                     CollectionBeanClass="AssessEligibilityForm_AssessEligibilityHumanTask.ContactInfoType_contact_Operations">
+    <Properties>
+      <Property Name="nextSiblingNamespace"
+                Value="http://xmlns.oracle.com/bpm/bpmobject/BusinessObjects/ApplicationInfo"/>
+      <Property Name="nextSibling" Value="currentAddress"/>
+      <Property Name="minOccurs" Value="1"/>
+      <Property Name="maxOccurs" Value="1"/>
+      <Property Name="LABEL" Value="Contact"/>
+      <Property Name="nillable" Value="false"/>
+      <Property Name="originalName" Value="contact"/>
+      <Property Name="targetNamespace"
+                Value="http://xmlns.oracle.com/bpm/bpmobject/BusinessObjects/ApplicationInfo"/>
+    </Properties>
+  </AccessorAttribute>
+  <AccessorAttribute id="currentAddress" IsCollection="true"
+                     BeanClass="AssessEligibilityForm_AssessEligibilityHumanTask.AddressInfoType"
+                     CollectionBeanClass="AssessEligibilityForm_AssessEligibilityHumanTask.AddressInfoType_currentAddress_Operations">
+    <Properties>
+      <Property Name="nextSiblingNamespace"
+                Value="http://xmlns.oracle.com/bpm/bpmobject/BusinessObjects/ApplicationInfo"/>
+      <Property Name="nextSibling" Value="previousAddress"/>
+      <Property Name="minOccurs" Value="1"/>
+      <Property Name="maxOccurs" Value="1"/>
+      <Property Name="LABEL" Value="Current Address"/>
+      <Property Name="nillable" Value="false"/>
+      <Property Name="originalName" Value="currentAddress"/>
+      <Property Name="targetNamespace"
+                Value="http://xmlns.oracle.com/bpm/bpmobject/BusinessObjects/ApplicationInfo"/>
+    </Properties>
+  </AccessorAttribute>
+  <AccessorAttribute id="previousAddress" IsCollection="true"
+                     BeanClass="AssessEligibilityForm_AssessEligibilityHumanTask.AddressInfoType"
+                     CollectionBeanClass="AssessEligibilityForm_AssessEligibilityHumanTask.AddressInfoType_previousAddress_Operations">
+    <Properties>
+      <Property Name="nextSiblingNamespace"
+                Value="http://xmlns.oracle.com/bpm/bpmobject/BusinessObjects/ApplicationInfo"/>
+      <Property Name="nextSibling" Value="financialInfo"/>
+      <Property Name="minOccurs" Value="1"/>
+      <Property Name="maxOccurs" Value="1"/>
+      <Property Name="LABEL" Value="Previous Address"/>
+      <Property Name="nillable" Value="true"/>
+      <Property Name="originalName" Value="previousAddress"/>
+      <Property Name="targetNamespace"
+                Value="http://xmlns.oracle.com/bpm/bpmobject/BusinessObjects/ApplicationInfo"/>
+    </Properties>
+  </AccessorAttribute>
+  <AccessorAttribute id="financialInfo" IsCollection="true"
+                     BeanClass="AssessEligibilityForm_AssessEligibilityHumanTask.FinancialInfoType"
+                     CollectionBeanClass="AssessEligibilityForm_AssessEligibilityHumanTask.FinancialInfoType_financialInfo_Operations">
+    <Properties>
+      <Property Name="minOccurs" Value="1"/>
+      <Property Name="maxOccurs" Value="1"/>
+      <Property Name="LABEL" Value="Financial Info"/>
+      <Property Name="nillable" Value="false"/>
+      <Property Name="originalName" Value="financialInfo"/>
+      <Property Name="targetNamespace"
+                Value="http://xmlns.oracle.com/bpm/bpmobject/BusinessObjects/ApplicationInfo"/>
+    </Properties>
+  </AccessorAttribute>
+</JavaBean>

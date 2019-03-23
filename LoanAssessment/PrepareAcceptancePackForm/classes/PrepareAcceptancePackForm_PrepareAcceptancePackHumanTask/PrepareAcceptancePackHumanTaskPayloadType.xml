@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<JavaBean xmlns="http://xmlns.oracle.com/adfm/beanmodel" version="11.1.1.64.93"
+          id="PrepareAcceptancePackHumanTaskPayloadType"
+          Package="PrepareAcceptancePackForm_PrepareAcceptancePackHumanTask"
+          BeanClass="PrepareAcceptancePackForm_PrepareAcceptancePackHumanTask.PrepareAcceptancePackHumanTaskPayloadType"
+          isJavaBased="false">
+  <AccessorAttribute id="RepaymentAgreement" IsCollection="true"
+                     BeanClass="PrepareAcceptancePackForm_PrepareAcceptancePackHumanTask.RepaymentAgreementType"
+                     CollectionBeanClass="PrepareAcceptancePackForm_PrepareAcceptancePackHumanTask.RepaymentAgreementType_RepaymentAgreement_Operations">
+    <Properties>
+      <Property Name="minOccurs" Value="1"/>
+      <Property Name="maxOccurs" Value="1"/>
+      <Property Name="LABEL" Value="Repayment Agreement"/>
+      <Property Name="nillable" Value="false"/>
+      <Property Name="originalName" Value="RepaymentAgreement"/>
+      <Property Name="targetNamespace"
+                Value="http://xmlns.oracle.com/bpm/bpmobject/BusinessObjects/RepaymentAgreement"/>
+    </Properties>
+  </AccessorAttribute>
+  <AccessorAttribute id="LoanApplication" IsCollection="true"
+                     BeanClass="PrepareAcceptancePackForm_PrepareAcceptancePackHumanTask.LoanApplicationType"
+                     CollectionBeanClass="PrepareAcceptancePackForm_PrepareAcceptancePackHumanTask.LoanApplicationType_LoanApplication_Operations">
+    <Properties>
+      <Property Name="minOccurs" Value="1"/>
+      <Property Name="maxOccurs" Value="1"/>
+      <Property Name="LABEL" Value="Loan Application"/>
+      <Property Name="nillable" Value="false"/>
+      <Property Name="originalName" Value="LoanApplication"/>
+      <Property Name="targetNamespace"
+                Value="http://xmlns.oracle.com/bpm/bpmobject/BusinessObjects/LoanApplication"/>
+    </Properties>
+  </AccessorAttribute>
+</JavaBean>

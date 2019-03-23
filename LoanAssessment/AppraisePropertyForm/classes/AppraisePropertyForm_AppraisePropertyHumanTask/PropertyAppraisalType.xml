@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<JavaBean xmlns="http://xmlns.oracle.com/adfm/beanmodel" version="11.1.1.64.93"
+          id="PropertyAppraisalType"
+          Package="AppraisePropertyForm_AppraisePropertyHumanTask"
+          BeanClass="AppraisePropertyForm_AppraisePropertyHumanTask.PropertyAppraisalType"
+          isJavaBased="false">
+  <Attribute Name="loanApplicationRef" Type="java.lang.String">
+    <Properties>
+      <CustomProperties>
+        <Property Name="nextSiblingNamespace"
+                  Value="http://xmlns.oracle.com/bpm/bpmobject/BusinessObjects/PropertyAppraisal"/>
+        <Property Name="nextSibling" Value="propertyAppraiserIdentifier"/>
+        <Property Name="minOccurs" Value="1"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="Loan Application Ref"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="false"/>
+        <Property Name="originalName" Value="loanApplicationRef"/>
+        <Property Name="targetNamespace"
+                  Value="http://xmlns.oracle.com/bpm/bpmobject/BusinessObjects/PropertyAppraisal"/>
+        <Property Name="type" Value="java.lang.String"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="propertyAppraiserIdentifier" Type="java.lang.String">
+    <Properties>
+      <CustomProperties>
+        <Property Name="nextSiblingNamespace"
+                  Value="http://xmlns.oracle.com/bpm/bpmobject/BusinessObjects/PropertyAppraisal"/>
+        <Property Name="nextSibling" Value="surroundingProperties"/>
+        <Property Name="minOccurs" Value="1"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="Property Appraiser Identifier"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="false"/>
+        <Property Name="originalName" Value="propertyAppraiserIdentifier"/>
+        <Property Name="targetNamespace"
+                  Value="http://xmlns.oracle.com/bpm/bpmobject/BusinessObjects/PropertyAppraisal"/>
+        <Property Name="type" Value="java.lang.String"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="estimateMarketValue" Type="java.math.BigDecimal">
+    <Properties>
+      <CustomProperties>
+        <Property Name="nextSiblingNamespace"
+                  Value="http://xmlns.oracle.com/bpm/bpmobject/BusinessObjects/PropertyAppraisal"/>
+        <Property Name="nextSibling" Value="propertyComment"/>
+        <Property Name="minOccurs" Value="1"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="Estimate Market Value"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="false"/>
+        <Property Name="originalName" Value="estimateMarketValue"/>
+        <Property Name="targetNamespace"
+                  Value="http://xmlns.oracle.com/bpm/bpmobject/BusinessObjects/PropertyAppraisal"/>
+        <Property Name="type" Value="java.math.BigDecimal"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="propertyComment" Type="java.lang.String">
+    <Properties>
+      <CustomProperties>
+        <Property Name="minOccurs" Value="1"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="Property Comment"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="true"/>
+        <Property Name="originalName" Value="propertyComment"/>
+        <Property Name="targetNamespace"
+                  Value="http://xmlns.oracle.com/bpm/bpmobject/BusinessObjects/PropertyAppraisal"/>
+        <Property Name="type" Value="java.lang.String"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <AccessorAttribute id="surroundingProperties" IsCollection="true"
+                     BeanClass="AppraisePropertyForm_AppraisePropertyHumanTask.SurroundingPropertyInfoType"
+                     CollectionBeanClass="AppraisePropertyForm_AppraisePropertyHumanTask.SurroundingPropertyInfoType_surroundingProperties_Operations">
+    <Properties>
+      <Property Name="nextSiblingNamespace"
+                Value="http://xmlns.oracle.com/bpm/bpmobject/BusinessObjects/PropertyAppraisal"/>
+      <Property Name="nextSibling" Value="estimateMarketValue"/>
+      <Property Name="minOccurs" Value="1"/>
+      <Property Name="maxOccurs" Value="2147483640"/>
+      <Property Name="LABEL" Value="Surrounding Properties"/>
+      <Property Name="nillable" Value="false"/>
+      <Property Name="originalName" Value="surroundingProperties"/>
+      <Property Name="targetNamespace"
+                Value="http://xmlns.oracle.com/bpm/bpmobject/BusinessObjects/PropertyAppraisal"/>
+    </Properties>
+  </AccessorAttribute>
+</JavaBean>

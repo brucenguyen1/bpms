@@ -1,0 +1,78 @@
+oraext:parseXML('<?xml version="1.0" encoding="UTF-8"?>
+<LoanApplication>
+	<application>
+		<identification>
+			<firstName>Bruce</firstname>
+			<lastName>Nguyen</lastName>
+			<identificationNumber>0123456789</identificationNumber>
+			<identificationType>Passport Number</identificationType>
+		</identification>
+		<contact>
+			<email>bruce.nguyen@yahoo.com</email>
+			<homePhone>0711018181</homePhone>
+			<cellPhone>0421112345</cellPhone>
+		</contact>
+		<currentAddress>
+			<streetName>Queens Street</streetName>
+			<streetNumber>259</streetNumber>
+			<city>Brisbane</city>
+			<postalCode>4001</postalCode>
+			<state>QLD</state>
+			<surburb>East Brisbane</suburb>
+			<durationOfStay>5</durationOfStay>
+		</currentAddress>
+		<previousAddress>
+			<streetName>Grout Street</streetName>
+			<streetNumber>46</streetNumber>
+			<city>Brisbane</city>
+			<postalCode>4109</postalCode>
+			<state>QLD</state>
+			<surburb>MacGregor</suburb>
+			<durationOfStay>10</durationOfStay>
+		</previousAddress>
+		<financialInfo>
+			<jobInfo>
+				<currentEmployer>Bank of Queensland</currentEmployer>
+				<monthlyNetRevenue>4000</monthlyNetRevenue>
+				<jobTitle>Software Engineer</jobTitle>
+			</jobInfo>
+			<bankAccounts>
+				<BankAccountInfo>
+					<accountNumber>4011-123456</accountNumber>
+					<accountType>Saving</accountType>
+					<bankName>Commonwealth Bank of Australia</bankName>
+					<accountBalance>22000</accountBalance>
+				</BankAccountInfo>
+				<BankAccountInfo>
+					<accountNumber>4012-987654</accountNumber>
+					<accountType>Saving</accountType>
+					<bankName>ANZ</bankName>
+					<accountBalance>50000</accountBalance>
+				</BankAccountInfo>				
+			</bankAccounts>
+		</financialInfo>
+	</application>
+	<property>
+		<propertyType>House</propertyType>
+		<address>8 Monteith, Prudence Street, Robertson, Queensland, 4109</address>
+		<purchasingPrice>550000</purchasingPrice>
+	</property>
+	<loan>
+		<amount>75000</amount>
+		<startDate>2014-03-25T12:19:24.073000+10:00</startDate>
+		<interestRate>0.15</interestRate>
+		<interestType>Fixed</interestType>
+		<duration>24</duration>
+		<endDate>2016-03-25T12:52:55.957000+10:00</endDate>
+	</loan>
+	<administration>
+		<applicationIdentifer>APP-BRIS-1111111</applicationIdentifer>
+		<submissionDateTime>2014-03-16T12:16:01.679000+10:00</submissionDateTime>
+		<revisionDateTime>2014-03-16T12:16:06.634000+10:00</revisionDateTime>
+		<applicationStatus>NEW</applicationStatus>
+		<applicationStatusComment>New Application created</applicationStatusComment>
+		<eligibility>false</eligibility>
+		<loanOfficerIdentifier>082301981</loanOfficerIdentifier>
+	</administration>
+	<insuranceQuoteRequired>true</insuranceQuoteRequired>
+</LoanApplication>')

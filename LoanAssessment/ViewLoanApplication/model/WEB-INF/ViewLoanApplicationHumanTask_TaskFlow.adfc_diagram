@@ -1,0 +1,52 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<SDM>
+   <OverallProperties
+      id="OverallProperties1">
+      <property
+         name="y">985.00586</property>
+      <property
+         name="x">91.5</property>
+   </OverallProperties>
+   <TaskFlowReturn
+      id="TaskFlowReturn7">
+      <property
+         name="activityId">taskReturn</property>
+      <property
+         name="finish">true</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>taskReturn&lt;/b>&lt;/p>&lt;p>Activity Type:  Task Flow Return&lt;/p>&lt;p>Outcome:  done&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">-789.2012</property>
+      <property
+         name="x">346.6875</property>
+   </TaskFlowReturn>
+   <View
+      id="View19">
+      <property
+         name="activityId">viewLoanApp</property>
+      <property
+         name="page">/viewLoanApp.jspx</property>
+      <property
+         name="start">true</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>viewLoanApp&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">-798.5576</property>
+      <property
+         name="x">154.0</property>
+   </View>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase20"
+      from="View19"
+      to="TaskFlowReturn7">
+      <property
+         name="fromOutcome">close</property>
+      <property
+         name="sdm:polyPoints">R50,195.0,-798.9082,305.6875,-789.55176,L50</property>
+   </ControlFlowCase>
+</SDM>

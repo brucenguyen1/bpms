@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application"
+             version="11.1.1.64.93" id="DataBindings" SeparateXMLFiles="false"
+             Package="takefinaldecisionform" ClientType="Generic">
+  <pageMap>
+    <page path="/taskDetails1.jspx"
+          usageId="takefinaldecisionform_taskDetails1PageDef"/>
+    <page path="/Decide.jspx" usageId="takefinaldecisionform_DecidePageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="takefinaldecisionform_taskDetails1PageDef"
+          path="takefinaldecisionform.pageDefs.taskDetails1PageDef"/>
+    <page id="takefinaldecisionform_DecidePageDef"
+          path="takefinaldecisionform.pageDefs.DecidePageDef"/>
+  </pageDefinitionUsages>
+  <dataControlUsages>
+    <dc id="TakeFinalDecisionForm_TakeFinalDecisionHumanTask"
+        path="takefinaldecisionform.TakeFinalDecisionForm_TakeFinalDecisionHumanTask"/>
+  </dataControlUsages>
+</Application>

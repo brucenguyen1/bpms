@@ -1,0 +1,39 @@
+<?xml version = '1.0' encoding = 'windows-1252'?>
+<weblogic-application xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.bea.com/ns/weblogic/weblogic-application http://www.bea.com/ns/weblogic/weblogic-application/1.0/weblogic-application.xsd" xmlns="http://www.bea.com/ns/weblogic/weblogic-application">
+    <xml>
+        <parser-factory>
+            <saxparser-factory>oracle.xml.jaxp.JXSAXParserFactory</saxparser-factory>
+            <document-builder-factory>oracle.xml.jaxp.JXDocumentBuilderFactory</document-builder-factory>
+            <transformer-factory>oracle.xml.jaxp.JXSAXTransformerFactory</transformer-factory>
+        </parser-factory>
+    </xml>
+    <application-param>
+        <param-name>jps.credstore.migration</param-name>
+        <param-value>OVERWRITE</param-value>
+    </application-param>
+    <application-param>
+        <param-name>jps.policystore.migration</param-name>
+        <param-value>OVERWRITE</param-value>
+    </application-param>
+  <listener>
+    <listener-class>oracle.adf.share.weblogic.listeners.ADFApplicationLifecycleListener</listener-class>
+  </listener>
+  <listener>
+    <listener-class>oracle.mds.lcm.weblogic.WLLifecycleListener</listener-class>
+  </listener>
+  <listener>
+    <listener-class>oracle.bpel.services.workflow.worklist.util.TFLifecycleListener</listener-class>
+  </listener>
+    <listener>
+        <listener-class>oracle.security.jps.wls.listeners.JpsApplicationLifecycleListener</listener-class>
+    </listener>
+  <library-ref>
+    <library-name>adf.oracle.domain</library-name>
+  </library-ref>
+  <library-ref>
+    <library-name>oracle.soa.workflow.wc</library-name>
+  </library-ref>
+    <library-ref>
+        <library-name>oracle.jsp.next</library-name>
+    </library-ref>
+</weblogic-application>

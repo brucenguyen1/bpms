@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<RuleDictionary id="G}108a928b:146cda30882:-7781" xmlns="http://xmlns.oracle.com/rules/dictionary">
+    <Name>VerifyRepaymentAgreementHumanTaskRules</Name>
+    <Alias>VerifyRepaymentAgreementHumanTaskRules</Alias>
+    <Version>11.1.1.0.0</Version>
+    <DataModel id="L}1">
+        <CreationUpdateNumber>2</CreationUpdateNumber>
+        <SupportsXPathEnabled>false</SupportsXPathEnabled>
+        <UpdateNumber>2</UpdateNumber>
+        <ValidationUpdateNumber>2</ValidationUpdateNumber>
+        <UpdateTime>-9223372036854775808</UpdateTime>
+    </DataModel>
+    <DictionaryLink id="L}5">
+        <Name>DecisionPointDictionary</Name>
+        <Alias>DecisionPointDictionary</Alias>
+        <Package>oracle.rules.sdk2.decisionpoint.impl</Package>
+        <UpdateNumber>323</UpdateNumber>
+        <PrefixLinkedNames>true</PrefixLinkedNames>
+    </DictionaryLink>
+    <DictionaryLink id="L}6">
+        <Name>VerifyRepaymentAgreementHumanTaskRulesBase</Name>
+        <Alias>VerifyRepaymentAgreementHumanTaskRulesBase</Alias>
+        <UpdateNumber>10</UpdateNumber>
+        <PrefixLinkedNames>false</PrefixLinkedNames>
+    </DictionaryLink>
+    <ValidationUpdateNumber>3</ValidationUpdateNumber>
+    <UpdateNumber>3</UpdateNumber>
+</RuleDictionary>

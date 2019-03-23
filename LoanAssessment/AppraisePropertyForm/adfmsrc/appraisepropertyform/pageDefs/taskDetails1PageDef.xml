@@ -1,0 +1,604 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93" id="taskDetails1PageDef"
+                Package="appraisepropertyform.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <methodIterator Binds="getTaskDetails.result"
+                    DataControl="AppraisePropertyForm_AppraisePropertyHumanTask"
+                    RangeSize="25"
+                    BeanClass="AppraisePropertyForm_AppraisePropertyHumanTask.getTaskDetails"
+                    id="getTaskDetailsIterator"/>
+    <accessorIterator MasterBinding="getTaskDetailsIterator" Binds="task"
+                      RangeSize="25"
+                      DataControl="AppraisePropertyForm_AppraisePropertyHumanTask"
+                      BeanClass="AppraisePropertyForm_AppraisePropertyHumanTask.task"
+                      id="taskIterator" StateValidation="false"/>
+    <accessorIterator MasterBinding="taskIterator" Binds="systemAttributes"
+                      RangeSize="25"
+                      DataControl="AppraisePropertyForm_AppraisePropertyHumanTask"
+                      BeanClass="AppraisePropertyForm_AppraisePropertyHumanTask.systemAttributesType"
+                      id="systemAttributesIterator"/>
+    <accessorIterator MasterBinding="systemAttributesIterator"
+                      Binds="systemActions" RangeSize="50"
+                      DataControl="AppraisePropertyForm_AppraisePropertyHumanTask"
+                      BeanClass="AppraisePropertyForm_AppraisePropertyHumanTask.actionType"
+                      id="systemActionsIterator" StateValidation="false"/>
+    <accessorIterator MasterBinding="systemAttributesIterator" Binds="fromUser"
+                      RangeSize="25"
+                      DataControl="AppraisePropertyForm_AppraisePropertyHumanTask"
+                      BeanClass="AppraisePropertyForm_AppraisePropertyHumanTask.identityType"
+                      id="fromUserIterator"/>
+    <accessorIterator MasterBinding="taskIterator" Binds="payload"
+                      RangeSize="25"
+                      DataControl="AppraisePropertyForm_AppraisePropertyHumanTask"
+                      BeanClass="AppraisePropertyForm_AppraisePropertyHumanTask.AppraisePropertyHumanTaskPayloadType"
+                      id="payloadIterator"/>
+    <accessorIterator MasterBinding="payloadIterator" Binds="LoanApplication"
+                      RangeSize="25"
+                      DataControl="AppraisePropertyForm_AppraisePropertyHumanTask"
+                      BeanClass="AppraisePropertyForm_AppraisePropertyHumanTask.LoanApplicationType"
+                      id="LoanApplicationIterator"/>
+    <accessorIterator MasterBinding="LoanApplicationIterator"
+                      Binds="application" RangeSize="25"
+                      DataControl="AppraisePropertyForm_AppraisePropertyHumanTask"
+                      BeanClass="AppraisePropertyForm_AppraisePropertyHumanTask.ApplicationInfoType"
+                      id="applicationIterator"/>
+    <accessorIterator MasterBinding="applicationIterator" Binds="identification"
+                      RangeSize="25"
+                      DataControl="AppraisePropertyForm_AppraisePropertyHumanTask"
+                      BeanClass="AppraisePropertyForm_AppraisePropertyHumanTask.IdentificationInfoType"
+                      id="identificationIterator"/>
+    <accessorIterator MasterBinding="LoanApplicationIterator" Binds="property"
+                      RangeSize="25"
+                      DataControl="AppraisePropertyForm_AppraisePropertyHumanTask"
+                      BeanClass="AppraisePropertyForm_AppraisePropertyHumanTask.PropertyInfoType"
+                      id="propertyIterator"/>
+    <accessorIterator MasterBinding="payloadIterator" Binds="PropertyAppraisal"
+                      RangeSize="25"
+                      DataControl="AppraisePropertyForm_AppraisePropertyHumanTask"
+                      BeanClass="AppraisePropertyForm_AppraisePropertyHumanTask.PropertyAppraisalType"
+                      id="PropertyAppraisalIterator"/>
+    <accessorIterator MasterBinding="PropertyAppraisalIterator"
+                      Binds="surroundingProperties" RangeSize="25"
+                      DataControl="AppraisePropertyForm_AppraisePropertyHumanTask"
+                      BeanClass="AppraisePropertyForm_AppraisePropertyHumanTask.SurroundingPropertyInfoType"
+                      id="surroundingPropertiesIterator"/>
+    <accessorIterator MasterBinding="taskIterator" Binds="userComment"
+                      RangeSize="25"
+                      DataControl="AppraisePropertyForm_AppraisePropertyHumanTask"
+                      BeanClass="AppraisePropertyForm_AppraisePropertyHumanTask.commentType"
+                      id="userCommentIterator" StateValidation="false"/>
+    <accessorIterator MasterBinding="userCommentIterator" Binds="updatedBy"
+                      RangeSize="25"
+                      DataControl="AppraisePropertyForm_AppraisePropertyHumanTask"
+                      BeanClass="AppraisePropertyForm_AppraisePropertyHumanTask.identityType"
+                      id="updatedByIterator" StateValidation="false"/>
+    <accessorIterator MasterBinding="taskIterator" Binds="attachment"
+                      RangeSize="25"
+                      DataControl="AppraisePropertyForm_AppraisePropertyHumanTask"
+                      BeanClass="AppraisePropertyForm_AppraisePropertyHumanTask.attachmentType"
+                      id="attachmentIterator" StateValidation="false"/>
+    <accessorIterator MasterBinding="attachmentIterator" Binds="ucmMetadataItem"
+                      RangeSize="25"
+                      DataControl="AppraisePropertyForm_AppraisePropertyHumanTask"
+                      BeanClass="AppraisePropertyForm_AppraisePropertyHumanTask.ucmMetadataItemType"
+                      id="ucmMetadataItemIterator" StateValidation="false"/>
+    <methodIterator Binds="getTaskDetails1.result"
+                    DataControl="CheckCreditHistoryForm_CheckCreditHistoryHumanTask"
+                    RangeSize="25"
+                    BeanClass="CheckCreditHistoryForm_CheckCreditHistoryHumanTask.getTaskDetails"
+                    id="getTaskDetails1Iterator"/>
+    <accessorIterator MasterBinding="getTaskDetails1Iterator" Binds="task"
+                      RangeSize="25"
+                      DataControl="CheckCreditHistoryForm_CheckCreditHistoryHumanTask"
+                      BeanClass="CheckCreditHistoryForm_CheckCreditHistoryHumanTask.task"
+                      id="taskIterator1" StateValidation="false"/>
+    <accessorIterator MasterBinding="taskIterator1" Binds="systemAttributes"
+                      RangeSize="25"
+                      DataControl="CheckCreditHistoryForm_CheckCreditHistoryHumanTask"
+                      BeanClass="CheckCreditHistoryForm_CheckCreditHistoryHumanTask.systemAttributesType"
+                      id="systemAttributesIterator1"/>
+    <accessorIterator MasterBinding="systemAttributesIterator1"
+                      Binds="systemActions" RangeSize="50"
+                      DataControl="CheckCreditHistoryForm_CheckCreditHistoryHumanTask"
+                      BeanClass="CheckCreditHistoryForm_CheckCreditHistoryHumanTask.actionType"
+                      id="systemActionsIterator1" StateValidation="false"/>
+    <accessorIterator MasterBinding="systemAttributesIterator"
+                      Binds="customActions" RangeSize="25"
+                      DataControl="AppraisePropertyForm_AppraisePropertyHumanTask"
+                      BeanClass="AppraisePropertyForm_AppraisePropertyHumanTask.actionType"
+                      id="customActionsIterator"/>
+    <accessorIterator MasterBinding="LoanApplicationIterator"
+                      Binds="administration" RangeSize="25"
+                      DataControl="AppraisePropertyForm_AppraisePropertyHumanTask"
+                      BeanClass="AppraisePropertyForm_AppraisePropertyHumanTask.AdministrationInfoType"
+                      id="administrationIterator"/>
+  </executables>
+  <bindings>
+    <methodAction id="getTaskDetails" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="getTaskDetails"
+                  IsViewObjectMethod="false"
+                  DataControl="AppraisePropertyForm_AppraisePropertyHumanTask"
+                  InstanceName="AppraisePropertyForm_AppraisePropertyHumanTask"
+                  ReturnName="data.AppraisePropertyForm_AppraisePropertyHumanTask.methodResults.getTaskDetails_AppraisePropertyForm_AppraisePropertyHumanTask_getTaskDetails_result">
+      <NamedData NDName="bpmWorklistContext" NDType="java.lang.String"
+                 NDValue=""/>
+      <NamedData NDName="bpmWorklistTaskId" NDType="java.lang.String"
+                 NDValue=""/>
+      <NamedData NDName="bpmWorklistTaskVersion" NDType="java.lang.String"
+                 NDValue=""/>
+    </methodAction>
+    <methodAction IterBinding="taskIterator" id="UpdateAction"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="UpdateAction" IsViewObjectMethod="false"
+                  DataControl="AppraisePropertyForm_AppraisePropertyHumanTask"
+                  InstanceName="bindings.taskIterator.currentRow.dataProvider"
+                  IsLocalObjectReference="true">
+      <NamedData NDName="action" NDType="java.lang.String" NDValue=""/>
+    </methodAction>
+    <attributeValues IterBinding="taskIterator" id="title">
+      <AttrNames>
+        <Item Value="title"/>
+      </AttrNames>
+    </attributeValues>
+    <navigationlist IterBinding="systemActionsIterator"
+                    ListOperMode="navigation" ListIter="systemActionsIterator"
+                    id="systemActions">
+      <AttrNames>
+        <Item Value="action"/>
+        <Item Value="displayName"/>
+      </AttrNames>
+    </navigationlist>
+    <attributeValues IterBinding="systemAttributesIterator"
+                     id="digitalSignatureRequired">
+      <AttrNames>
+        <Item Value="digitalSignatureRequired"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="systemAttributesIterator"
+                     id="passwordRequiredOnUpdate">
+      <AttrNames>
+        <Item Value="passwordRequiredOnUpdate"/>
+      </AttrNames>
+    </attributeValues>
+    <methodAction IterBinding="taskIterator" id="Claim"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="Claim" IsViewObjectMethod="false"
+                  DataControl="AppraisePropertyForm_AppraisePropertyHumanTask"
+                  InstanceName="bindings.taskIterator.currentRow.dataProvider"
+                  IsLocalObjectReference="true"/>
+    <methodAction IterBinding="taskIterator" id="Acknowledge"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="Acknowledge" IsViewObjectMethod="false"
+                  DataControl="AppraisePropertyForm_AppraisePropertyHumanTask"
+                  InstanceName="bindings.taskIterator.currentRow.dataProvider"
+                  IsLocalObjectReference="true"/>
+    <methodAction IterBinding="taskIterator" id="Resume"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="Resume" IsViewObjectMethod="false"
+                  DataControl="AppraisePropertyForm_AppraisePropertyHumanTask"
+                  InstanceName="bindings.taskIterator.currentRow.dataProvider"
+                  IsLocalObjectReference="true"/>
+    <methodAction IterBinding="taskIterator" id="Withdraw"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="Withdraw" IsViewObjectMethod="false"
+                  DataControl="AppraisePropertyForm_AppraisePropertyHumanTask"
+                  InstanceName="bindings.taskIterator.currentRow.dataProvider"
+                  IsLocalObjectReference="true"/>
+    <attributeValues IterBinding="taskIterator" id="creator">
+      <AttrNames>
+        <Item Value="creator"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="taskIterator" id="ownerUser">
+      <AttrNames>
+        <Item Value="ownerUser"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="taskIterator" id="ownerUserDisplayName">
+      <AttrNames>
+        <Item Value="ownerUserDisplayName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="systemAttributesIterator" id="assignedDate">
+      <AttrNames>
+        <Item Value="assignedDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="systemAttributesIterator" id="outcome">
+      <AttrNames>
+        <Item Value="outcome"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="systemAttributesIterator" id="componentType">
+      <AttrNames>
+        <Item Value="componentType"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="systemAttributesIterator" id="activityId">
+      <AttrNames>
+        <Item Value="activityId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="fromUserIterator" id="id">
+      <AttrNames>
+        <Item Value="id"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="fromUserIterator" id="displayName">
+      <AttrNames>
+        <Item Value="displayName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="identificationIterator" id="firstName">
+      <AttrNames>
+        <Item Value="firstName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="identificationIterator" id="lastName">
+      <AttrNames>
+        <Item Value="lastName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="identificationIterator"
+                     id="identificationNumber">
+      <AttrNames>
+        <Item Value="identificationNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="identificationIterator"
+                     id="identificationType">
+      <AttrNames>
+        <Item Value="identificationType"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="propertyIterator" id="propertyType">
+      <AttrNames>
+        <Item Value="propertyType"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="propertyIterator" id="address">
+      <AttrNames>
+        <Item Value="address"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="propertyIterator" id="purchasingPrice">
+      <AttrNames>
+        <Item Value="purchasingPrice"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PropertyAppraisalIterator"
+                     id="propertyAppraiserIdentifier">
+      <AttrNames>
+        <Item Value="propertyAppraiserIdentifier"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PropertyAppraisalIterator"
+                     id="estimateMarketValue">
+      <AttrNames>
+        <Item Value="estimateMarketValue"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PropertyAppraisalIterator"
+                     id="propertyComment">
+      <AttrNames>
+        <Item Value="propertyComment"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="surroundingPropertiesIterator" id="CreateInsert1"
+            RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action IterBinding="surroundingPropertiesIterator" id="Delete1"
+            RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <tree IterBinding="surroundingPropertiesIterator"
+          id="surroundingProperties">
+      <nodeDefinition DefName="AppraisePropertyForm_AppraisePropertyHumanTask.SurroundingPropertyInfoType"
+                      Name="surroundingProperties0">
+        <AttrNames>
+          <Item Value="name"/>
+          <Item Value="value"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="userCommentIterator" id="CreateInsert2"
+            RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action IterBinding="userCommentIterator" id="Delete2"
+            RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <attributeValues IterBinding="userCommentIterator" id="comment">
+      <AttrNames>
+        <Item Value="comment"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="userCommentIterator" id="commentScope">
+      <AttrNames>
+        <Item Value="commentScope"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="updatedByIterator" id="updatedBy">
+      <nodeDefinition DefName="AppraisePropertyForm_AppraisePropertyHumanTask.identityType"
+                      Name="updatedBy0">
+        <AttrNames>
+          <Item Value="id"/>
+          <Item Value="displayName"/>
+          <Item Value="type"/>
+          <Item Value="systemVersionFlag"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="attachmentIterator" id="Delete3"
+            RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <attributeValues IterBinding="attachmentIterator" id="content">
+      <AttrNames>
+        <Item Value="content"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="attachmentIterator" id="mimeType">
+      <AttrNames>
+        <Item Value="mimeType"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="attachmentIterator" id="name">
+      <AttrNames>
+        <Item Value="name"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="attachmentIterator" id="updatedBy1">
+      <AttrNames>
+        <Item Value="updatedBy"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="attachmentIterator" id="URI">
+      <AttrNames>
+        <Item Value="URI"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="attachmentIterator" id="updatedDate1">
+      <AttrNames>
+        <Item Value="updatedDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="attachmentIterator" id="ucmDocType">
+      <AttrNames>
+        <Item Value="ucmDocType"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="attachmentIterator" id="securityGroup">
+      <AttrNames>
+        <Item Value="securityGroup"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="attachmentIterator" id="account">
+      <AttrNames>
+        <Item Value="account"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="attachmentIterator" id="revision">
+      <AttrNames>
+        <Item Value="revision"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="attachmentIterator" id="releaseDate">
+      <AttrNames>
+        <Item Value="releaseDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="attachmentIterator" id="expirationDate1">
+      <AttrNames>
+        <Item Value="expirationDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="attachmentIterator" id="attachmentScope">
+      <AttrNames>
+        <Item Value="attachmentScope"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="ucmMetadataItemIterator" id="CreateInsert4"
+            RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action IterBinding="ucmMetadataItemIterator" id="Delete4"
+            RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <tree IterBinding="ucmMetadataItemIterator" id="ucmMetadataItem">
+      <nodeDefinition DefName="AppraisePropertyForm_AppraisePropertyHumanTask.ucmMetadataItemType"
+                      Name="ucmMetadataItem0">
+        <AttrNames>
+          <Item Value="name"/>
+          <Item Value="value"/>
+          <Item Value="type"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="systemAttributesIterator"
+                     id="numberOfTimesModified">
+      <AttrNames>
+        <Item Value="numberOfTimesModified"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="systemAttributesIterator" id="version">
+      <AttrNames>
+        <Item Value="version"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="userCommentIterator" id="userComment1">
+      <nodeDefinition DefName="AppraisePropertyForm_AppraisePropertyHumanTask.commentType"
+                      Name="userComment10">
+        <AttrNames>
+          <Item Value="comment"/>
+          <Item Value="updatedDate"/>
+          <Item Value="displayNameLanguage"/>
+          <Item Value="action"/>
+          <Item Value="systemVersionFlag"/>
+          <Item Value="acl"/>
+          <Item Value="doesBelongToParent"/>
+          <Item Value="isSystemComment"/>
+          <Item Value="taskId"/>
+          <Item Value="commentScope"/>
+          <Item Value="id"/>
+          <Item Value="operation"/>
+        </AttrNames>
+        <Accessors>
+          <Item Value="updatedBy"/>
+        </Accessors>
+      </nodeDefinition>
+      <nodeDefinition DefName="AppraisePropertyForm_AppraisePropertyHumanTask.identityType"
+                      Name="userComment11">
+        <AttrNames>
+          <Item Value="id"/>
+          <Item Value="displayName"/>
+          <Item Value="type"/>
+          <Item Value="systemVersionFlag"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="updatedByIterator" id="updatedBy2">
+      <nodeDefinition DefName="AppraisePropertyForm_AppraisePropertyHumanTask.identityType"
+                      Name="updatedBy20">
+        <AttrNames>
+          <Item Value="id"/>
+          <Item Value="displayName"/>
+          <Item Value="type"/>
+          <Item Value="systemVersionFlag"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="attachmentIterator" id="attachment1">
+      <nodeDefinition DefName="AppraisePropertyForm_AppraisePropertyHumanTask.attachmentType"
+                      Name="attachment10">
+        <AttrNames>
+          <Item Value="content"/>
+          <Item Value="mimeType"/>
+          <Item Value="name"/>
+          <Item Value="updatedBy"/>
+          <Item Value="URI"/>
+          <Item Value="systemVersionFlag"/>
+          <Item Value="taskId"/>
+          <Item Value="version"/>
+          <Item Value="acl"/>
+          <Item Value="doesBelongToParent"/>
+          <Item Value="updatedDate"/>
+          <Item Value="correlationId"/>
+          <Item Value="size"/>
+          <Item Value="description"/>
+          <Item Value="storageType"/>
+          <Item Value="ucmDocType"/>
+          <Item Value="securityGroup"/>
+          <Item Value="account"/>
+          <Item Value="revision"/>
+          <Item Value="releaseDate"/>
+          <Item Value="expirationDate"/>
+          <Item Value="title"/>
+          <Item Value="attachmentScope"/>
+          <Item Value="isContentEncoded"/>
+          <Item Value="updatedByDisplayName"/>
+          <Item Value="id"/>
+          <Item Value="operation"/>
+        </AttrNames>
+      </nodeDefinition>
+      <nodeDefinition DefName="AppraisePropertyForm_AppraisePropertyHumanTask.ucmMetadataItemType"
+                      Name="attachment11">
+        <AttrNames>
+          <Item Value="name"/>
+          <Item Value="value"/>
+          <Item Value="type"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="ucmMetadataItemIterator" id="ucmMetadataItem1">
+      <nodeDefinition DefName="AppraisePropertyForm_AppraisePropertyHumanTask.ucmMetadataItemType"
+                      Name="ucmMetadataItem10">
+        <AttrNames>
+          <Item Value="name"/>
+          <Item Value="value"/>
+          <Item Value="type"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <methodAction id="getTaskDetails1" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="getTaskDetails"
+                  IsViewObjectMethod="false"
+                  DataControl="CheckCreditHistoryForm_CheckCreditHistoryHumanTask"
+                  InstanceName="CheckCreditHistoryForm_CheckCreditHistoryHumanTask"
+                  ReturnName="data.CheckCreditHistoryForm_CheckCreditHistoryHumanTask.methodResults.getTaskDetails_CheckCreditHistoryForm_CheckCreditHistoryHumanTask_getTaskDetails_result">
+      <NamedData NDName="bpmWorklistContext" NDType="java.lang.String"/>
+      <NamedData NDName="bpmWorklistTaskId" NDType="java.lang.String"/>
+      <NamedData NDName="bpmWorklistTaskVersion" NDType="java.lang.String"/>
+    </methodAction>
+    <methodAction IterBinding="taskIterator1" id="UpdateAction1"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="UpdateAction" IsViewObjectMethod="false"
+                  DataControl="CheckCreditHistoryForm_CheckCreditHistoryHumanTask"
+                  InstanceName="bindings.taskIterator1.currentRow.dataProvider"
+                  IsLocalObjectReference="true">
+      <NamedData NDName="action" NDType="java.lang.String"/>
+    </methodAction>
+    <navigationlist IterBinding="systemActionsIterator1"
+                    ListOperMode="navigation" ListIter="systemActionsIterator1"
+                    id="systemActions1">
+      <AttrNames>
+        <Item Value="action"/>
+        <Item Value="displayName"/>
+      </AttrNames>
+    </navigationlist>
+    <attributeValues IterBinding="systemAttributesIterator1"
+                     id="digitalSignatureRequired1">
+      <AttrNames>
+        <Item Value="digitalSignatureRequired"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="systemAttributesIterator1"
+                     id="passwordRequiredOnUpdate1">
+      <AttrNames>
+        <Item Value="passwordRequiredOnUpdate"/>
+      </AttrNames>
+    </attributeValues>
+    <methodAction IterBinding="taskIterator1" id="Claim1"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="Claim" IsViewObjectMethod="false"
+                  DataControl="CheckCreditHistoryForm_CheckCreditHistoryHumanTask"
+                  InstanceName="bindings.taskIterator1.currentRow.dataProvider"
+                  IsLocalObjectReference="true"/>
+    <methodAction IterBinding="taskIterator1" id="Acknowledge1"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="Acknowledge" IsViewObjectMethod="false"
+                  DataControl="CheckCreditHistoryForm_CheckCreditHistoryHumanTask"
+                  InstanceName="bindings.taskIterator1.currentRow.dataProvider"
+                  IsLocalObjectReference="true"/>
+    <methodAction IterBinding="taskIterator1" id="Resume1"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="Resume" IsViewObjectMethod="false"
+                  DataControl="CheckCreditHistoryForm_CheckCreditHistoryHumanTask"
+                  InstanceName="bindings.taskIterator1.currentRow.dataProvider"
+                  IsLocalObjectReference="true"/>
+    <methodAction IterBinding="taskIterator1" id="Withdraw1"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="Withdraw" IsViewObjectMethod="false"
+                  DataControl="CheckCreditHistoryForm_CheckCreditHistoryHumanTask"
+                  InstanceName="bindings.taskIterator1.currentRow.dataProvider"
+                  IsLocalObjectReference="true"/>
+    <methodAction IterBinding="taskIterator" id="update"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="update" IsViewObjectMethod="false"
+                  DataControl="AppraisePropertyForm_AppraisePropertyHumanTask"
+                  InstanceName="bindings.taskIterator.currentRow.dataProvider"
+                  IsLocalObjectReference="true"/>
+    <navigationlist IterBinding="customActionsIterator"
+                    ListOperMode="navigation" ListIter="customActionsIterator"
+                    id="customActions">
+      <AttrNames>
+        <Item Value="action"/>
+        <Item Value="displayName"/>
+      </AttrNames>
+    </navigationlist>
+    <methodAction IterBinding="taskIterator" id="OK" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="OK"
+                  IsViewObjectMethod="false"
+                  DataControl="AppraisePropertyForm_AppraisePropertyHumanTask"
+                  InstanceName="bindings.taskIterator.currentRow.dataProvider"
+                  IsLocalObjectReference="true"/>
+    <attributeValues IterBinding="administrationIterator"
+                     id="applicationIdentifer">
+      <AttrNames>
+        <Item Value="applicationIdentifer"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

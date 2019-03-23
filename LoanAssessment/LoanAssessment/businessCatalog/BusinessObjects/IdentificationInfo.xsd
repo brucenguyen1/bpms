@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?bpmo version="11.1.1.7.0.0.8" build="0.8" fullName="BusinessObjects.IdentificationInfo" modifiers="268435456"?>
+<!--########################################################################################-->
+<!--####                                                                                ####-->
+<!--####          THIS IS AN AUTO GENERATED FILE. PLEASE DO NOT MANUALLY MODIFY         ####-->
+<!--#### CHANGES TO THIS FILE MAY PRODUCE UNEXPECTED BEHAVIOR AND WOULD BE OVERWRITTEN  ####-->
+<!--####                                                                                ####-->
+<!--########################################################################################-->
+<xs:schema targetNamespace="http://xmlns.oracle.com/bpm/bpmobject/BusinessObjects/IdentificationInfo" elementFormDefault="qualified" xmlns="http://xmlns.oracle.com/bpm/bpmobject/BusinessObjects/IdentificationInfo"  xmlns:xs="http://www.w3.org/2001/XMLSchema"  xmlns:bpmo="http://xmlns.oracle.com/bpm/bpmobject/" >
+    <xs:complexType name="IdentificationInfoType">
+        <xs:sequence>
+            <xs:element name="firstName" default="" type="xs:string"/>
+            <xs:element name="lastName" default="" type="xs:string"/>
+            <xs:element name="identificationNumber" default="" type="xs:string"/>
+            <xs:element name="identificationType" default="" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="IdentificationInfo" type="IdentificationInfoType"/>
+</xs:schema>

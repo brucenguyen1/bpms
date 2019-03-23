@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<decisionServices xmlns="http://xmlns.oracle.com/bpel/rules" name="AssessLoanRisk">
+    <ruleEngineProvider provider="Oracle_11.0.0.0.0" name="OracleRulesSDK">
+        <repository type="SCA-Archive">
+            <path>LoanAssessment/oracle/rules/com/empdirectory/AssessLoanRisk.rules</path>
+        </repository>
+    </ruleEngineProvider>
+    <decisionService name="AssessLoanRisk_DecisionService" ruleEngineProviderReference="OracleRulesSDK" targetNamespace="http://xmlns.oracle.com/AssessLoanRisk/AssessLoanRisk_DecisionService">
+        <catalog>AssessLoanRisk</catalog>
+        <pattern name="CallFunctionStateless">
+            <arguments>
+                <call>com.empdirectory.AssessLoanRisk.AssessLoanRisk_DecisionService</call>
+            </arguments>
+        </pattern>
+        <pattern name="CallFunctionStateful">
+            <arguments>
+                <call>com.empdirectory.AssessLoanRisk.AssessLoanRisk_DecisionService</call>
+            </arguments>
+        </pattern>
+    </decisionService>
+</decisionServices>

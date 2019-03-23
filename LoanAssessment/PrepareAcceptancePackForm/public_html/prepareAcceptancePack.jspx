@@ -1,0 +1,378 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:h="http://java.sun.com/jsf/html"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:c="http://java.sun.com/jsp/jstl/core"
+          xmlns:trh="http://myfaces.apache.org/trinidad/html"
+          xmlns:wf="http://xmlns.oracle.com/bpel/workflow/workflow-taglib.tld"
+          xmlns:wlc="http://xmlns.oracle.com/bpel/workflow/worklist">
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <f:view>
+    <af:document id="d1" title="#{bindings.title.inputValue}">
+      <af:messages id="m1"/>
+      <af:resource type="javascript" source="/jsLibs/taskDetails.js"/>
+      <af:resource type="javascript" source="/jsLibs/commonBPM.js"/>
+      <af:form id="f1">
+        <af:panelHeader text="Acceptance Pack" id="ph1"
+                        inlineStyle="height:57px;">
+          <f:facet name="context"/>
+          <f:facet name="menuBar"/>
+          <f:facet name="toolbar">
+            <af:panelGroupLayout layout="vertical" id="pgl3">
+              <af:toolbar visible="#{actionAvailable.toolbarAvailable}" id="t1">
+                <af:switcher id="customActionButtons"
+                             facetName="#{actionAvailable.isCustomActionButtons}">
+                  <f:facet name="true">
+                    <af:panelGroupLayout layout="horizontal" id="pgl1">
+                      <af:commandToolbarButton actionListener="#{invokeActionBean.setOperation}"
+                                               text="#{wf:getResourceValue('OK', 'bindings.customActions')}"
+                                               disabled="#{!bindings.OK.enabled}"
+                                               action="#{invokeActionBean.invokeOperation}"
+                                               partialSubmit="false"
+                                               visible="#{wf:isCustomActionAvailable('OK', 'bindings.customActions')}"
+                                               id="ctb1">
+                        <f:attribute name="DC_OPERATION_BINDING"
+                                     value="bindings.OK"/>
+                      </af:commandToolbarButton>
+                    </af:panelGroupLayout>
+                  </f:facet>
+                </af:switcher>
+                <af:commandToolbarButton actionListener="#{invokeActionBean.setOperation}"
+                                         text="#{resources.CLAIM}" id="Claim"
+                                         action="#{invokeActionBean.invokeOperation}"
+                                         partialSubmit="false"
+                                         visible="#{actionAvailable.claimAvailable}">
+                  <f:attribute name="DC_OPERATION_BINDING"
+                               value="bindings.Claim"/>
+                </af:commandToolbarButton>
+                <af:commandToolbarButton id="acknowledge"
+                                         actionListener="#{invokeActionBean.setOperation}"
+                                         text="#{resources.ACKNOWLEDGE}"
+                                         action="#{invokeActionBean.invokeOperation}"
+                                         partialSubmit="false"
+                                         visible="#{actionAvailable.isFyiTask}">
+                  <f:attribute name="DC_OPERATION_BINDING"
+                               value="bindings.Acknowledge"/>
+                </af:commandToolbarButton>
+                <af:commandToolbarButton id="resume"
+                                         actionListener="#{invokeActionBean.setOperation}"
+                                         text="#{resources.RESUME}"
+                                         action="#{invokeActionBean.invokeOperation}"
+                                         partialSubmit="false"
+                                         visible="#{actionAvailable.resumeAvailable}">
+                  <f:attribute name="DC_OPERATION_BINDING"
+                               value="bindings.Resume"/>
+                </af:commandToolbarButton>
+                <af:panelGroupLayout id="pgl11" layout="horizontal">
+                  <af:group rendered="#{!((empty actionAvailable.customActions) and (empty actionAvailable.redirectActions) and (empty actionAvailable.otherActions)) || bindings.update.enabled}"
+                            id="g1">
+                    <af:menuBar id="mb1">
+                      <af:menu id="acts" text="#{resources.TASK_ACTIONS}"
+                               visible="#{actionAvailable.actionsAvailable || bindings.update.enabled}">
+                        <af:group id="g2">
+                          <af:forEach var="childNode1"
+                                      items="#{actionAvailable.customActions}">
+                            <af:commandMenuItem textAndAccessKey="#{childNode1.displayName}"
+                                                actionListener="#{invokeActionBean.setAction}"
+                                                action="#{invokeActionBean.action}"
+                                                partialSubmit="false" id="cmi2">
+                              <f:attribute name="ACTION_MENU_ITEM"
+                                           value="#{childNode1.action}"/>
+                            </af:commandMenuItem>
+                          </af:forEach>
+                        </af:group>
+                        <af:group id="g3">
+                          <af:forEach var="childNode2"
+                                      items="#{actionAvailable.redirectActions}">
+                            <af:commandMenuItem textAndAccessKey="#{resources[childNode2]}"
+                                                actionListener="#{invokeActionBean.setAction}"
+                                                action="#{invokeActionBean.action}"
+                                                partialSubmit="true" id="cmi1">
+                              <f:attribute name="ACTION_MENU_ITEM"
+                                           value="#{childNode2}"/>
+                            </af:commandMenuItem>
+                          </af:forEach>
+                        </af:group>
+                        <af:group id="g4">
+                          <af:forEach var="childNode3"
+                                      items="#{actionAvailable.otherActions}">
+                            <af:commandMenuItem textAndAccessKey="#{resources[childNode3]}"
+                                                actionListener="#{invokeActionBean.setAction}"
+                                                action="#{invokeActionBean.action}"
+                                                partialSubmit="false" id="cmi4">
+                              <f:attribute name="ACTION_MENU_ITEM"
+                                           value="#{childNode3}"/>
+                            </af:commandMenuItem>
+                          </af:forEach>
+                        </af:group>
+                        <af:group id="g5">
+                          <af:commandMenuItem id="save"
+                                              textAndAccessKey="#{resources.SAVE}"
+                                              actionListener="#{invokeActionBean.setAction}"
+                                              action="#{invokeActionBean.action}"
+                                              partialSubmit="false"
+                                              rendered="#{actionAvailable.updateAvailable}">
+                            <f:attribute name="ACTION_MENU_ITEM"
+                                         value="bindings.update"/>
+                          </af:commandMenuItem>
+                        </af:group>
+                      </af:menu>
+                    </af:menuBar>
+                  </af:group>
+                </af:panelGroupLayout>
+                <af:spacer id="sp1112" width="10"/>
+                <af:commandImageLink shortDesc="#{resources.PREVIOUS_TASK}"
+                                     icon="/hw_images/previoustraversalarrow_ena.png"
+                                     id="cil11" action="fetchPreviousTask"
+                                     visible="#{param.enableNavigationButton != null}"/>
+                <af:spacer id="sp112" width="10"/>
+                <af:commandImageLink shortDesc="#{resources.NEXT_TASK}"
+                                     icon="/hw_images/nexttraversalarrow_ena.png"
+                                     id="cil12" action="fetchNextTask"
+                                     visible="#{param.enableNavigationButton != null}"/>
+                <af:spacer id="sp13" width="10"/>
+                <af:commandImageLink shortDesc="#{resources.SHORT_DESC_CLOSE}"
+                                     icon="/hw_images/close_ena.png"
+                                     id="cil1211" action="closeTaskFlow"
+                                     visible="#{param.enableNavigationButton != null}"/>
+              </af:toolbar>
+              <af:popup id="reassignPopup" contentDelivery="lazyUncached"
+                        childCreation="deferred">
+                <af:dialog id="reAsDg"
+                           dialogListener="#{invokeActionBean.reassignAction}"
+                           cancelTextAndAccessKey="#{resources.CANCEL_AK}"
+                           affirmativeTextAndAccessKey="#{resources.OK_AK}"
+                           title="#{resources.REASSIGNPAGE}">
+                  <wlc:identityBrowser identityBrowserView="#{pageFlowScope.identityBrowserView}"
+                                       workflowContext="#{pageFlowScope.taskFlowReassignBean.workflowContext}"
+                                       id="reAsIdB" mode="REASSIGN"
+                                       showActionButtons="false"
+                                       selectedTaskIds="#{pageFlowScope.taskFlowReassignBean.selectedTaskIds}"/>
+                </af:dialog>
+              </af:popup>
+              <af:popup id="requestInfoPopup" contentDelivery="lazyUncached"
+                        childCreation="deferred">
+                <af:dialog title="#{resources.INFOREQUESTEDPAGE}"
+                           cancelTextAndAccessKey="#{resources.CANCEL_AK}"
+                           affirmativeTextAndAccessKey="#{resources.OK_AK}"
+                           dialogListener="#{invokeActionBean.requestInfoAction}"
+                           id="reqIfD">
+                  <wlc:requestInfoDialog workflowContext="#{pageFlowScope.taskFlowReassignBean.workflowContext}"
+                                         id="rqIDgC"
+                                         selectedTaskId="#{pageFlowScope.taskFlowReassignBean.selectedTaskIds[0]}"/>
+                </af:dialog>
+              </af:popup>
+              <af:popup id="routePopup" contentDelivery="lazyUncached"
+                        childCreation="deferred">
+                <af:dialog title="#{resources.ROUTEPAGE}"
+                           cancelTextAndAccessKey="#{resources.CANCEL_AK}"
+                           affirmativeTextAndAccessKey="#{resources.OK_AK}"
+                           dialogListener="#{invokeActionBean.routeTaskAction}"
+                           id="rteDg">
+                  <wlc:identityBrowser identityBrowserView="#{pageFlowScope.identityBrowserView}"
+                                       workflowContext="#{pageFlowScope.taskFlowReassignBean.workflowContext}"
+                                       id="rteIdB" mode="ROUTE"
+                                       selectedTaskIds="#{pageFlowScope.taskFlowReassignBean.selectedTaskIds}"
+                                       showActionButtons="false"/>
+                </af:dialog>
+              </af:popup>
+              <af:popup id="decomposePopup" contentDelivery="lazyUncached"
+                        childCreation="deferred">
+                <af:dialog title="#{pageFlowScope.ADFHumanTaskBean.decomposeDialogTitle}"
+                           cancelTextAndAccessKey="#{resources.CANCEL_AK}"
+                           affirmativeTextAndAccessKey="#{resources.OK_AK}"
+                           dialogListener="#{invokeActionBean.decomposeTaskAction}"
+                           id="dcmpDg">
+                  <wlc:identityBrowser identityBrowserView="#{pageFlowScope.identityBrowserView}"
+                                       workflowContext="#{pageFlowScope.ADFHumanTaskBean.workflowContext}"
+                                       id="dcmpIdB" mode="DECOMPOSE"
+                                       selectedTaskObject="#{pageFlowScope.ADFHumanTaskBean.task}"
+                                       showActionButtons="false"/>
+                </af:dialog>
+              </af:popup>
+              <af:popup id="popupEnterPasswordDialog"
+                        contentDelivery="lazyUncached" childCreation="deferred">
+                <af:dialog title="#{resources.ENTER_PASSWORD}"
+                           dialogListener="#{invokeActionBean.validatePassword}"
+                           type="okCancel" modal="true"
+                           cancelTextAndAccessKey="#{resources.CANCEL_AK}"
+                           affirmativeTextAndAccessKey="#{resources.OK_AK}"
+                           closeIconVisible="false" id="pwdDlg">
+                  <af:panelGroupLayout id="pgl2">
+                    <af:panelFormLayout id="pfl1">
+                      <af:inputText id="pwdBox" rows="1" columns="50"
+                                    value="#{invokeActionBean.password}"
+                                    label="#{resources.PASSWORD}" secret="true"
+                                    required="true"/>
+                    </af:panelFormLayout>
+                  </af:panelGroupLayout>
+                </af:dialog>
+              </af:popup>
+            </af:panelGroupLayout>
+          </f:facet>
+          <f:facet name="legend"/>
+          <f:facet name="info"/>
+        </af:panelHeader>
+        <p><af:panelBox text="" id="pb1">
+            <f:facet name="toolbar"/>
+            <af:inputText value="#{bindings.applicationIdentifer.inputValue}"
+                          label="#{bindings.applicationIdentifer.hints.label}"
+                          required="#{bindings.applicationIdentifer.hints.mandatory}"
+                          columns="#{bindings.applicationIdentifer.hints.displayWidth}"
+                          maximumLength="#{bindings.applicationIdentifer.hints.precision}"
+                          shortDesc="#{bindings.applicationIdentifer.hints.tooltip}"
+                          id="it1" readOnly="true">
+              <f:validator binding="#{bindings.applicationIdentifer.validator}"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.applicationStatus.inputValue}"
+                          label="#{bindings.applicationStatus.hints.label}"
+                          required="#{bindings.applicationStatus.hints.mandatory}"
+                          columns="#{bindings.applicationStatus.hints.displayWidth}"
+                          maximumLength="#{bindings.applicationStatus.hints.precision}"
+                          shortDesc="#{bindings.applicationStatus.hints.tooltip}"
+                          id="it8" readOnly="true">
+              <f:validator binding="#{bindings.applicationStatus.validator}"/>
+            </af:inputText>
+          </af:panelBox>
+        </p>
+        <af:panelTabbed id="pt1" dimensionsFrom="auto">
+          <af:showDetailItem text="Repayment Schedule" id="sdi1">
+            <af:inputText value="#{bindings.monthlyRepaymentAmount.inputValue}"
+                          label="#{bindings.monthlyRepaymentAmount.hints.label}"
+                          required="#{bindings.monthlyRepaymentAmount.hints.mandatory}"
+                          columns="#{bindings.monthlyRepaymentAmount.hints.displayWidth}"
+                          maximumLength="#{bindings.monthlyRepaymentAmount.hints.precision}"
+                          shortDesc="#{bindings.monthlyRepaymentAmount.hints.tooltip}"
+                          id="it2">
+              <f:validator binding="#{bindings.monthlyRepaymentAmount.validator}"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.numberOfRepayment.inputValue}"
+                          label="#{bindings.numberOfRepayment.hints.label}"
+                          required="#{bindings.numberOfRepayment.hints.mandatory}"
+                          columns="#{bindings.numberOfRepayment.hints.displayWidth}"
+                          maximumLength="#{bindings.numberOfRepayment.hints.precision}"
+                          shortDesc="#{bindings.numberOfRepayment.hints.tooltip}"
+                          id="it3">
+              <f:validator binding="#{bindings.numberOfRepayment.validator}"/>
+              <af:convertNumber groupingUsed="false"
+                                pattern="#{bindings.numberOfRepayment.format}"/>
+            </af:inputText>
+            <p>
+              <af:commandButton text="Generate PDF" id="cb1">
+                <af:fileDownloadActionListener method="#{DownloadFileBean.generatePDF}"
+                                               filename="test.pdf"/>
+              </af:commandButton>
+            </p>
+          </af:showDetailItem>
+          <af:showDetailItem text="Loan Application" id="sdi2">
+            <af:panelFormLayout id="pfl2">
+              <af:inputText value="#{bindings.firstName.inputValue}"
+                            label="#{bindings.firstName.hints.label}"
+                            required="#{bindings.firstName.hints.mandatory}"
+                            columns="#{bindings.firstName.hints.displayWidth}"
+                            maximumLength="#{bindings.firstName.hints.precision}"
+                            shortDesc="#{bindings.firstName.hints.tooltip}"
+                            id="it4">
+                <f:validator binding="#{bindings.firstName.validator}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.lastName.inputValue}"
+                            label="#{bindings.lastName.hints.label}"
+                            required="#{bindings.lastName.hints.mandatory}"
+                            columns="#{bindings.lastName.hints.displayWidth}"
+                            maximumLength="#{bindings.lastName.hints.precision}"
+                            shortDesc="#{bindings.lastName.hints.tooltip}"
+                            id="it7">
+                <f:validator binding="#{bindings.lastName.validator}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.identificationNumber.inputValue}"
+                            label="#{bindings.identificationNumber.hints.label}"
+                            required="#{bindings.identificationNumber.hints.mandatory}"
+                            columns="#{bindings.identificationNumber.hints.displayWidth}"
+                            maximumLength="#{bindings.identificationNumber.hints.precision}"
+                            shortDesc="#{bindings.identificationNumber.hints.tooltip}"
+                            id="it6">
+                <f:validator binding="#{bindings.identificationNumber.validator}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.identificationType.inputValue}"
+                            label="#{bindings.identificationType.hints.label}"
+                            required="#{bindings.identificationType.hints.mandatory}"
+                            columns="#{bindings.identificationType.hints.displayWidth}"
+                            maximumLength="#{bindings.identificationType.hints.precision}"
+                            shortDesc="#{bindings.identificationType.hints.tooltip}"
+                            id="it5">
+                <f:validator binding="#{bindings.identificationType.validator}"/>
+              </af:inputText>
+            </af:panelFormLayout>
+            <af:panelFormLayout id="pfl3">
+              <af:panelLabelAndMessage label="#{bindings.email.hints.label}"
+                                       id="plam2">
+                <af:outputText value="#{bindings.email.inputValue}" id="ot3"/>
+              </af:panelLabelAndMessage>
+              <af:panelLabelAndMessage label="#{bindings.homePhone.hints.label}"
+                                       id="plam3">
+                <af:outputText value="#{bindings.homePhone.inputValue}"
+                               id="ot2"/>
+              </af:panelLabelAndMessage>
+              <af:panelLabelAndMessage label="#{bindings.cellPhone.hints.label}"
+                                       id="plam1">
+                <af:outputText value="#{bindings.cellPhone.inputValue}"
+                               id="ot1"/>
+              </af:panelLabelAndMessage>
+            </af:panelFormLayout>
+            <af:panelFormLayout id="pfl4">
+              <af:panelLabelAndMessage label="#{bindings.propertyType.hints.label}"
+                                       id="plam6">
+                <af:outputText value="#{bindings.propertyType.inputValue}"
+                               id="ot6"/>
+              </af:panelLabelAndMessage>
+              <af:panelLabelAndMessage label="#{bindings.address.hints.label}"
+                                       id="plam4">
+                <af:outputText value="#{bindings.address.inputValue}" id="ot5"/>
+              </af:panelLabelAndMessage>
+              <af:panelLabelAndMessage label="#{bindings.purchasingPrice.hints.label}"
+                                       id="plam5">
+                <af:outputText value="#{bindings.purchasingPrice.inputValue}"
+                               id="ot4"/>
+              </af:panelLabelAndMessage>
+            </af:panelFormLayout>
+            <af:panelFormLayout id="pfl5">
+              <af:panelLabelAndMessage label="#{bindings.amount.hints.label}"
+                                       id="plam12">
+                <af:outputText value="#{bindings.amount.inputValue}" id="ot9"/>
+              </af:panelLabelAndMessage>
+              <af:panelLabelAndMessage label="#{bindings.startDate.hints.label}"
+                                       id="plam10">
+                <af:outputText value="#{bindings.startDate.inputValue}"
+                               id="ot8">
+                  <af:convertDateTime pattern="#{bindings.startDate.format}"/>
+                </af:outputText>
+              </af:panelLabelAndMessage>
+              <af:panelLabelAndMessage label="#{bindings.interestRate.hints.label}"
+                                       id="plam7">
+                <af:outputText value="#{bindings.interestRate.inputValue}"
+                               id="ot12"/>
+              </af:panelLabelAndMessage>
+              <af:panelLabelAndMessage label="#{bindings.interestType.hints.label}"
+                                       id="plam8">
+                <af:outputText value="#{bindings.interestType.inputValue}"
+                               id="ot10"/>
+              </af:panelLabelAndMessage>
+              <af:panelLabelAndMessage label="#{bindings.duration.hints.label}"
+                                       id="plam9">
+                <af:outputText value="#{bindings.duration.inputValue}"
+                               id="ot11"/>
+              </af:panelLabelAndMessage>
+              <af:panelLabelAndMessage label="#{bindings.endDate.hints.label}"
+                                       id="plam11">
+                <af:outputText value="#{bindings.endDate.inputValue}" id="ot7">
+                  <af:convertDateTime pattern="#{bindings.endDate.format}"/>
+                </af:outputText>
+              </af:panelLabelAndMessage>
+            </af:panelFormLayout>
+          </af:showDetailItem>
+        </af:panelTabbed>
+      </af:form>
+    </af:document>
+  </f:view>
+</jsp:root>

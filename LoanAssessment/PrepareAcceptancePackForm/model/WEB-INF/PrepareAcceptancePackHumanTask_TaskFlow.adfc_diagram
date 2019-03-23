@@ -1,0 +1,52 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<SDM>
+   <OverallProperties
+      id="OverallProperties1">
+      <property
+         name="y">985.00586</property>
+      <property
+         name="x">91.5</property>
+   </OverallProperties>
+   <TaskFlowReturn
+      id="TaskFlowReturn9">
+      <property
+         name="activityId">taskReturn</property>
+      <property
+         name="finish">true</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>taskReturn&lt;/b>&lt;/p>&lt;p>Activity Type:  Task Flow Return&lt;/p>&lt;p>Outcome:  done&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">117.90234</property>
+      <property
+         name="x">122.6875</property>
+   </TaskFlowReturn>
+   <View
+      id="View24">
+      <property
+         name="activityId">prepareAcceptancePack</property>
+      <property
+         name="page">/prepareAcceptancePack.jspx</property>
+      <property
+         name="start">true</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>prepareAcceptancePack&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">106.79297</property>
+      <property
+         name="x">-63.0</property>
+   </View>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase25"
+      from="View24"
+      to="TaskFlowReturn9">
+      <property
+         name="fromOutcome">close</property>
+      <property
+         name="sdm:polyPoints">R50,-22.0,106.44238,81.6875,117.55176,L50</property>
+   </ControlFlowCase>
+</SDM>

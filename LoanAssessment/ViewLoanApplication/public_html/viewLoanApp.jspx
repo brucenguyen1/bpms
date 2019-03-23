@@ -1,0 +1,582 @@
+<?xml version='1.0' encoding='windows-1252'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:h="http://java.sun.com/jsf/html"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:c="http://java.sun.com/jsp/jstl/core"
+          xmlns:trh="http://myfaces.apache.org/trinidad/html"
+          xmlns:wf="http://xmlns.oracle.com/bpel/workflow/workflow-taglib.tld"
+          xmlns:wlc="http://xmlns.oracle.com/bpel/workflow/worklist">
+  <jsp:directive.page contentType="text/html;charset=windows-1252"/>
+  <f:view>
+    <af:document id="d1" title="#{bindings.title.inputValue}">
+      <af:messages id="m1"/>
+      <af:resource type="javascript" source="/jsLibs/taskDetails.js"/>
+      <af:resource type="javascript" source="/jsLibs/commonBPM.js"/>
+      <af:form id="f1">
+        <af:panelHeader text="View Loan Application" id="ph1"
+                        inlineStyle="height:72px;">
+          <f:facet name="context"/>
+          <f:facet name="menuBar"/>
+          <f:facet name="toolbar">
+            <af:panelGroupLayout layout="vertical" id="pgl1">
+              <af:toolbar visible="#{actionAvailable.toolbarAvailable}" id="t1">
+                <af:switcher id="customActionButtons"
+                             facetName="#{actionAvailable.isCustomActionButtons}">
+                  <f:facet name="true">
+                    <af:panelGroupLayout layout="horizontal" id="pgl3">
+                      <af:commandToolbarButton actionListener="#{invokeActionBean.setOperation}"
+                                               text="#{wf:getResourceValue('OK', 'bindings.customActions')}"
+                                               disabled="#{!bindings.OK.enabled}"
+                                               action="#{invokeActionBean.invokeOperation}"
+                                               partialSubmit="false"
+                                               visible="#{wf:isCustomActionAvailable('OK', 'bindings.customActions')}"
+                                               id="ctb1">
+                        <f:attribute name="DC_OPERATION_BINDING"
+                                     value="bindings.OK"/>
+                      </af:commandToolbarButton>
+                    </af:panelGroupLayout>
+                  </f:facet>
+                </af:switcher>
+                <af:commandToolbarButton actionListener="#{invokeActionBean.setOperation}"
+                                         text="#{resources.CLAIM}" id="Claim"
+                                         action="#{invokeActionBean.invokeOperation}"
+                                         partialSubmit="false"
+                                         visible="#{actionAvailable.claimAvailable}">
+                  <f:attribute name="DC_OPERATION_BINDING"
+                               value="bindings.Claim"/>
+                </af:commandToolbarButton>
+                <af:commandToolbarButton id="acknowledge"
+                                         actionListener="#{invokeActionBean.setOperation}"
+                                         text="#{resources.ACKNOWLEDGE}"
+                                         action="#{invokeActionBean.invokeOperation}"
+                                         partialSubmit="false"
+                                         visible="#{actionAvailable.isFyiTask}">
+                  <f:attribute name="DC_OPERATION_BINDING"
+                               value="bindings.Acknowledge"/>
+                </af:commandToolbarButton>
+                <af:commandToolbarButton id="resume"
+                                         actionListener="#{invokeActionBean.setOperation}"
+                                         text="#{resources.RESUME}"
+                                         action="#{invokeActionBean.invokeOperation}"
+                                         partialSubmit="false"
+                                         visible="#{actionAvailable.resumeAvailable}">
+                  <f:attribute name="DC_OPERATION_BINDING"
+                               value="bindings.Resume"/>
+                </af:commandToolbarButton>
+                <af:panelGroupLayout id="pgl11" layout="horizontal">
+                  <af:group rendered="#{!((empty actionAvailable.customActions) and (empty actionAvailable.redirectActions) and (empty actionAvailable.otherActions)) || bindings.update.enabled}"
+                            id="g1">
+                    <af:menuBar id="mb1">
+                      <af:menu id="acts" text="#{resources.TASK_ACTIONS}"
+                               visible="#{actionAvailable.actionsAvailable || bindings.update.enabled}">
+                        <af:group id="g2">
+                          <af:forEach var="childNode1"
+                                      items="#{actionAvailable.customActions}">
+                            <af:commandMenuItem textAndAccessKey="#{childNode1.displayName}"
+                                                actionListener="#{invokeActionBean.setAction}"
+                                                action="#{invokeActionBean.action}"
+                                                partialSubmit="false" id="cmi2">
+                              <f:attribute name="ACTION_MENU_ITEM"
+                                           value="#{childNode1.action}"/>
+                            </af:commandMenuItem>
+                          </af:forEach>
+                        </af:group>
+                        <af:group id="g3">
+                          <af:forEach var="childNode2"
+                                      items="#{actionAvailable.redirectActions}">
+                            <af:commandMenuItem textAndAccessKey="#{resources[childNode2]}"
+                                                actionListener="#{invokeActionBean.setAction}"
+                                                action="#{invokeActionBean.action}"
+                                                partialSubmit="true" id="cmi1">
+                              <f:attribute name="ACTION_MENU_ITEM"
+                                           value="#{childNode2}"/>
+                            </af:commandMenuItem>
+                          </af:forEach>
+                        </af:group>
+                        <af:group id="g4">
+                          <af:forEach var="childNode3"
+                                      items="#{actionAvailable.otherActions}">
+                            <af:commandMenuItem textAndAccessKey="#{resources[childNode3]}"
+                                                actionListener="#{invokeActionBean.setAction}"
+                                                action="#{invokeActionBean.action}"
+                                                partialSubmit="false" id="cmi4">
+                              <f:attribute name="ACTION_MENU_ITEM"
+                                           value="#{childNode3}"/>
+                            </af:commandMenuItem>
+                          </af:forEach>
+                        </af:group>
+                        <af:group id="g5">
+                          <af:commandMenuItem id="save"
+                                              textAndAccessKey="#{resources.SAVE}"
+                                              actionListener="#{invokeActionBean.setAction}"
+                                              action="#{invokeActionBean.action}"
+                                              partialSubmit="false"
+                                              rendered="#{actionAvailable.updateAvailable}">
+                            <f:attribute name="ACTION_MENU_ITEM"
+                                         value="bindings.update"/>
+                          </af:commandMenuItem>
+                        </af:group>
+                      </af:menu>
+                    </af:menuBar>
+                  </af:group>
+                </af:panelGroupLayout>
+                <af:spacer id="sp1112" width="10"/>
+                <af:commandImageLink shortDesc="#{resources.PREVIOUS_TASK}"
+                                     icon="/hw_images/previoustraversalarrow_ena.png"
+                                     id="cil11" action="fetchPreviousTask"
+                                     visible="#{param.enableNavigationButton != null}"/>
+                <af:spacer id="sp112" width="10"/>
+                <af:commandImageLink shortDesc="#{resources.NEXT_TASK}"
+                                     icon="/hw_images/nexttraversalarrow_ena.png"
+                                     id="cil12" action="fetchNextTask"
+                                     visible="#{param.enableNavigationButton != null}"/>
+                <af:spacer id="sp13" width="10"/>
+                <af:commandImageLink shortDesc="#{resources.SHORT_DESC_CLOSE}"
+                                     icon="/hw_images/close_ena.png"
+                                     id="cil1211" action="closeTaskFlow"
+                                     visible="#{param.enableNavigationButton != null}"/>
+              </af:toolbar>
+              <af:popup id="reassignPopup" contentDelivery="lazyUncached"
+                        childCreation="deferred">
+                <af:dialog id="reAsDg"
+                           dialogListener="#{invokeActionBean.reassignAction}"
+                           cancelTextAndAccessKey="#{resources.CANCEL_AK}"
+                           affirmativeTextAndAccessKey="#{resources.OK_AK}"
+                           title="#{resources.REASSIGNPAGE}">
+                  <wlc:identityBrowser identityBrowserView="#{pageFlowScope.identityBrowserView}"
+                                       workflowContext="#{pageFlowScope.taskFlowReassignBean.workflowContext}"
+                                       id="reAsIdB" mode="REASSIGN"
+                                       showActionButtons="false"
+                                       selectedTaskIds="#{pageFlowScope.taskFlowReassignBean.selectedTaskIds}"/>
+                </af:dialog>
+              </af:popup>
+              <af:popup id="requestInfoPopup" contentDelivery="lazyUncached"
+                        childCreation="deferred">
+                <af:dialog title="#{resources.INFOREQUESTEDPAGE}"
+                           cancelTextAndAccessKey="#{resources.CANCEL_AK}"
+                           affirmativeTextAndAccessKey="#{resources.OK_AK}"
+                           dialogListener="#{invokeActionBean.requestInfoAction}"
+                           id="reqIfD">
+                  <wlc:requestInfoDialog workflowContext="#{pageFlowScope.taskFlowReassignBean.workflowContext}"
+                                         id="rqIDgC"
+                                         selectedTaskId="#{pageFlowScope.taskFlowReassignBean.selectedTaskIds[0]}"/>
+                </af:dialog>
+              </af:popup>
+              <af:popup id="routePopup" contentDelivery="lazyUncached"
+                        childCreation="deferred">
+                <af:dialog title="#{resources.ROUTEPAGE}"
+                           cancelTextAndAccessKey="#{resources.CANCEL_AK}"
+                           affirmativeTextAndAccessKey="#{resources.OK_AK}"
+                           dialogListener="#{invokeActionBean.routeTaskAction}"
+                           id="rteDg">
+                  <wlc:identityBrowser identityBrowserView="#{pageFlowScope.identityBrowserView}"
+                                       workflowContext="#{pageFlowScope.taskFlowReassignBean.workflowContext}"
+                                       id="rteIdB" mode="ROUTE"
+                                       selectedTaskIds="#{pageFlowScope.taskFlowReassignBean.selectedTaskIds}"
+                                       showActionButtons="false"/>
+                </af:dialog>
+              </af:popup>
+              <af:popup id="decomposePopup" contentDelivery="lazyUncached"
+                        childCreation="deferred">
+                <af:dialog title="#{pageFlowScope.ADFHumanTaskBean.decomposeDialogTitle}"
+                           cancelTextAndAccessKey="#{resources.CANCEL_AK}"
+                           affirmativeTextAndAccessKey="#{resources.OK_AK}"
+                           dialogListener="#{invokeActionBean.decomposeTaskAction}"
+                           id="dcmpDg">
+                  <wlc:identityBrowser identityBrowserView="#{pageFlowScope.identityBrowserView}"
+                                       workflowContext="#{pageFlowScope.ADFHumanTaskBean.workflowContext}"
+                                       id="dcmpIdB" mode="DECOMPOSE"
+                                       selectedTaskObject="#{pageFlowScope.ADFHumanTaskBean.task}"
+                                       showActionButtons="false"/>
+                </af:dialog>
+              </af:popup>
+              <af:popup id="popupEnterPasswordDialog"
+                        contentDelivery="lazyUncached" childCreation="deferred">
+                <af:dialog title="#{resources.ENTER_PASSWORD}"
+                           dialogListener="#{invokeActionBean.validatePassword}"
+                           type="okCancel" modal="true"
+                           cancelTextAndAccessKey="#{resources.CANCEL_AK}"
+                           affirmativeTextAndAccessKey="#{resources.OK_AK}"
+                           closeIconVisible="false" id="pwdDlg">
+                  <af:panelGroupLayout id="pgl2">
+                    <af:panelFormLayout id="pfl1">
+                      <af:inputText id="pwdBox" rows="1" columns="50"
+                                    value="#{invokeActionBean.password}"
+                                    label="#{resources.PASSWORD}" secret="true"
+                                    required="true"/>
+                    </af:panelFormLayout>
+                  </af:panelGroupLayout>
+                </af:dialog>
+              </af:popup>
+            </af:panelGroupLayout>
+          </f:facet>
+          <f:facet name="legend"/>
+          <f:facet name="info"/>
+        </af:panelHeader>
+        <af:panelHeader text="" id="ph2" inlineStyle="height:63px;">
+          <af:inputText value="#{bindings.applicationIdentifer.inputValue}"
+                        label="#{bindings.applicationIdentifer.hints.label}"
+                        required="#{bindings.applicationIdentifer.hints.mandatory}"
+                        columns="#{bindings.applicationIdentifer.hints.displayWidth}"
+                        maximumLength="#{bindings.applicationIdentifer.hints.precision}"
+                        shortDesc="#{bindings.applicationIdentifer.hints.tooltip}"
+                        id="it1" readOnly="true">
+            <f:validator binding="#{bindings.applicationIdentifer.validator}"/>
+          </af:inputText>
+          <af:inputText value="#{bindings.applicationStatus.inputValue}"
+                        label="#{bindings.applicationStatus.hints.label}"
+                        required="#{bindings.applicationStatus.hints.mandatory}"
+                        columns="#{bindings.applicationStatus.hints.displayWidth}"
+                        maximumLength="#{bindings.applicationStatus.hints.precision}"
+                        shortDesc="#{bindings.applicationStatus.hints.tooltip}"
+                        id="it2" readOnly="true">
+            <f:validator binding="#{bindings.applicationStatus.validator}"/>
+          </af:inputText>
+        </af:panelHeader>
+        <af:panelTabbed id="pt1" dimensionsFrom="auto">
+          <af:showDetailItem text="Loan Application" id="sdi1">
+            <af:panelFormLayout id="pfl2">
+              <af:panelLabelAndMessage label="#{bindings.firstName.hints.label}"
+                                       id="plam1">
+                <af:outputText value="#{bindings.firstName.inputValue}"
+                               id="ot4"/>
+              </af:panelLabelAndMessage>
+              <af:panelLabelAndMessage label="#{bindings.lastName.hints.label}"
+                                       id="plam2">
+                <af:outputText value="#{bindings.lastName.inputValue}"
+                               id="ot3"/>
+              </af:panelLabelAndMessage>
+              <af:panelLabelAndMessage label="#{bindings.identificationNumber.hints.label}"
+                                       id="plam4">
+                <af:outputText value="#{bindings.identificationNumber.inputValue}"
+                               id="ot2"/>
+              </af:panelLabelAndMessage>
+              <af:panelLabelAndMessage label="#{bindings.identificationType.hints.label}"
+                                       id="plam3">
+                <af:outputText value="#{bindings.identificationType.inputValue}"
+                               id="ot1"/>
+              </af:panelLabelAndMessage>
+            </af:panelFormLayout>
+            <af:panelFormLayout id="pfl3">
+              <af:panelLabelAndMessage label="#{bindings.email.hints.label}"
+                                       id="plam6">
+                <af:outputText value="#{bindings.email.inputValue}" id="ot6"/>
+              </af:panelLabelAndMessage>
+              <af:panelLabelAndMessage label="#{bindings.homePhone.hints.label}"
+                                       id="plam5">
+                <af:outputText value="#{bindings.homePhone.inputValue}"
+                               id="ot5"/>
+              </af:panelLabelAndMessage>
+              <af:panelLabelAndMessage label="#{bindings.cellPhone.hints.label}"
+                                       id="plam7">
+                <af:outputText value="#{bindings.cellPhone.inputValue}"
+                               id="ot7"/>
+              </af:panelLabelAndMessage>
+            </af:panelFormLayout>
+            <af:panelFormLayout id="pfl4">
+              <af:panelLabelAndMessage label="#{bindings.streetName.hints.label}"
+                                       id="plam12">
+                <af:outputText value="#{bindings.streetName.inputValue}"
+                               id="ot14"/>
+              </af:panelLabelAndMessage>
+              <af:panelLabelAndMessage label="#{bindings.streetNumber.hints.label}"
+                                       id="plam11">
+                <af:outputText value="#{bindings.streetNumber.inputValue}"
+                               id="ot9">
+                  <af:convertNumber groupingUsed="false"
+                                    pattern="#{bindings.streetNumber.format}"/>
+                </af:outputText>
+              </af:panelLabelAndMessage>
+              <af:panelLabelAndMessage label="#{bindings.city.hints.label}"
+                                       id="plam13">
+                <af:outputText value="#{bindings.city.inputValue}" id="ot10"/>
+              </af:panelLabelAndMessage>
+              <af:panelLabelAndMessage label="#{bindings.postalCode.hints.label}"
+                                       id="plam10">
+                <af:outputText value="#{bindings.postalCode.inputValue}"
+                               id="ot8"/>
+              </af:panelLabelAndMessage>
+              <af:panelLabelAndMessage label="#{bindings.state.hints.label}"
+                                       id="plam9">
+                <af:outputText value="#{bindings.state.inputValue}" id="ot13"/>
+              </af:panelLabelAndMessage>
+              <af:panelLabelAndMessage label="#{bindings.surburb.hints.label}"
+                                       id="plam14">
+                <af:outputText value="#{bindings.surburb.inputValue}"
+                               id="ot12"/>
+              </af:panelLabelAndMessage>
+              <af:panelLabelAndMessage label="#{bindings.durationOfStay.hints.label}"
+                                       id="plam8">
+                <af:outputText value="#{bindings.durationOfStay.inputValue}"
+                               id="ot11"/>
+              </af:panelLabelAndMessage>
+            </af:panelFormLayout>
+            <af:panelFormLayout id="pfl5">
+              <af:panelLabelAndMessage label="#{bindings.currentEmployer.hints.label}"
+                                       id="plam17">
+                <af:outputText value="#{bindings.currentEmployer.inputValue}"
+                               id="ot15"/>
+              </af:panelLabelAndMessage>
+              <af:panelLabelAndMessage label="#{bindings.monthlyNetRevenue.hints.label}"
+                                       id="plam16">
+                <af:outputText value="#{bindings.monthlyNetRevenue.inputValue}"
+                               id="ot17">
+                  <af:convertNumber groupingUsed="false"
+                                    pattern="#{bindings.monthlyNetRevenue.format}"/>
+                </af:outputText>
+              </af:panelLabelAndMessage>
+              <af:panelLabelAndMessage label="#{bindings.jobTitle.hints.label}"
+                                       id="plam15">
+                <af:outputText value="#{bindings.jobTitle.inputValue}"
+                               id="ot16"/>
+              </af:panelLabelAndMessage>
+            </af:panelFormLayout>
+            <af:table value="#{bindings.bankAccounts.collectionModel}" var="row"
+                      rows="#{bindings.bankAccounts.rangeSize}"
+                      emptyText="#{bindings.bankAccounts.viewable ? 'No data to display.' : 'Access Denied.'}"
+                      fetchSize="#{bindings.bankAccounts.rangeSize}"
+                      rowBandingInterval="0" id="t2" width="684"
+                      inlineStyle="height:80px;">
+              <af:column sortProperty="#{bindings.bankAccounts.hints.accountNumber.name}"
+                         sortable="false"
+                         headerText="#{bindings.bankAccounts.hints.accountNumber.label}"
+                         id="c2">
+                <af:outputText value="#{row.accountNumber}" id="ot21"/>
+              </af:column>
+              <af:column sortProperty="#{bindings.bankAccounts.hints.accountType.name}"
+                         sortable="false"
+                         headerText="#{bindings.bankAccounts.hints.accountType.label}"
+                         id="c4">
+                <af:outputText value="#{row.accountType}" id="ot19"/>
+              </af:column>
+              <af:column sortProperty="#{bindings.bankAccounts.hints.bankName.name}"
+                         sortable="false"
+                         headerText="#{bindings.bankAccounts.hints.bankName.label}"
+                         id="c1">
+                <af:outputText value="#{row.bankName}" id="ot20"/>
+              </af:column>
+              <af:column sortProperty="#{bindings.bankAccounts.hints.accountBalance.name}"
+                         sortable="false"
+                         headerText="#{bindings.bankAccounts.hints.accountBalance.label}"
+                         id="c3">
+                <af:outputText value="#{row.accountBalance}" id="ot18"/>
+              </af:column>
+            </af:table>
+            <af:panelFormLayout id="pfl7">
+              <af:panelLabelAndMessage label="#{bindings.propertyType.hints.label}"
+                                       id="plam20">
+                <af:outputText value="#{bindings.propertyType.inputValue}"
+                               id="ot30"/>
+              </af:panelLabelAndMessage>
+              <af:panelLabelAndMessage label="#{bindings.address.hints.label}"
+                                       id="plam21">
+                <af:outputText value="#{bindings.address.inputValue}"
+                               id="ot31"/>
+              </af:panelLabelAndMessage>
+              <af:panelLabelAndMessage label="#{bindings.purchasingPrice.hints.label}"
+                                       id="plam22">
+                <af:outputText value="#{bindings.purchasingPrice.inputValue}"
+                               id="ot32"/>
+              </af:panelLabelAndMessage>
+            </af:panelFormLayout>
+            <af:panelFormLayout id="pfl8">
+              <af:panelLabelAndMessage label="#{bindings.amount.hints.label}"
+                                       id="plam24">
+                <af:outputText value="#{bindings.amount.inputValue}" id="ot34"/>
+              </af:panelLabelAndMessage>
+              <af:panelLabelAndMessage label="#{bindings.startDate.hints.label}"
+                                       id="plam23">
+                <af:outputText value="#{bindings.startDate.inputValue}"
+                               id="ot36">
+                  <af:convertDateTime pattern="#{bindings.startDate.format}"/>
+                </af:outputText>
+              </af:panelLabelAndMessage>
+              <af:panelLabelAndMessage label="#{bindings.interestRate.hints.label}"
+                                       id="plam27">
+                <af:outputText value="#{bindings.interestRate.inputValue}"
+                               id="ot35"/>
+              </af:panelLabelAndMessage>
+              <af:panelLabelAndMessage label="#{bindings.interestType.hints.label}"
+                                       id="plam25">
+                <af:outputText value="#{bindings.interestType.inputValue}"
+                               id="ot37"/>
+              </af:panelLabelAndMessage>
+              <af:panelLabelAndMessage label="#{bindings.duration.hints.label}"
+                                       id="plam26">
+                <af:outputText value="#{bindings.duration.inputValue}"
+                               id="ot33"/>
+              </af:panelLabelAndMessage>
+              <af:panelLabelAndMessage label="#{bindings.endDate.hints.label}"
+                                       id="plam28">
+                <af:outputText value="#{bindings.endDate.inputValue}" id="ot38">
+                  <af:convertDateTime pattern="#{bindings.endDate.format}"/>
+                </af:outputText>
+              </af:panelLabelAndMessage>
+            </af:panelFormLayout>
+          </af:showDetailItem>
+          <af:showDetailItem text="Credit History Report" id="sdi2">
+            <af:panelFormLayout id="pfl6">
+              <af:panelLabelAndMessage label="#{bindings.financialOfficerIdentifier.hints.label}"
+                                       id="plam18">
+                <af:outputText value="#{bindings.financialOfficerIdentifier.inputValue}"
+                               id="ot24"/>
+              </af:panelLabelAndMessage>
+              <af:panelLabelAndMessage label="#{bindings.creditAssessment.hints.label}"
+                                       id="plam19">
+                <af:outputText value="#{bindings.creditAssessment.inputValue}"
+                               id="ot22"/>
+              </af:panelLabelAndMessage>
+            </af:panelFormLayout>
+            <af:panelBox text="Loan Application History" id="pb1">
+              <f:facet name="toolbar"/>
+              <af:table value="#{bindings.loanApplicationHistory.collectionModel}"
+                        var="row"
+                        rows="#{bindings.loanApplicationHistory.rangeSize}"
+                        emptyText="#{bindings.loanApplicationHistory.viewable ? 'No data to display.' : 'Access Denied.'}"
+                        fetchSize="#{bindings.loanApplicationHistory.rangeSize}"
+                        rowBandingInterval="0" id="t3" width="662">
+                <af:column sortProperty="#{bindings.loanApplicationHistory.hints.amount.name}"
+                           sortable="false"
+                           headerText="#{bindings.loanApplicationHistory.hints.amount.label}"
+                           id="c6">
+                  <af:outputText value="#{row.amount}" id="ot26"/>
+                </af:column>
+                <af:column sortProperty="#{bindings.loanApplicationHistory.hints.startDate.name}"
+                           sortable="false"
+                           headerText="#{bindings.loanApplicationHistory.hints.startDate.label}"
+                           id="c9">
+                  <af:outputText value="#{row.startDate}" id="ot28">
+                    <af:convertDateTime pattern="#{bindings.loanApplicationHistory.hints.startDate.format}"/>
+                  </af:outputText>
+                </af:column>
+                <af:column sortProperty="#{bindings.loanApplicationHistory.hints.interestRate.name}"
+                           sortable="false"
+                           headerText="#{bindings.loanApplicationHistory.hints.interestRate.label}"
+                           id="c7">
+                  <af:outputText value="#{row.interestRate}" id="ot25"/>
+                </af:column>
+                <af:column sortProperty="#{bindings.loanApplicationHistory.hints.interestType.name}"
+                           sortable="false"
+                           headerText="#{bindings.loanApplicationHistory.hints.interestType.label}"
+                           id="c5">
+                  <af:outputText value="#{row.interestType}" id="ot23"/>
+                </af:column>
+                <af:column sortProperty="#{bindings.loanApplicationHistory.hints.duration.name}"
+                           sortable="false"
+                           headerText="#{bindings.loanApplicationHistory.hints.duration.label}"
+                           id="c10">
+                  <af:outputText value="#{row.duration}" id="ot27"/>
+                </af:column>
+                <af:column sortProperty="#{bindings.loanApplicationHistory.hints.endDate.name}"
+                           sortable="false"
+                           headerText="#{bindings.loanApplicationHistory.hints.endDate.label}"
+                           id="c8">
+                  <af:outputText value="#{row.endDate}" id="ot29">
+                    <af:convertDateTime pattern="#{bindings.loanApplicationHistory.hints.endDate.format}"/>
+                  </af:outputText>
+                </af:column>
+              </af:table>
+            </af:panelBox>
+          </af:showDetailItem>
+          <af:showDetailItem text="Property Appraisal" id="sdi3">
+            <af:panelFormLayout id="pfl9">
+              <af:panelLabelAndMessage label="#{bindings.propertyAppraiserIdentifier.hints.label}"
+                                       id="plam29">
+                <af:outputText value="#{bindings.propertyAppraiserIdentifier.inputValue}"
+                               id="ot42"/>
+              </af:panelLabelAndMessage>
+              <af:panelLabelAndMessage label="#{bindings.estimateMarketValue.hints.label}"
+                                       id="plam31">
+                <af:outputText value="#{bindings.estimateMarketValue.inputValue}"
+                               id="ot39"/>
+              </af:panelLabelAndMessage>
+              <af:panelLabelAndMessage label="#{bindings.propertyComment.hints.label}"
+                                       id="plam32">
+                <af:outputText value="#{bindings.propertyComment.inputValue}"
+                               id="ot41"/>
+              </af:panelLabelAndMessage>
+            </af:panelFormLayout>
+            <af:panelBox text="Surrounding Properties" id="pb2">
+              <f:facet name="toolbar"/>
+              <af:table value="#{bindings.surroundingProperties.collectionModel}"
+                        var="row"
+                        rows="#{bindings.surroundingProperties.rangeSize}"
+                        emptyText="#{bindings.surroundingProperties.viewable ? 'No data to display.' : 'Access Denied.'}"
+                        fetchSize="#{bindings.surroundingProperties.rangeSize}"
+                        rowBandingInterval="0" id="t4" width="658"
+                        inlineStyle="height:77px;">
+                <af:column sortProperty="#{bindings.surroundingProperties.hints.name.name}"
+                           sortable="false"
+                           headerText="#{bindings.surroundingProperties.hints.name.label}"
+                           id="c12">
+                  <af:outputText value="#{row.name}" id="ot40"/>
+                </af:column>
+                <af:column sortProperty="#{bindings.surroundingProperties.hints.value.name}"
+                           sortable="false"
+                           headerText="#{bindings.surroundingProperties.hints.value.label}"
+                           id="c11">
+                  <af:outputText value="#{row.value}" id="ot43"/>
+                </af:column>
+              </af:table>
+            </af:panelBox>
+          </af:showDetailItem>
+          <af:showDetailItem text="Repayment Agreement" id="sdi4">
+            <af:panelFormLayout id="pfl10">
+              <af:panelLabelAndMessage label="#{bindings.monthlyRepaymentAmount.hints.label}"
+                                       id="plam33">
+                <af:outputText value="#{bindings.monthlyRepaymentAmount.inputValue}"
+                               id="ot44"/>
+              </af:panelLabelAndMessage>
+              <af:panelLabelAndMessage label="#{bindings.numberOfRepayment.hints.label}"
+                                       id="plam30">
+                <af:outputText value="#{bindings.numberOfRepayment.inputValue}"
+                               id="ot45">
+                  <af:convertNumber groupingUsed="false"
+                                    pattern="#{bindings.numberOfRepayment.format}"/>
+                </af:outputText>
+              </af:panelLabelAndMessage>
+            </af:panelFormLayout>
+            <af:panelFormLayout id="pfl11">
+              <af:panelLabelAndMessage label="#{bindings.conditionsAgreedByApplicant.hints.label}"
+                                       id="plam34">
+                <af:selectBooleanCheckbox value="#{bindings.conditionsAgreedByApplicant.inputValue}"
+                                          id="ot46"
+                                          readOnly="true"/>
+              </af:panelLabelAndMessage>
+              <af:panelLabelAndMessage label="#{bindings.repaymentScheduleAgreedByApplicant.hints.label}"
+                                       id="plam35">
+                <af:selectBooleanCheckbox value="#{bindings.repaymentScheduleAgreedByApplicant.inputValue}"
+                                          id="ot47" readOnly="true"/>
+              </af:panelLabelAndMessage>
+            </af:panelFormLayout>
+          </af:showDetailItem>
+          <af:showDetailItem text="Home Insurance Quote" id="sdi5">
+            <af:panelFormLayout id="pfl12">
+              <af:panelLabelAndMessage label="#{bindings.insuranceSalesRepIdentifier.hints.label}"
+                                       id="plam38">
+                <af:outputText value="#{bindings.insuranceSalesRepIdentifier.inputValue}"
+                               id="ot51"/>
+              </af:panelLabelAndMessage>
+              <af:panelLabelAndMessage label="#{bindings.totalCost.hints.label}"
+                                       id="plam39">
+                <af:outputText value="#{bindings.totalCost.inputValue}"
+                               id="ot48"/>
+              </af:panelLabelAndMessage>
+              <af:panelLabelAndMessage label="#{bindings.monthlyLoanRepaymentAddCost.hints.label}"
+                                       id="plam37">
+                <af:outputText value="#{bindings.monthlyLoanRepaymentAddCost.inputValue}"
+                               id="ot50"/>
+              </af:panelLabelAndMessage>
+              <af:panelLabelAndMessage label="#{bindings.termsAndCondition.hints.label}"
+                                       id="plam36">
+                <af:outputText value="#{bindings.termsAndCondition.inputValue}"
+                               id="ot49"/>
+              </af:panelLabelAndMessage>
+            </af:panelFormLayout>
+          </af:showDetailItem>
+        </af:panelTabbed>
+      </af:form>
+    </af:document>
+  </f:view>
+</jsp:root>

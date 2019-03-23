@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<?oracleBPM version="11.1.1.7.0.0.8" fileRevision="20090820"?>
+<ns1:organization xmlns:ns2="http://xmlns.oracle.com/bpm/lpg/peopleQuery" xmlns:ns1="http://xmlns.oracle.com/bpm/organization" xmlns:ns4="http://xmlns.oracle.com/bpel/workflow/task" xmlns:ns3="http://xmlns.oracle.com/bpel/workflow/taskQuery" xmlns:ns5="http://xmlns.oracle.com/bpm/identity">
+    <ns1:updateExistingObjects>false</ns1:updateExistingObjects>
+    <ns1:organizationalUnits>
+        <ns1:organizationalUnit>
+            <ns1:organizationalUnitId>c85c7f4d-1f1c-4384-abd9-d02633f063c5</ns1:organizationalUnitId>
+            <ns1:organizationalUnitName>CreditDivision</ns1:organizationalUnitName>
+            <ns1:description></ns1:description>
+        </ns1:organizationalUnit>
+        <ns1:organizationalUnit>
+            <ns1:organizationalUnitId>18b132e1-88fe-45ce-8f74-cb17c37ee829</ns1:organizationalUnitId>
+            <ns1:parentOrganizationalUnitId>c85c7f4d-1f1c-4384-abd9-d02633f063c5</ns1:parentOrganizationalUnitId>
+            <ns1:parentOrganizationalUnitName>CreditDivision</ns1:parentOrganizationalUnitName>
+            <ns1:organizationalUnitName>Queensland</ns1:organizationalUnitName>
+            <ns1:description></ns1:description>
+        </ns1:organizationalUnit>
+        <ns1:organizationalUnit>
+            <ns1:organizationalUnitId>f9cb18f2-e5df-4304-b274-3e3c84f86dfb</ns1:organizationalUnitId>
+            <ns1:parentOrganizationalUnitId>c85c7f4d-1f1c-4384-abd9-d02633f063c5</ns1:parentOrganizationalUnitId>
+            <ns1:parentOrganizationalUnitName>CreditDivision</ns1:parentOrganizationalUnitName>
+            <ns1:organizationalUnitName>NewSouthWales</ns1:organizationalUnitName>
+            <ns1:description></ns1:description>
+        </ns1:organizationalUnit>
+        <ns1:organizationalUnit>
+            <ns1:organizationalUnitId>ec4f34d8-84d7-4907-844b-f477975fba24</ns1:organizationalUnitId>
+            <ns1:parentOrganizationalUnitId>c85c7f4d-1f1c-4384-abd9-d02633f063c5</ns1:parentOrganizationalUnitId>
+            <ns1:parentOrganizationalUnitName>CreditDivision</ns1:parentOrganizationalUnitName>
+            <ns1:organizationalUnitName>Tasmania</ns1:organizationalUnitName>
+            <ns1:description></ns1:description>
+        </ns1:organizationalUnit>
+        <ns1:organizationalUnit>
+            <ns1:organizationalUnitId>2f6325e9-c4d7-4786-a077-1052f31a19b0</ns1:organizationalUnitId>
+            <ns1:parentOrganizationalUnitId>c85c7f4d-1f1c-4384-abd9-d02633f063c5</ns1:parentOrganizationalUnitId>
+            <ns1:parentOrganizationalUnitName>CreditDivision</ns1:parentOrganizationalUnitName>
+            <ns1:organizationalUnitName>Victoria</ns1:organizationalUnitName>
+            <ns1:description></ns1:description>
+        </ns1:organizationalUnit>
+        <ns1:organizationalUnit>
+            <ns1:organizationalUnitId>35ff71dc-8dcd-4427-a320-ba2bc6de8650</ns1:organizationalUnitId>
+            <ns1:parentOrganizationalUnitId>c85c7f4d-1f1c-4384-abd9-d02633f063c5</ns1:parentOrganizationalUnitId>
+            <ns1:parentOrganizationalUnitName>CreditDivision</ns1:parentOrganizationalUnitName>
+            <ns1:organizationalUnitName>WestAustralia</ns1:organizationalUnitName>
+            <ns1:description></ns1:description>
+        </ns1:organizationalUnit>
+        <ns1:organizationalUnit>
+            <ns1:organizationalUnitId>4fe1f57a-ebd6-4094-a881-302d5b19222c</ns1:organizationalUnitId>
+            <ns1:parentOrganizationalUnitId>c85c7f4d-1f1c-4384-abd9-d02633f063c5</ns1:parentOrganizationalUnitId>
+            <ns1:parentOrganizationalUnitName>CreditDivision</ns1:parentOrganizationalUnitName>
+            <ns1:organizationalUnitName>NorthenTerritories</ns1:organizationalUnitName>
+            <ns1:description></ns1:description>
+        </ns1:organizationalUnit>
+    </ns1:organizationalUnits>
+    <ns1:applicationRoles>
+        <ns1:applicationRole id="LoanAssessment.ProcessOwner" isProcessRole="false">
+            <ns5:name>LoanAssessment.Process Owner</ns5:name>
+            <ns1:member type="USER">
+                <ns1:name>wfaulk</ns1:name>
+            </ns1:member>
+            <ns1:processRole id="ProcessOwner" name="Process Owner"/>
+        </ns1:applicationRole>
+        <ns1:applicationRole id="LoanAssessment.Role" isProcessRole="false">
+            <ns5:name>LoanAssessment.Role</ns5:name>
+            <ns1:member type="USER">
+                <ns1:name>weblogic</ns1:name>
+            </ns1:member>
+            <ns1:processRole id="Role" name="Role"/>
+        </ns1:applicationRole>
+        <ns1:applicationRole id="LoanAssessment.FinancialOfficer" isProcessRole="true">
+            <ns5:name>LoanAssessment.FinancialOfficer</ns5:name>
+            <ns1:member type="USER">
+                <ns1:name>cdickens</ns1:name>
+            </ns1:member>
+            <ns1:member type="USER">
+                <ns1:name>cdoyle</ns1:name>
+            </ns1:member>
+            <ns1:member type="USER">
+                <ns1:name>weblogic</ns1:name>
+            </ns1:member>
+            <ns1:processRole id="FinancialOfficer" name="FinancialOfficer"/>
+        </ns1:applicationRole>
+        <ns1:applicationRole id="LoanAssessment.LoanOfficer" isProcessRole="true">
+            <ns5:name>LoanAssessment.LoanOfficer</ns5:name>
+            <ns1:member type="USER">
+                <ns1:name>mmitch</ns1:name>
+            </ns1:member>
+            <ns1:member type="USER">
+                <ns1:name>mtwain</ns1:name>
+            </ns1:member>
+            <ns1:processRole id="LoanOfficer" name="LoanOfficer"/>
+        </ns1:applicationRole>
+        <ns1:applicationRole id="LoanAssessment.PropertyAppraiser" isProcessRole="true">
+            <ns5:name>LoanAssessment.PropertyAppraiser</ns5:name>
+            <ns1:member type="USER">
+                <ns1:name>rsteven</ns1:name>
+            </ns1:member>
+            <ns1:member type="USER">
+                <ns1:name>sfitzger</ns1:name>
+            </ns1:member>
+            <ns1:processRole id="PropertyAppraiser" name="PropertyAppraiser"/>
+        </ns1:applicationRole>
+        <ns1:applicationRole id="LoanAssessment.InsuranceSalesRep" isProcessRole="true">
+            <ns5:name>LoanAssessment.InsuranceSalesRep</ns5:name>
+            <ns1:member type="USER">
+                <ns1:name>eheming</ns1:name>
+            </ns1:member>
+            <ns1:member type="USER">
+                <ns1:name>fkafka</ns1:name>
+            </ns1:member>
+            <ns1:member type="USER">
+                <ns1:name>istone</ns1:name>
+            </ns1:member>
+            <ns1:processRole id="InsuranceSalesRep" name="InsuranceSalesRep"/>
+        </ns1:applicationRole>
+        <ns1:applicationRole id="LoanAssessment.Clerk" isProcessRole="false">
+            <ns5:name>LoanAssessment.Clerk</ns5:name>
+            <ns1:member type="USER">
+                <ns1:name>jausten</ns1:name>
+            </ns1:member>
+            <ns1:member type="USER">
+                <ns1:name>jcooper</ns1:name>
+            </ns1:member>
+            <ns1:member type="USER">
+                <ns1:name>jlondon</ns1:name>
+            </ns1:member>
+            <ns1:member type="USER">
+                <ns1:name>jverne</ns1:name>
+            </ns1:member>
+            <ns1:processRole id="Clerk" name="Clerk"/>
+        </ns1:applicationRole>
+        <ns1:applicationRole id="LoanAssessment.Role1" isProcessRole="false">
+            <ns5:name>LoanAssessment.Role1</ns5:name>
+            <ns1:processRole id="Role1" name="Role1"/>
+        </ns1:applicationRole>
+        <ns1:applicationRole id="LoanAssessment.Applicant" isProcessRole="true">
+            <ns5:name>LoanAssessment.Applicant</ns5:name>
+            <ns1:member type="USER">
+                <ns1:name>jcooper</ns1:name>
+            </ns1:member>
+            <ns1:processRole id="Applicant" name="Applicant"/>
+        </ns1:applicationRole>
+    </ns1:applicationRoles>
+    <ns1:applicationRoleOrgUnitCalendarAssociations/>
+    <ns1:participantPropertiesList/>
+    <ns1:holidayRules>
+        <ns1:holidayRule>
+            <ns1:name>HolidayRule</ns1:name>
+            <ns1:id>cb7d30a4-e76b-4e2a-b5fe-9c7d1cb3af42</ns1:id>
+            <ns1:holidays>
+                <ns1:name>Good Friday</ns1:name>
+                <ns1:holidayPattern>SameDayEveryYear</ns1:holidayPattern>
+                <ns1:holidayDate>2014-04-18</ns1:holidayDate>
+            </ns1:holidays>
+            <ns1:holidays>
+                <ns1:name>Good Friday - Monday</ns1:name>
+                <ns1:holidayPattern>SameDayEveryYear</ns1:holidayPattern>
+                <ns1:holidayDate>2014-04-21</ns1:holidayDate>
+            </ns1:holidays>
+            <ns1:holidays>
+                <ns1:name>Anzac Day</ns1:name>
+                <ns1:holidayPattern>SameDayEveryYear</ns1:holidayPattern>
+                <ns1:holidayDate>2014-04-25</ns1:holidayDate>
+            </ns1:holidays>
+            <ns1:holidays>
+                <ns1:name>Queen's birthday</ns1:name>
+                <ns1:holidayPattern>SameDayEveryYear</ns1:holidayPattern>
+                <ns1:holidayDate>2014-06-09</ns1:holidayDate>
+            </ns1:holidays>
+            <ns1:holidays>
+                <ns1:name>Labour Day</ns1:name>
+                <ns1:holidayPattern>SameDayEveryYear</ns1:holidayPattern>
+                <ns1:holidayDate>2014-10-06</ns1:holidayDate>
+            </ns1:holidays>
+        </ns1:holidayRule>
+    </ns1:holidayRules>
+    <ns1:calendarRules>
+        <ns1:calendarRule>
+            <ns1:name>StandardCalendar</ns1:name>
+            <ns1:id>bc761f15-d40f-4e51-b7d5-71b956819ea7</ns1:id>
+            <ns1:timeZone>Australia/Brisbane</ns1:timeZone>
+            <ns1:workdayList>
+                <ns1:workday>
+                    <ns1:weekDay>Monday</ns1:weekDay>
+                    <ns1:workPeriod>
+                        <ns1:startTime>08:00:00.000+10:00</ns1:startTime>
+                        <ns1:endTime>12:00:00.000+10:00</ns1:endTime>
+                    </ns1:workPeriod>
+                    <ns1:workPeriod>
+                        <ns1:startTime>13:00:00.000+10:00</ns1:startTime>
+                        <ns1:endTime>17:00:00.000+10:00</ns1:endTime>
+                    </ns1:workPeriod>
+                </ns1:workday>
+                <ns1:workday>
+                    <ns1:weekDay>Tuesday</ns1:weekDay>
+                    <ns1:workPeriod>
+                        <ns1:startTime>08:00:00.000+10:00</ns1:startTime>
+                        <ns1:endTime>12:00:00.000+10:00</ns1:endTime>
+                    </ns1:workPeriod>
+                    <ns1:workPeriod>
+                        <ns1:startTime>13:00:00.000+10:00</ns1:startTime>
+                        <ns1:endTime>17:00:00.000+10:00</ns1:endTime>
+                    </ns1:workPeriod>
+                </ns1:workday>
+                <ns1:workday>
+                    <ns1:weekDay>Wednesday</ns1:weekDay>
+                    <ns1:workPeriod>
+                        <ns1:startTime>08:00:00.000+10:00</ns1:startTime>
+                        <ns1:endTime>12:00:00.000+10:00</ns1:endTime>
+                    </ns1:workPeriod>
+                    <ns1:workPeriod>
+                        <ns1:startTime>13:00:00.000+10:00</ns1:startTime>
+                        <ns1:endTime>17:00:00.000+10:00</ns1:endTime>
+                    </ns1:workPeriod>
+                </ns1:workday>
+                <ns1:workday>
+                    <ns1:weekDay>Thursday</ns1:weekDay>
+                    <ns1:workPeriod>
+                        <ns1:startTime>08:00:00.000+10:00</ns1:startTime>
+                        <ns1:endTime>12:00:00.000+10:00</ns1:endTime>
+                    </ns1:workPeriod>
+                    <ns1:workPeriod>
+                        <ns1:startTime>13:00:00.000+10:00</ns1:startTime>
+                        <ns1:endTime>17:00:00.000+10:00</ns1:endTime>
+                    </ns1:workPeriod>
+                </ns1:workday>
+                <ns1:workday>
+                    <ns1:weekDay>Friday</ns1:weekDay>
+                    <ns1:workPeriod>
+                        <ns1:startTime>08:00:00.000+10:00</ns1:startTime>
+                        <ns1:endTime>12:00:00.000+10:00</ns1:endTime>
+                    </ns1:workPeriod>
+                    <ns1:workPeriod>
+                        <ns1:startTime>13:00:00.000+10:00</ns1:startTime>
+                        <ns1:endTime>17:00:00.000+10:00</ns1:endTime>
+                    </ns1:workPeriod>
+                </ns1:workday>
+            </ns1:workdayList>
+        </ns1:calendarRule>
+    </ns1:calendarRules>
+</ns1:organization>

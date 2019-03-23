@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<schema attributeFormDefault="unqualified"
+	elementFormDefault="qualified"
+	targetNamespace="http://xmlns.oracle.com/Loan_Assessment/Loan_Assessment/CheckApplicationFormCompleteness"
+	xmlns="http://www.w3.org/2001/XMLSchema">
+	<element name="processResponse">
+		<complexType>
+			<sequence>
+				<element name="result" type="string"/>
+				<element name="errorMessage" type="string"/>
+			</sequence>
+		</complexType>
+	</element>
+</schema>

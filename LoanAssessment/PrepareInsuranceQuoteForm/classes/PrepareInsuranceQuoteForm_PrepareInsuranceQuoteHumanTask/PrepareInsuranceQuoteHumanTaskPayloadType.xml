@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<JavaBean xmlns="http://xmlns.oracle.com/adfm/beanmodel" version="11.1.1.64.93"
+          id="PrepareInsuranceQuoteHumanTaskPayloadType"
+          Package="PrepareInsuranceQuoteForm_PrepareInsuranceQuoteHumanTask"
+          BeanClass="PrepareInsuranceQuoteForm_PrepareInsuranceQuoteHumanTask.PrepareInsuranceQuoteHumanTaskPayloadType"
+          isJavaBased="false">
+  <AccessorAttribute id="HomeInsuranceQuote" IsCollection="true"
+                     BeanClass="PrepareInsuranceQuoteForm_PrepareInsuranceQuoteHumanTask.HomeInsuranceQuoteType"
+                     CollectionBeanClass="PrepareInsuranceQuoteForm_PrepareInsuranceQuoteHumanTask.HomeInsuranceQuoteType_HomeInsuranceQuote_Operations">
+    <Properties>
+      <Property Name="minOccurs" Value="1"/>
+      <Property Name="maxOccurs" Value="1"/>
+      <Property Name="LABEL" Value="Home Insurance Quote"/>
+      <Property Name="nillable" Value="false"/>
+      <Property Name="originalName" Value="HomeInsuranceQuote"/>
+      <Property Name="targetNamespace"
+                Value="http://xmlns.oracle.com/bpm/bpmobject/BusinessObjects/HomeInsuranceQuote"/>
+    </Properties>
+  </AccessorAttribute>
+  <AccessorAttribute id="LoanApplication" IsCollection="true"
+                     BeanClass="PrepareInsuranceQuoteForm_PrepareInsuranceQuoteHumanTask.LoanApplicationType"
+                     CollectionBeanClass="PrepareInsuranceQuoteForm_PrepareInsuranceQuoteHumanTask.LoanApplicationType_LoanApplication_Operations">
+    <Properties>
+      <Property Name="minOccurs" Value="1"/>
+      <Property Name="maxOccurs" Value="1"/>
+      <Property Name="LABEL" Value="Loan Application"/>
+      <Property Name="nillable" Value="false"/>
+      <Property Name="originalName" Value="LoanApplication"/>
+      <Property Name="targetNamespace"
+                Value="http://xmlns.oracle.com/bpm/bpmobject/BusinessObjects/LoanApplication"/>
+    </Properties>
+  </AccessorAttribute>
+</JavaBean>

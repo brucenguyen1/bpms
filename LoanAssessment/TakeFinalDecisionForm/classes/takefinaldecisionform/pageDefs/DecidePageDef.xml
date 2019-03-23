@@ -1,0 +1,381 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93" id="DecidePageDef"
+                Package="takefinaldecisionform.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <methodIterator Binds="getTaskDetails.result"
+                    DataControl="TakeFinalDecisionForm_TakeFinalDecisionHumanTask"
+                    RangeSize="25"
+                    BeanClass="TakeFinalDecisionForm_TakeFinalDecisionHumanTask.getTaskDetails"
+                    id="getTaskDetailsIterator"/>
+    <accessorIterator MasterBinding="getTaskDetailsIterator" Binds="task"
+                      RangeSize="25"
+                      DataControl="TakeFinalDecisionForm_TakeFinalDecisionHumanTask"
+                      BeanClass="TakeFinalDecisionForm_TakeFinalDecisionHumanTask.task"
+                      id="taskIterator" StateValidation="false"/>
+    <accessorIterator MasterBinding="taskIterator" Binds="systemAttributes"
+                      RangeSize="25"
+                      DataControl="TakeFinalDecisionForm_TakeFinalDecisionHumanTask"
+                      BeanClass="TakeFinalDecisionForm_TakeFinalDecisionHumanTask.systemAttributesType"
+                      id="systemAttributesIterator"/>
+    <accessorIterator MasterBinding="systemAttributesIterator"
+                      Binds="systemActions" RangeSize="50"
+                      DataControl="TakeFinalDecisionForm_TakeFinalDecisionHumanTask"
+                      BeanClass="TakeFinalDecisionForm_TakeFinalDecisionHumanTask.actionType"
+                      id="systemActionsIterator" StateValidation="false"/>
+    <accessorIterator MasterBinding="systemAttributesIterator"
+                      Binds="customActions" RangeSize="25"
+                      DataControl="TakeFinalDecisionForm_TakeFinalDecisionHumanTask"
+                      BeanClass="TakeFinalDecisionForm_TakeFinalDecisionHumanTask.actionType"
+                      id="customActionsIterator"/>
+    <accessorIterator MasterBinding="taskIterator" Binds="payload"
+                      RangeSize="25"
+                      DataControl="TakeFinalDecisionForm_TakeFinalDecisionHumanTask"
+                      BeanClass="TakeFinalDecisionForm_TakeFinalDecisionHumanTask.TakeFinalDecisionHumanTaskPayloadType"
+                      id="payloadIterator"/>
+    <accessorIterator MasterBinding="payloadIterator" Binds="AgreementSummary"
+                      RangeSize="25"
+                      DataControl="TakeFinalDecisionForm_TakeFinalDecisionHumanTask"
+                      BeanClass="TakeFinalDecisionForm_TakeFinalDecisionHumanTask.AgreementSummaryType"
+                      id="AgreementSummaryIterator"/>
+    <accessorIterator MasterBinding="payloadIterator" Binds="LoanApplication"
+                      RangeSize="25"
+                      DataControl="TakeFinalDecisionForm_TakeFinalDecisionHumanTask"
+                      BeanClass="TakeFinalDecisionForm_TakeFinalDecisionHumanTask.LoanApplicationType"
+                      id="LoanApplicationIterator"/>
+    <accessorIterator MasterBinding="LoanApplicationIterator"
+                      Binds="application" RangeSize="25"
+                      DataControl="TakeFinalDecisionForm_TakeFinalDecisionHumanTask"
+                      BeanClass="TakeFinalDecisionForm_TakeFinalDecisionHumanTask.ApplicationInfoType"
+                      id="applicationIterator1"/>
+    <accessorIterator MasterBinding="applicationIterator1"
+                      Binds="identification" RangeSize="25"
+                      DataControl="TakeFinalDecisionForm_TakeFinalDecisionHumanTask"
+                      BeanClass="TakeFinalDecisionForm_TakeFinalDecisionHumanTask.IdentificationInfoType"
+                      id="identificationIterator"/>
+    <accessorIterator MasterBinding="applicationIterator1" Binds="contact"
+                      RangeSize="25"
+                      DataControl="TakeFinalDecisionForm_TakeFinalDecisionHumanTask"
+                      BeanClass="TakeFinalDecisionForm_TakeFinalDecisionHumanTask.ContactInfoType"
+                      id="contactIterator"/>
+    <accessorIterator MasterBinding="applicationIterator1" Binds="financialInfo"
+                      RangeSize="25"
+                      DataControl="TakeFinalDecisionForm_TakeFinalDecisionHumanTask"
+                      BeanClass="TakeFinalDecisionForm_TakeFinalDecisionHumanTask.FinancialInfoType"
+                      id="financialInfoIterator1"/>
+    <accessorIterator MasterBinding="financialInfoIterator1" Binds="jobInfo"
+                      RangeSize="25"
+                      DataControl="TakeFinalDecisionForm_TakeFinalDecisionHumanTask"
+                      BeanClass="TakeFinalDecisionForm_TakeFinalDecisionHumanTask.JobInfoType"
+                      id="jobInfoIterator"/>
+    <accessorIterator MasterBinding="financialInfoIterator1"
+                      Binds="bankAccounts" RangeSize="25"
+                      DataControl="TakeFinalDecisionForm_TakeFinalDecisionHumanTask"
+                      BeanClass="TakeFinalDecisionForm_TakeFinalDecisionHumanTask.BankAccountInfoType"
+                      id="bankAccountsIterator"/>
+    <accessorIterator MasterBinding="LoanApplicationIterator" Binds="property"
+                      RangeSize="25"
+                      DataControl="TakeFinalDecisionForm_TakeFinalDecisionHumanTask"
+                      BeanClass="TakeFinalDecisionForm_TakeFinalDecisionHumanTask.PropertyInfoType"
+                      id="propertyIterator"/>
+    <accessorIterator MasterBinding="LoanApplicationIterator" Binds="loan"
+                      RangeSize="25"
+                      DataControl="TakeFinalDecisionForm_TakeFinalDecisionHumanTask"
+                      BeanClass="TakeFinalDecisionForm_TakeFinalDecisionHumanTask.LoanInfoType"
+                      id="loanIterator"/>
+    <accessorIterator MasterBinding="LoanApplicationIterator"
+                      Binds="administration" RangeSize="25"
+                      DataControl="TakeFinalDecisionForm_TakeFinalDecisionHumanTask"
+                      BeanClass="TakeFinalDecisionForm_TakeFinalDecisionHumanTask.AdministrationInfoType"
+                      id="administrationIterator"/>
+    <accessorIterator MasterBinding="payloadIterator"
+                      Binds="CreditHistoryReport" RangeSize="25"
+                      DataControl="TakeFinalDecisionForm_TakeFinalDecisionHumanTask"
+                      BeanClass="TakeFinalDecisionForm_TakeFinalDecisionHumanTask.CreditHistoryReportType"
+                      id="CreditHistoryReportIterator"/>
+    <accessorIterator MasterBinding="payloadIterator" Binds="PropertyAppraisal"
+                      RangeSize="25"
+                      DataControl="TakeFinalDecisionForm_TakeFinalDecisionHumanTask"
+                      BeanClass="TakeFinalDecisionForm_TakeFinalDecisionHumanTask.PropertyAppraisalType"
+                      id="PropertyAppraisalIterator"/>
+    <accessorIterator MasterBinding="CreditHistoryReportIterator"
+                      Binds="loanApplicationHistory" RangeSize="25"
+                      DataControl="TakeFinalDecisionForm_TakeFinalDecisionHumanTask"
+                      BeanClass="TakeFinalDecisionForm_TakeFinalDecisionHumanTask.LoanInfoType1"
+                      id="loanApplicationHistoryIterator"/>
+  </executables>
+  <bindings>
+    <methodAction id="getTaskDetails" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="getTaskDetails"
+                  IsViewObjectMethod="false"
+                  DataControl="TakeFinalDecisionForm_TakeFinalDecisionHumanTask"
+                  InstanceName="TakeFinalDecisionForm_TakeFinalDecisionHumanTask"
+                  ReturnName="data.TakeFinalDecisionForm_TakeFinalDecisionHumanTask.methodResults.getTaskDetails_TakeFinalDecisionForm_TakeFinalDecisionHumanTask_getTaskDetails_result">
+      <NamedData NDName="bpmWorklistContext" NDType="java.lang.String"/>
+      <NamedData NDName="bpmWorklistTaskId" NDType="java.lang.String"/>
+      <NamedData NDName="bpmWorklistTaskVersion" NDType="java.lang.String"/>
+    </methodAction>
+    <methodAction IterBinding="taskIterator" id="UpdateAction"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="UpdateAction" IsViewObjectMethod="false"
+                  DataControl="TakeFinalDecisionForm_TakeFinalDecisionHumanTask"
+                  InstanceName="bindings.taskIterator.currentRow.dataProvider"
+                  IsLocalObjectReference="true">
+      <NamedData NDName="action" NDType="java.lang.String"/>
+    </methodAction>
+    <methodAction IterBinding="taskIterator" id="update"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="update" IsViewObjectMethod="false"
+                  DataControl="TakeFinalDecisionForm_TakeFinalDecisionHumanTask"
+                  InstanceName="bindings.taskIterator.currentRow.dataProvider"
+                  IsLocalObjectReference="true"/>
+    <navigationlist IterBinding="systemActionsIterator"
+                    ListOperMode="navigation" ListIter="systemActionsIterator"
+                    id="systemActions">
+      <AttrNames>
+        <Item Value="action"/>
+        <Item Value="displayName"/>
+      </AttrNames>
+    </navigationlist>
+    <attributeValues IterBinding="systemAttributesIterator"
+                     id="digitalSignatureRequired">
+      <AttrNames>
+        <Item Value="digitalSignatureRequired"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="systemAttributesIterator"
+                     id="passwordRequiredOnUpdate">
+      <AttrNames>
+        <Item Value="passwordRequiredOnUpdate"/>
+      </AttrNames>
+    </attributeValues>
+    <navigationlist IterBinding="customActionsIterator"
+                    ListOperMode="navigation" ListIter="customActionsIterator"
+                    id="customActions">
+      <AttrNames>
+        <Item Value="action"/>
+        <Item Value="displayName"/>
+      </AttrNames>
+    </navigationlist>
+    <methodAction IterBinding="taskIterator" id="Claim"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="Claim" IsViewObjectMethod="false"
+                  DataControl="TakeFinalDecisionForm_TakeFinalDecisionHumanTask"
+                  InstanceName="bindings.taskIterator.currentRow.dataProvider"
+                  IsLocalObjectReference="true"/>
+    <methodAction IterBinding="taskIterator" id="Acknowledge"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="Acknowledge" IsViewObjectMethod="false"
+                  DataControl="TakeFinalDecisionForm_TakeFinalDecisionHumanTask"
+                  InstanceName="bindings.taskIterator.currentRow.dataProvider"
+                  IsLocalObjectReference="true"/>
+    <methodAction IterBinding="taskIterator" id="Resume"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="Resume" IsViewObjectMethod="false"
+                  DataControl="TakeFinalDecisionForm_TakeFinalDecisionHumanTask"
+                  InstanceName="bindings.taskIterator.currentRow.dataProvider"
+                  IsLocalObjectReference="true"/>
+    <methodAction IterBinding="taskIterator" id="Withdraw"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="Withdraw" IsViewObjectMethod="false"
+                  DataControl="TakeFinalDecisionForm_TakeFinalDecisionHumanTask"
+                  InstanceName="bindings.taskIterator.currentRow.dataProvider"
+                  IsLocalObjectReference="true"/>
+    <methodAction IterBinding="taskIterator" id="APPROVE"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="APPROVE" IsViewObjectMethod="false"
+                  DataControl="TakeFinalDecisionForm_TakeFinalDecisionHumanTask"
+                  InstanceName="bindings.taskIterator.currentRow.dataProvider"
+                  IsLocalObjectReference="true"/>
+    <methodAction IterBinding="taskIterator" id="REJECT"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="REJECT" IsViewObjectMethod="false"
+                  DataControl="TakeFinalDecisionForm_TakeFinalDecisionHumanTask"
+                  InstanceName="bindings.taskIterator.currentRow.dataProvider"
+                  IsLocalObjectReference="true"/>
+    <attributeValues IterBinding="AgreementSummaryIterator"
+                     id="conditionsAgreedByApplicant">
+      <AttrNames>
+        <Item Value="conditionsAgreedByApplicant"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="AgreementSummaryIterator"
+                     id="repaymentScheduleAgreedByApplicant">
+      <AttrNames>
+        <Item Value="repaymentScheduleAgreedByApplicant"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="identificationIterator" id="firstName">
+      <AttrNames>
+        <Item Value="firstName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="identificationIterator" id="lastName">
+      <AttrNames>
+        <Item Value="lastName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="identificationIterator"
+                     id="identificationNumber">
+      <AttrNames>
+        <Item Value="identificationNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="identificationIterator"
+                     id="identificationType">
+      <AttrNames>
+        <Item Value="identificationType"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="contactIterator" id="email">
+      <AttrNames>
+        <Item Value="email"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="contactIterator" id="homePhone">
+      <AttrNames>
+        <Item Value="homePhone"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="contactIterator" id="cellPhone">
+      <AttrNames>
+        <Item Value="cellPhone"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="jobInfoIterator" id="currentEmployer">
+      <AttrNames>
+        <Item Value="currentEmployer"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="jobInfoIterator" id="monthlyNetRevenue">
+      <AttrNames>
+        <Item Value="monthlyNetRevenue"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="jobInfoIterator" id="jobTitle">
+      <AttrNames>
+        <Item Value="jobTitle"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="bankAccountsIterator" id="bankAccounts">
+      <nodeDefinition DefName="TakeFinalDecisionForm_TakeFinalDecisionHumanTask.BankAccountInfoType"
+                      Name="bankAccounts0">
+        <AttrNames>
+          <Item Value="accountNumber"/>
+          <Item Value="accountType"/>
+          <Item Value="bankName"/>
+          <Item Value="accountBalance"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="propertyIterator" id="propertyType">
+      <AttrNames>
+        <Item Value="propertyType"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="propertyIterator" id="address">
+      <AttrNames>
+        <Item Value="address"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="propertyIterator" id="purchasingPrice">
+      <AttrNames>
+        <Item Value="purchasingPrice"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="loanIterator" id="amount">
+      <AttrNames>
+        <Item Value="amount"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="loanIterator" id="startDate">
+      <AttrNames>
+        <Item Value="startDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="loanIterator" id="interestRate">
+      <AttrNames>
+        <Item Value="interestRate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="loanIterator" id="interestType">
+      <AttrNames>
+        <Item Value="interestType"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="loanIterator" id="duration">
+      <AttrNames>
+        <Item Value="duration"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="loanIterator" id="endDate">
+      <AttrNames>
+        <Item Value="endDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="administrationIterator"
+                     id="applicationIdentifer">
+      <AttrNames>
+        <Item Value="applicationIdentifer"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="administrationIterator"
+                     id="applicationStatus">
+      <AttrNames>
+        <Item Value="applicationStatus"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="administrationIterator"
+                     id="loanOfficerIdentifier">
+      <AttrNames>
+        <Item Value="loanOfficerIdentifier"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CreditHistoryReportIterator"
+                     id="financialOfficerIdentifier">
+      <AttrNames>
+        <Item Value="financialOfficerIdentifier"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PropertyAppraisalIterator"
+                     id="propertyAppraiserIdentifier">
+      <AttrNames>
+        <Item Value="propertyAppraiserIdentifier"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="loanApplicationHistoryIterator"
+          id="loanApplicationHistory">
+      <nodeDefinition DefName="TakeFinalDecisionForm_TakeFinalDecisionHumanTask.LoanInfoType1"
+                      Name="loanApplicationHistory0">
+        <AttrNames>
+          <Item Value="amount"/>
+          <Item Value="startDate"/>
+          <Item Value="interestRate"/>
+          <Item Value="interestType"/>
+          <Item Value="duration"/>
+          <Item Value="endDate"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="PropertyAppraisalIterator"
+                     id="estimateMarketValue">
+      <AttrNames>
+        <Item Value="estimateMarketValue"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PropertyAppraisalIterator"
+                     id="propertyComment">
+      <AttrNames>
+        <Item Value="propertyComment"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CreditHistoryReportIterator"
+                     id="creditAssessment">
+      <AttrNames>
+        <Item Value="creditAssessment"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

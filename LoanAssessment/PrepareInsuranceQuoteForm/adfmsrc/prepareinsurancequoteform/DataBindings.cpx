@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application"
+             version="11.1.1.64.93" id="DataBindings" SeparateXMLFiles="false"
+             Package="prepareinsurancequoteform" ClientType="Generic">
+  <pageMap>
+    <page path="/taskDetails1.jspx"
+          usageId="prepareinsurancequoteform_taskDetails1PageDef"/>
+    <page path="/prepareInsuranceQuote.jspx"
+          usageId="prepareinsurancequoteform_prepareInsuranceQuotePageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="prepareinsurancequoteform_taskDetails1PageDef"
+          path="prepareinsurancequoteform.pageDefs.taskDetails1PageDef"/>
+    <page id="prepareinsurancequoteform_prepareInsuranceQuotePageDef"
+          path="prepareinsurancequoteform.pageDefs.prepareInsuranceQuotePageDef"/>
+  </pageDefinitionUsages>
+  <dataControlUsages>
+    <dc id="PrepareInsuranceQuoteForm_PrepareInsuranceQuoteHumanTask"
+        path="prepareinsurancequoteform.PrepareInsuranceQuoteForm_PrepareInsuranceQuoteHumanTask"/>
+  </dataControlUsages>
+</Application>

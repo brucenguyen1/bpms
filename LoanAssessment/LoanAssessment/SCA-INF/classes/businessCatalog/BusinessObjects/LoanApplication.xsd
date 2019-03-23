@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?bpmo version="11.1.1.7.0.0.8" build="0.8" fullName="BusinessObjects.LoanApplication" modifiers="268435456"?>
+<!--########################################################################################-->
+<!--####                                                                                ####-->
+<!--####          THIS IS AN AUTO GENERATED FILE. PLEASE DO NOT MANUALLY MODIFY         ####-->
+<!--#### CHANGES TO THIS FILE MAY PRODUCE UNEXPECTED BEHAVIOR AND WOULD BE OVERWRITTEN  ####-->
+<!--####                                                                                ####-->
+<!--########################################################################################-->
+<xs:schema targetNamespace="http://xmlns.oracle.com/bpm/bpmobject/BusinessObjects/LoanApplication" elementFormDefault="qualified" xmlns:ns4="http://xmlns.oracle.com/bpm/bpmobject/BusinessObjects/AdministrationInfo"  xmlns:xs="http://www.w3.org/2001/XMLSchema"  xmlns="http://xmlns.oracle.com/bpm/bpmobject/BusinessObjects/LoanApplication"  xmlns:ns3="http://xmlns.oracle.com/bpm/bpmobject/BusinessObjects/LoanInfo"  xmlns:ns2="http://xmlns.oracle.com/bpm/bpmobject/BusinessObjects/PropertyInfo"  xmlns:ns1="http://xmlns.oracle.com/bpm/bpmobject/BusinessObjects/ApplicationInfo"  xmlns:bpmo="http://xmlns.oracle.com/bpm/bpmobject/" >
+    <xs:import namespace="http://xmlns.oracle.com/bpm/bpmobject/BusinessObjects/LoanInfo" schemaLocation="LoanInfo.xsd"/>
+    <xs:import namespace="http://xmlns.oracle.com/bpm/bpmobject/BusinessObjects/AdministrationInfo" schemaLocation="AdministrationInfo.xsd"/>
+    <xs:import namespace="http://xmlns.oracle.com/bpm/bpmobject/BusinessObjects/PropertyInfo" schemaLocation="PropertyInfo.xsd"/>
+    <xs:import namespace="http://xmlns.oracle.com/bpm/bpmobject/BusinessObjects/ApplicationInfo" schemaLocation="ApplicationInfo.xsd"/>
+    <xs:complexType name="LoanApplicationType">
+        <xs:sequence>
+            <xs:element name="application" type="ns1:ApplicationInfoType"/>
+            <xs:element name="property" type="ns2:PropertyInfoType"/>
+            <xs:element name="loan" type="ns3:LoanInfoType"/>
+            <xs:element name="administration" nillable="true" type="ns4:AdministrationInfoType"/>
+            <xs:element name="insuranceQuoteRequired" default="false" type="xs:boolean"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="LoanApplication" type="LoanApplicationType"/>
+</xs:schema>

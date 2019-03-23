@@ -1,0 +1,52 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<SDM>
+   <OverallProperties
+      id="OverallProperties1">
+      <property
+         name="y">985.00586</property>
+      <property
+         name="x">91.5</property>
+   </OverallProperties>
+   <TaskFlowReturn
+      id="TaskFlowReturn7">
+      <property
+         name="activityId">taskReturn</property>
+      <property
+         name="finish">true</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>taskReturn&lt;/b>&lt;/p>&lt;p>Activity Type:  Task Flow Return&lt;/p>&lt;p>Outcome:  done&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">-1102.2529</property>
+      <property
+         name="x">110.6875</property>
+   </TaskFlowReturn>
+   <View
+      id="View30">
+      <property
+         name="activityId">Decide</property>
+      <property
+         name="page">/Decide.jspx</property>
+      <property
+         name="start">true</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>Decide&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">-1104.7646</property>
+      <property
+         name="x">364.0</property>
+   </View>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase33"
+      from="View30"
+      to="TaskFlowReturn7">
+      <property
+         name="fromOutcome">endTaskFlow</property>
+      <property
+         name="sdm:polyPoints">L50,323.0,-1105.1152,151.6875,-1102.6035,R50</property>
+   </ControlFlowCase>
+</SDM>

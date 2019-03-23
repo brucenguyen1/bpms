@@ -1,0 +1,394 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93" id="enterLoanApplicationPageDef"
+                Package="enterappform.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <methodIterator Binds="getTaskDetails.result"
+                    DataControl="EnterAppForm_EnterApplicationFormHumanTask"
+                    RangeSize="25"
+                    BeanClass="EnterAppForm_EnterApplicationFormHumanTask.getTaskDetails"
+                    id="getTaskDetailsIterator"/>
+    <accessorIterator MasterBinding="getTaskDetailsIterator" Binds="task"
+                      RangeSize="25"
+                      DataControl="EnterAppForm_EnterApplicationFormHumanTask"
+                      BeanClass="EnterAppForm_EnterApplicationFormHumanTask.task"
+                      id="taskIterator" StateValidation="false"/>
+    <accessorIterator MasterBinding="taskIterator" Binds="systemAttributes"
+                      RangeSize="25"
+                      DataControl="EnterAppForm_EnterApplicationFormHumanTask"
+                      BeanClass="EnterAppForm_EnterApplicationFormHumanTask.systemAttributesType"
+                      id="systemAttributesIterator"/>
+    <accessorIterator MasterBinding="systemAttributesIterator"
+                      Binds="systemActions" RangeSize="50"
+                      DataControl="EnterAppForm_EnterApplicationFormHumanTask"
+                      BeanClass="EnterAppForm_EnterApplicationFormHumanTask.actionType"
+                      id="systemActionsIterator" StateValidation="false"/>
+    <accessorIterator MasterBinding="systemAttributesIterator"
+                      Binds="customActions" RangeSize="25"
+                      DataControl="EnterAppForm_EnterApplicationFormHumanTask"
+                      BeanClass="EnterAppForm_EnterApplicationFormHumanTask.actionType"
+                      id="customActionsIterator"/>
+    <accessorIterator MasterBinding="taskIterator" Binds="payload"
+                      RangeSize="25"
+                      DataControl="EnterAppForm_EnterApplicationFormHumanTask"
+                      BeanClass="EnterAppForm_EnterApplicationFormHumanTask.EnterApplicationFormHumanTaskPayloadType"
+                      id="payloadIterator"/>
+    <accessorIterator MasterBinding="payloadIterator" Binds="LoanApplication"
+                      RangeSize="25"
+                      DataControl="EnterAppForm_EnterApplicationFormHumanTask"
+                      BeanClass="EnterAppForm_EnterApplicationFormHumanTask.LoanApplicationType"
+                      id="LoanApplicationIterator"/>
+    <accessorIterator MasterBinding="LoanApplicationIterator"
+                      Binds="administration" RangeSize="25"
+                      DataControl="EnterAppForm_EnterApplicationFormHumanTask"
+                      BeanClass="EnterAppForm_EnterApplicationFormHumanTask.AdministrationInfoType"
+                      id="administrationIterator"/>
+    <accessorIterator MasterBinding="LoanApplicationIterator"
+                      Binds="application" RangeSize="25"
+                      DataControl="EnterAppForm_EnterApplicationFormHumanTask"
+                      BeanClass="EnterAppForm_EnterApplicationFormHumanTask.ApplicationInfoType"
+                      id="applicationIterator"/>
+    <accessorIterator MasterBinding="applicationIterator" Binds="contact"
+                      RangeSize="25"
+                      DataControl="EnterAppForm_EnterApplicationFormHumanTask"
+                      BeanClass="EnterAppForm_EnterApplicationFormHumanTask.ContactInfoType"
+                      id="contactIterator"/>
+    <accessorIterator MasterBinding="applicationIterator" Binds="currentAddress"
+                      RangeSize="25"
+                      DataControl="EnterAppForm_EnterApplicationFormHumanTask"
+                      BeanClass="EnterAppForm_EnterApplicationFormHumanTask.AddressInfoType"
+                      id="currentAddressIterator"/>
+    <accessorIterator MasterBinding="applicationIterator"
+                      Binds="previousAddress" RangeSize="25"
+                      DataControl="EnterAppForm_EnterApplicationFormHumanTask"
+                      BeanClass="EnterAppForm_EnterApplicationFormHumanTask.AddressInfoType"
+                      id="previousAddressIterator"/>
+    <accessorIterator MasterBinding="applicationIterator" Binds="financialInfo"
+                      RangeSize="25"
+                      DataControl="EnterAppForm_EnterApplicationFormHumanTask"
+                      BeanClass="EnterAppForm_EnterApplicationFormHumanTask.FinancialInfoType"
+                      id="financialInfoIterator"/>
+    <accessorIterator MasterBinding="financialInfoIterator" Binds="jobInfo"
+                      RangeSize="25"
+                      DataControl="EnterAppForm_EnterApplicationFormHumanTask"
+                      BeanClass="EnterAppForm_EnterApplicationFormHumanTask.JobInfoType"
+                      id="jobInfoIterator"/>
+    <accessorIterator MasterBinding="financialInfoIterator" Binds="bankAccounts"
+                      RangeSize="25"
+                      DataControl="EnterAppForm_EnterApplicationFormHumanTask"
+                      BeanClass="EnterAppForm_EnterApplicationFormHumanTask.BankAccountInfoType"
+                      id="bankAccountsIterator"/>
+    <accessorIterator MasterBinding="LoanApplicationIterator" Binds="property"
+                      RangeSize="25"
+                      DataControl="EnterAppForm_EnterApplicationFormHumanTask"
+                      BeanClass="EnterAppForm_EnterApplicationFormHumanTask.PropertyInfoType"
+                      id="propertyIterator"/>
+    <accessorIterator MasterBinding="LoanApplicationIterator" Binds="loan"
+                      RangeSize="25"
+                      DataControl="EnterAppForm_EnterApplicationFormHumanTask"
+                      BeanClass="EnterAppForm_EnterApplicationFormHumanTask.LoanInfoType"
+                      id="loanIterator"/>
+    <accessorIterator MasterBinding="applicationIterator" Binds="identification"
+                      RangeSize="25"
+                      DataControl="EnterAppForm_EnterApplicationFormHumanTask"
+                      BeanClass="EnterAppForm_EnterApplicationFormHumanTask.IdentificationInfoType"
+                      id="identificationIterator"/>
+  </executables>
+  <bindings>
+    <methodAction id="getTaskDetails" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="getTaskDetails"
+                  IsViewObjectMethod="false"
+                  DataControl="EnterAppForm_EnterApplicationFormHumanTask"
+                  InstanceName="EnterAppForm_EnterApplicationFormHumanTask"
+                  ReturnName="data.EnterAppForm_EnterApplicationFormHumanTask.methodResults.getTaskDetails_EnterAppForm_EnterApplicationFormHumanTask_getTaskDetails_result">
+      <NamedData NDName="bpmWorklistContext" NDType="java.lang.String"/>
+      <NamedData NDName="bpmWorklistTaskId" NDType="java.lang.String"/>
+      <NamedData NDName="bpmWorklistTaskVersion" NDType="java.lang.String"/>
+    </methodAction>
+    <methodAction IterBinding="taskIterator" id="UpdateAction"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="UpdateAction" IsViewObjectMethod="false"
+                  DataControl="EnterAppForm_EnterApplicationFormHumanTask"
+                  InstanceName="bindings.taskIterator.currentRow.dataProvider"
+                  IsLocalObjectReference="true">
+      <NamedData NDName="action" NDType="java.lang.String"/>
+    </methodAction>
+    <navigationlist IterBinding="systemActionsIterator"
+                    ListOperMode="navigation" ListIter="systemActionsIterator"
+                    id="systemActions">
+      <AttrNames>
+        <Item Value="action"/>
+        <Item Value="displayName"/>
+      </AttrNames>
+    </navigationlist>
+    <attributeValues IterBinding="systemAttributesIterator"
+                     id="digitalSignatureRequired">
+      <AttrNames>
+        <Item Value="digitalSignatureRequired"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="systemAttributesIterator"
+                     id="passwordRequiredOnUpdate">
+      <AttrNames>
+        <Item Value="passwordRequiredOnUpdate"/>
+      </AttrNames>
+    </attributeValues>
+    <methodAction IterBinding="taskIterator" id="Claim"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="Claim" IsViewObjectMethod="false"
+                  DataControl="EnterAppForm_EnterApplicationFormHumanTask"
+                  InstanceName="bindings.taskIterator.currentRow.dataProvider"
+                  IsLocalObjectReference="true"/>
+    <methodAction IterBinding="taskIterator" id="Acknowledge"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="Acknowledge" IsViewObjectMethod="false"
+                  DataControl="EnterAppForm_EnterApplicationFormHumanTask"
+                  InstanceName="bindings.taskIterator.currentRow.dataProvider"
+                  IsLocalObjectReference="true"/>
+    <methodAction IterBinding="taskIterator" id="Resume"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="Resume" IsViewObjectMethod="false"
+                  DataControl="EnterAppForm_EnterApplicationFormHumanTask"
+                  InstanceName="bindings.taskIterator.currentRow.dataProvider"
+                  IsLocalObjectReference="true"/>
+    <methodAction IterBinding="taskIterator" id="Withdraw"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="Withdraw" IsViewObjectMethod="false"
+                  DataControl="EnterAppForm_EnterApplicationFormHumanTask"
+                  InstanceName="bindings.taskIterator.currentRow.dataProvider"
+                  IsLocalObjectReference="true"/>
+    <methodAction IterBinding="taskIterator" id="update"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="update" IsViewObjectMethod="false"
+                  DataControl="EnterAppForm_EnterApplicationFormHumanTask"
+                  InstanceName="bindings.taskIterator.currentRow.dataProvider"
+                  IsLocalObjectReference="true"/>
+    <navigationlist IterBinding="customActionsIterator"
+                    ListOperMode="navigation" ListIter="customActionsIterator"
+                    id="customActions">
+      <AttrNames>
+        <Item Value="action"/>
+        <Item Value="displayName"/>
+      </AttrNames>
+    </navigationlist>
+    <methodAction IterBinding="taskIterator" id="SUBMIT"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="SUBMIT" IsViewObjectMethod="false"
+                  DataControl="EnterAppForm_EnterApplicationFormHumanTask"
+                  InstanceName="bindings.taskIterator.currentRow.dataProvider"
+                  IsLocalObjectReference="true"/>
+    <attributeValues IterBinding="administrationIterator"
+                     id="applicationIdentifer">
+      <AttrNames>
+        <Item Value="applicationIdentifer"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="contactIterator" id="email">
+      <AttrNames>
+        <Item Value="email"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="contactIterator" id="homePhone">
+      <AttrNames>
+        <Item Value="homePhone"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="contactIterator" id="cellPhone">
+      <AttrNames>
+        <Item Value="cellPhone"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="currentAddressIterator" id="streetName">
+      <AttrNames>
+        <Item Value="streetName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="currentAddressIterator" id="streetNumber">
+      <AttrNames>
+        <Item Value="streetNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="currentAddressIterator" id="city">
+      <AttrNames>
+        <Item Value="city"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="currentAddressIterator" id="postalCode">
+      <AttrNames>
+        <Item Value="postalCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="currentAddressIterator" id="state">
+      <AttrNames>
+        <Item Value="state"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="currentAddressIterator" id="surburb">
+      <AttrNames>
+        <Item Value="surburb"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="currentAddressIterator" id="durationOfStay">
+      <AttrNames>
+        <Item Value="durationOfStay"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="previousAddressIterator" id="streetName1">
+      <AttrNames>
+        <Item Value="streetName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="previousAddressIterator" id="streetNumber1">
+      <AttrNames>
+        <Item Value="streetNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="previousAddressIterator" id="city1">
+      <AttrNames>
+        <Item Value="city"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="previousAddressIterator" id="postalCode1">
+      <AttrNames>
+        <Item Value="postalCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="previousAddressIterator" id="state1">
+      <AttrNames>
+        <Item Value="state"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="previousAddressIterator" id="surburb1">
+      <AttrNames>
+        <Item Value="surburb"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="previousAddressIterator" id="durationOfStay1">
+      <AttrNames>
+        <Item Value="durationOfStay"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="jobInfoIterator" id="currentEmployer">
+      <AttrNames>
+        <Item Value="currentEmployer"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="jobInfoIterator" id="monthlyNetRevenue">
+      <AttrNames>
+        <Item Value="monthlyNetRevenue"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="jobInfoIterator" id="jobTitle">
+      <AttrNames>
+        <Item Value="jobTitle"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="bankAccountsIterator" id="bankAccounts">
+      <nodeDefinition DefName="EnterAppForm_EnterApplicationFormHumanTask.BankAccountInfoType"
+                      Name="bankAccounts0">
+        <AttrNames>
+          <Item Value="accountNumber"/>
+          <Item Value="accountType"/>
+          <Item Value="bankName"/>
+          <Item Value="accountBalance"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="propertyIterator" id="propertyType">
+      <AttrNames>
+        <Item Value="propertyType"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="propertyIterator" id="address">
+      <AttrNames>
+        <Item Value="address"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="propertyIterator" id="purchasingPrice">
+      <AttrNames>
+        <Item Value="purchasingPrice"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="loanIterator" id="amount">
+      <AttrNames>
+        <Item Value="amount"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="loanIterator" id="startDate">
+      <AttrNames>
+        <Item Value="startDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="loanIterator" id="interestRate">
+      <AttrNames>
+        <Item Value="interestRate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="loanIterator" id="interestType">
+      <AttrNames>
+        <Item Value="interestType"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="loanIterator" id="duration">
+      <AttrNames>
+        <Item Value="duration"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="loanIterator" id="endDate">
+      <AttrNames>
+        <Item Value="endDate"/>
+      </AttrNames>
+    </attributeValues>
+    <button IterBinding="LoanApplicationIterator" id="insuranceQuoteRequired"
+            DTSupportsMRU="false" StaticList="true">
+      <AttrNames>
+        <Item Value="insuranceQuoteRequired"/>
+      </AttrNames>
+      <ValueList>
+        <Item Value="true"/>
+        <Item Value="false"/>
+      </ValueList>
+    </button>
+    <attributeValues IterBinding="identificationIterator" id="firstName">
+      <AttrNames>
+        <Item Value="firstName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="identificationIterator" id="lastName">
+      <AttrNames>
+        <Item Value="lastName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="identificationIterator"
+                     id="identificationNumber">
+      <AttrNames>
+        <Item Value="identificationNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="identificationIterator"
+                     id="identificationType">
+      <AttrNames>
+        <Item Value="identificationType"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="administrationIterator"
+                     id="applicationStatusComment">
+      <AttrNames>
+        <Item Value="applicationStatusComment"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="administrationIterator"
+                     id="submissionDateTime">
+      <AttrNames>
+        <Item Value="submissionDateTime"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="administrationIterator" id="revisionDateTime">
+      <AttrNames>
+        <Item Value="revisionDateTime"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

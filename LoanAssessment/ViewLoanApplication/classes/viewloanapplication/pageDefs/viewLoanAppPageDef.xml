@@ -1,0 +1,469 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93" id="viewLoanAppPageDef"
+                Package="viewloanapplication.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <methodIterator Binds="getTaskDetails.result"
+                    DataControl="ViewLoanApplication_ViewLoanApplicationHumanTask"
+                    RangeSize="25"
+                    BeanClass="ViewLoanApplication_ViewLoanApplicationHumanTask.getTaskDetails"
+                    id="getTaskDetailsIterator"/>
+    <accessorIterator MasterBinding="getTaskDetailsIterator" Binds="task"
+                      RangeSize="25"
+                      DataControl="ViewLoanApplication_ViewLoanApplicationHumanTask"
+                      BeanClass="ViewLoanApplication_ViewLoanApplicationHumanTask.task"
+                      id="taskIterator" StateValidation="false"/>
+    <accessorIterator MasterBinding="taskIterator" Binds="systemAttributes"
+                      RangeSize="25"
+                      DataControl="ViewLoanApplication_ViewLoanApplicationHumanTask"
+                      BeanClass="ViewLoanApplication_ViewLoanApplicationHumanTask.systemAttributesType"
+                      id="systemAttributesIterator"/>
+    <accessorIterator MasterBinding="systemAttributesIterator"
+                      Binds="systemActions" RangeSize="50"
+                      DataControl="ViewLoanApplication_ViewLoanApplicationHumanTask"
+                      BeanClass="ViewLoanApplication_ViewLoanApplicationHumanTask.actionType"
+                      id="systemActionsIterator" StateValidation="false"/>
+    <accessorIterator MasterBinding="systemAttributesIterator"
+                      Binds="customActions" RangeSize="25"
+                      DataControl="ViewLoanApplication_ViewLoanApplicationHumanTask"
+                      BeanClass="ViewLoanApplication_ViewLoanApplicationHumanTask.actionType"
+                      id="customActionsIterator"/>
+    <accessorIterator MasterBinding="taskIterator" Binds="payload"
+                      RangeSize="25"
+                      DataControl="ViewLoanApplication_ViewLoanApplicationHumanTask"
+                      BeanClass="ViewLoanApplication_ViewLoanApplicationHumanTask.ViewLoanApplicationHumanTaskPayloadType"
+                      id="payloadIterator"/>
+    <accessorIterator MasterBinding="payloadIterator" Binds="LoanApplication"
+                      RangeSize="25"
+                      DataControl="ViewLoanApplication_ViewLoanApplicationHumanTask"
+                      BeanClass="ViewLoanApplication_ViewLoanApplicationHumanTask.LoanApplicationType"
+                      id="LoanApplicationIterator"/>
+    <accessorIterator MasterBinding="LoanApplicationIterator"
+                      Binds="application" RangeSize="25"
+                      DataControl="ViewLoanApplication_ViewLoanApplicationHumanTask"
+                      BeanClass="ViewLoanApplication_ViewLoanApplicationHumanTask.ApplicationInfoType"
+                      id="applicationIterator"/>
+    <accessorIterator MasterBinding="applicationIterator" Binds="identification"
+                      RangeSize="25"
+                      DataControl="ViewLoanApplication_ViewLoanApplicationHumanTask"
+                      BeanClass="ViewLoanApplication_ViewLoanApplicationHumanTask.IdentificationInfoType"
+                      id="identificationIterator"/>
+    <accessorIterator MasterBinding="applicationIterator" Binds="contact"
+                      RangeSize="25"
+                      DataControl="ViewLoanApplication_ViewLoanApplicationHumanTask"
+                      BeanClass="ViewLoanApplication_ViewLoanApplicationHumanTask.ContactInfoType"
+                      id="contactIterator"/>
+    <accessorIterator MasterBinding="applicationIterator" Binds="currentAddress"
+                      RangeSize="25"
+                      DataControl="ViewLoanApplication_ViewLoanApplicationHumanTask"
+                      BeanClass="ViewLoanApplication_ViewLoanApplicationHumanTask.AddressInfoType"
+                      id="currentAddressIterator"/>
+    <accessorIterator MasterBinding="applicationIterator" Binds="financialInfo"
+                      RangeSize="25"
+                      DataControl="ViewLoanApplication_ViewLoanApplicationHumanTask"
+                      BeanClass="ViewLoanApplication_ViewLoanApplicationHumanTask.FinancialInfoType"
+                      id="financialInfoIterator"/>
+    <accessorIterator MasterBinding="financialInfoIterator" Binds="jobInfo"
+                      RangeSize="25"
+                      DataControl="ViewLoanApplication_ViewLoanApplicationHumanTask"
+                      BeanClass="ViewLoanApplication_ViewLoanApplicationHumanTask.JobInfoType"
+                      id="jobInfoIterator"/>
+    <accessorIterator MasterBinding="financialInfoIterator" Binds="bankAccounts"
+                      RangeSize="25"
+                      DataControl="ViewLoanApplication_ViewLoanApplicationHumanTask"
+                      BeanClass="ViewLoanApplication_ViewLoanApplicationHumanTask.BankAccountInfoType"
+                      id="bankAccountsIterator"/>
+    <accessorIterator MasterBinding="payloadIterator"
+                      Binds="CreditHistoryReport" RangeSize="25"
+                      DataControl="ViewLoanApplication_ViewLoanApplicationHumanTask"
+                      BeanClass="ViewLoanApplication_ViewLoanApplicationHumanTask.CreditHistoryReportType"
+                      id="CreditHistoryReportIterator"/>
+    <accessorIterator MasterBinding="CreditHistoryReportIterator"
+                      Binds="loanApplicationHistory" RangeSize="25"
+                      DataControl="ViewLoanApplication_ViewLoanApplicationHumanTask"
+                      BeanClass="ViewLoanApplication_ViewLoanApplicationHumanTask.LoanInfoType1"
+                      id="loanApplicationHistoryIterator"/>
+    <accessorIterator MasterBinding="LoanApplicationIterator" Binds="property"
+                      RangeSize="25"
+                      DataControl="ViewLoanApplication_ViewLoanApplicationHumanTask"
+                      BeanClass="ViewLoanApplication_ViewLoanApplicationHumanTask.PropertyInfoType"
+                      id="propertyIterator"/>
+    <accessorIterator MasterBinding="LoanApplicationIterator" Binds="loan"
+                      RangeSize="25"
+                      DataControl="ViewLoanApplication_ViewLoanApplicationHumanTask"
+                      BeanClass="ViewLoanApplication_ViewLoanApplicationHumanTask.LoanInfoType"
+                      id="loanIterator"/>
+    <accessorIterator MasterBinding="payloadIterator" Binds="PropertyAppraisal"
+                      RangeSize="25"
+                      DataControl="ViewLoanApplication_ViewLoanApplicationHumanTask"
+                      BeanClass="ViewLoanApplication_ViewLoanApplicationHumanTask.PropertyAppraisalType"
+                      id="PropertyAppraisalIterator"/>
+    <accessorIterator MasterBinding="PropertyAppraisalIterator"
+                      Binds="surroundingProperties" RangeSize="25"
+                      DataControl="ViewLoanApplication_ViewLoanApplicationHumanTask"
+                      BeanClass="ViewLoanApplication_ViewLoanApplicationHumanTask.SurroundingPropertyInfoType"
+                      id="surroundingPropertiesIterator"/>
+    <accessorIterator MasterBinding="payloadIterator" Binds="RepaymentAgreement"
+                      RangeSize="25"
+                      DataControl="ViewLoanApplication_ViewLoanApplicationHumanTask"
+                      BeanClass="ViewLoanApplication_ViewLoanApplicationHumanTask.RepaymentAgreementType"
+                      id="RepaymentAgreementIterator"/>
+    <accessorIterator MasterBinding="payloadIterator" Binds="AgreementSummary"
+                      RangeSize="25"
+                      DataControl="ViewLoanApplication_ViewLoanApplicationHumanTask"
+                      BeanClass="ViewLoanApplication_ViewLoanApplicationHumanTask.AgreementSummaryType"
+                      id="AgreementSummaryIterator"/>
+    <accessorIterator MasterBinding="payloadIterator" Binds="HomeInsuranceQuote"
+                      RangeSize="25"
+                      DataControl="ViewLoanApplication_ViewLoanApplicationHumanTask"
+                      BeanClass="ViewLoanApplication_ViewLoanApplicationHumanTask.HomeInsuranceQuoteType"
+                      id="HomeInsuranceQuoteIterator"/>
+    <accessorIterator MasterBinding="LoanApplicationIterator"
+                      Binds="administration" RangeSize="25"
+                      DataControl="ViewLoanApplication_ViewLoanApplicationHumanTask"
+                      BeanClass="ViewLoanApplication_ViewLoanApplicationHumanTask.AdministrationInfoType"
+                      id="administrationIterator"/>
+  </executables>
+  <bindings>
+    <methodAction id="getTaskDetails" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="getTaskDetails"
+                  IsViewObjectMethod="false"
+                  DataControl="ViewLoanApplication_ViewLoanApplicationHumanTask"
+                  InstanceName="ViewLoanApplication_ViewLoanApplicationHumanTask"
+                  ReturnName="data.ViewLoanApplication_ViewLoanApplicationHumanTask.methodResults.getTaskDetails_ViewLoanApplication_ViewLoanApplicationHumanTask_getTaskDetails_result">
+      <NamedData NDName="bpmWorklistContext" NDType="java.lang.String"/>
+      <NamedData NDName="bpmWorklistTaskId" NDType="java.lang.String"/>
+      <NamedData NDName="bpmWorklistTaskVersion" NDType="java.lang.String"/>
+    </methodAction>
+    <methodAction IterBinding="taskIterator" id="UpdateAction"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="UpdateAction" IsViewObjectMethod="false"
+                  DataControl="ViewLoanApplication_ViewLoanApplicationHumanTask"
+                  InstanceName="bindings.taskIterator.currentRow.dataProvider"
+                  IsLocalObjectReference="true">
+      <NamedData NDName="action" NDType="java.lang.String"/>
+    </methodAction>
+    <methodAction IterBinding="taskIterator" id="update"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="update" IsViewObjectMethod="false"
+                  DataControl="ViewLoanApplication_ViewLoanApplicationHumanTask"
+                  InstanceName="bindings.taskIterator.currentRow.dataProvider"
+                  IsLocalObjectReference="true"/>
+    <navigationlist IterBinding="systemActionsIterator"
+                    ListOperMode="navigation" ListIter="systemActionsIterator"
+                    id="systemActions">
+      <AttrNames>
+        <Item Value="action"/>
+        <Item Value="displayName"/>
+      </AttrNames>
+    </navigationlist>
+    <attributeValues IterBinding="systemAttributesIterator"
+                     id="digitalSignatureRequired">
+      <AttrNames>
+        <Item Value="digitalSignatureRequired"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="systemAttributesIterator"
+                     id="passwordRequiredOnUpdate">
+      <AttrNames>
+        <Item Value="passwordRequiredOnUpdate"/>
+      </AttrNames>
+    </attributeValues>
+    <navigationlist IterBinding="customActionsIterator"
+                    ListOperMode="navigation" ListIter="customActionsIterator"
+                    id="customActions">
+      <AttrNames>
+        <Item Value="action"/>
+        <Item Value="displayName"/>
+      </AttrNames>
+    </navigationlist>
+    <methodAction IterBinding="taskIterator" id="Claim"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="Claim" IsViewObjectMethod="false"
+                  DataControl="ViewLoanApplication_ViewLoanApplicationHumanTask"
+                  InstanceName="bindings.taskIterator.currentRow.dataProvider"
+                  IsLocalObjectReference="true"/>
+    <methodAction IterBinding="taskIterator" id="Acknowledge"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="Acknowledge" IsViewObjectMethod="false"
+                  DataControl="ViewLoanApplication_ViewLoanApplicationHumanTask"
+                  InstanceName="bindings.taskIterator.currentRow.dataProvider"
+                  IsLocalObjectReference="true"/>
+    <methodAction IterBinding="taskIterator" id="Resume"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="Resume" IsViewObjectMethod="false"
+                  DataControl="ViewLoanApplication_ViewLoanApplicationHumanTask"
+                  InstanceName="bindings.taskIterator.currentRow.dataProvider"
+                  IsLocalObjectReference="true"/>
+    <methodAction IterBinding="taskIterator" id="Withdraw"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="Withdraw" IsViewObjectMethod="false"
+                  DataControl="ViewLoanApplication_ViewLoanApplicationHumanTask"
+                  InstanceName="bindings.taskIterator.currentRow.dataProvider"
+                  IsLocalObjectReference="true"/>
+    <methodAction IterBinding="taskIterator" id="OK" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="OK"
+                  IsViewObjectMethod="false"
+                  DataControl="ViewLoanApplication_ViewLoanApplicationHumanTask"
+                  InstanceName="bindings.taskIterator.currentRow.dataProvider"
+                  IsLocalObjectReference="true"/>
+    <attributeValues IterBinding="identificationIterator" id="firstName">
+      <AttrNames>
+        <Item Value="firstName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="identificationIterator" id="lastName">
+      <AttrNames>
+        <Item Value="lastName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="identificationIterator"
+                     id="identificationNumber">
+      <AttrNames>
+        <Item Value="identificationNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="identificationIterator"
+                     id="identificationType">
+      <AttrNames>
+        <Item Value="identificationType"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="contactIterator" id="email">
+      <AttrNames>
+        <Item Value="email"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="contactIterator" id="homePhone">
+      <AttrNames>
+        <Item Value="homePhone"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="contactIterator" id="cellPhone">
+      <AttrNames>
+        <Item Value="cellPhone"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="currentAddressIterator" id="streetName">
+      <AttrNames>
+        <Item Value="streetName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="currentAddressIterator" id="streetNumber">
+      <AttrNames>
+        <Item Value="streetNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="currentAddressIterator" id="city">
+      <AttrNames>
+        <Item Value="city"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="currentAddressIterator" id="postalCode">
+      <AttrNames>
+        <Item Value="postalCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="currentAddressIterator" id="state">
+      <AttrNames>
+        <Item Value="state"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="currentAddressIterator" id="surburb">
+      <AttrNames>
+        <Item Value="surburb"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="currentAddressIterator" id="durationOfStay">
+      <AttrNames>
+        <Item Value="durationOfStay"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="jobInfoIterator" id="currentEmployer">
+      <AttrNames>
+        <Item Value="currentEmployer"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="jobInfoIterator" id="monthlyNetRevenue">
+      <AttrNames>
+        <Item Value="monthlyNetRevenue"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="jobInfoIterator" id="jobTitle">
+      <AttrNames>
+        <Item Value="jobTitle"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="bankAccountsIterator" id="bankAccounts">
+      <nodeDefinition DefName="ViewLoanApplication_ViewLoanApplicationHumanTask.BankAccountInfoType"
+                      Name="bankAccounts0">
+        <AttrNames>
+          <Item Value="accountNumber"/>
+          <Item Value="accountType"/>
+          <Item Value="bankName"/>
+          <Item Value="accountBalance"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="CreditHistoryReportIterator"
+                     id="financialOfficerIdentifier">
+      <AttrNames>
+        <Item Value="financialOfficerIdentifier"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CreditHistoryReportIterator"
+                     id="creditAssessment">
+      <AttrNames>
+        <Item Value="creditAssessment"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="loanApplicationHistoryIterator"
+          id="loanApplicationHistory">
+      <nodeDefinition DefName="ViewLoanApplication_ViewLoanApplicationHumanTask.LoanInfoType1"
+                      Name="loanApplicationHistory0">
+        <AttrNames>
+          <Item Value="amount"/>
+          <Item Value="startDate"/>
+          <Item Value="interestRate"/>
+          <Item Value="interestType"/>
+          <Item Value="duration"/>
+          <Item Value="endDate"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="propertyIterator" id="propertyType">
+      <AttrNames>
+        <Item Value="propertyType"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="propertyIterator" id="address">
+      <AttrNames>
+        <Item Value="address"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="propertyIterator" id="purchasingPrice">
+      <AttrNames>
+        <Item Value="purchasingPrice"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="loanIterator" id="amount">
+      <AttrNames>
+        <Item Value="amount"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="loanIterator" id="startDate">
+      <AttrNames>
+        <Item Value="startDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="loanIterator" id="interestRate">
+      <AttrNames>
+        <Item Value="interestRate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="loanIterator" id="interestType">
+      <AttrNames>
+        <Item Value="interestType"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="loanIterator" id="duration">
+      <AttrNames>
+        <Item Value="duration"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="loanIterator" id="endDate">
+      <AttrNames>
+        <Item Value="endDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PropertyAppraisalIterator"
+                     id="propertyAppraiserIdentifier">
+      <AttrNames>
+        <Item Value="propertyAppraiserIdentifier"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PropertyAppraisalIterator"
+                     id="estimateMarketValue">
+      <AttrNames>
+        <Item Value="estimateMarketValue"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PropertyAppraisalIterator"
+                     id="propertyComment">
+      <AttrNames>
+        <Item Value="propertyComment"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="surroundingPropertiesIterator"
+          id="surroundingProperties">
+      <nodeDefinition DefName="ViewLoanApplication_ViewLoanApplicationHumanTask.SurroundingPropertyInfoType"
+                      Name="surroundingProperties0">
+        <AttrNames>
+          <Item Value="name"/>
+          <Item Value="value"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="RepaymentAgreementIterator"
+                     id="monthlyRepaymentAmount">
+      <AttrNames>
+        <Item Value="monthlyRepaymentAmount"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="RepaymentAgreementIterator"
+                     id="numberOfRepayment">
+      <AttrNames>
+        <Item Value="numberOfRepayment"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="AgreementSummaryIterator"
+                     id="conditionsAgreedByApplicant">
+      <AttrNames>
+        <Item Value="conditionsAgreedByApplicant"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="AgreementSummaryIterator"
+                     id="repaymentScheduleAgreedByApplicant">
+      <AttrNames>
+        <Item Value="repaymentScheduleAgreedByApplicant"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="HomeInsuranceQuoteIterator"
+                     id="insuranceSalesRepIdentifier">
+      <AttrNames>
+        <Item Value="insuranceSalesRepIdentifier"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="HomeInsuranceQuoteIterator" id="totalCost">
+      <AttrNames>
+        <Item Value="totalCost"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="HomeInsuranceQuoteIterator"
+                     id="monthlyLoanRepaymentAddCost">
+      <AttrNames>
+        <Item Value="monthlyLoanRepaymentAddCost"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="HomeInsuranceQuoteIterator"
+                     id="termsAndCondition">
+      <AttrNames>
+        <Item Value="termsAndCondition"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="administrationIterator"
+                     id="applicationIdentifer">
+      <AttrNames>
+        <Item Value="applicationIdentifer"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="administrationIterator"
+                     id="applicationStatus">
+      <AttrNames>
+        <Item Value="applicationStatus"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

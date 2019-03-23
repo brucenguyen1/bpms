@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<JavaBean xmlns="http://xmlns.oracle.com/adfm/beanmodel" version="11.1.1.64.93"
+          id="LoanApplicationType"
+          Package="ViewLoanApplication_ViewLoanApplicationHumanTask"
+          BeanClass="ViewLoanApplication_ViewLoanApplicationHumanTask.LoanApplicationType"
+          isJavaBased="false">
+  <Attribute Name="insuranceQuoteRequired" IsUpdateable="0"
+             Type="java.lang.Boolean">
+    <Properties>
+      <CustomProperties>
+        <Property Name="minOccurs" Value="1"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="Insurance Quote Required"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="false"/>
+        <Property Name="originalName" Value="insuranceQuoteRequired"/>
+        <Property Name="targetNamespace"
+                  Value="http://xmlns.oracle.com/bpm/bpmobject/BusinessObjects/LoanApplication"/>
+        <Property Name="type" Value="java.lang.Boolean"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <AccessorAttribute id="application" IsCollection="true"
+                     BeanClass="ViewLoanApplication_ViewLoanApplicationHumanTask.ApplicationInfoType"
+                     CollectionBeanClass="ViewLoanApplication_ViewLoanApplicationHumanTask.ApplicationInfoType_application_Operations">
+    <Properties>
+      <Property Name="nextSiblingNamespace"
+                Value="http://xmlns.oracle.com/bpm/bpmobject/BusinessObjects/LoanApplication"/>
+      <Property Name="nextSibling" Value="property"/>
+      <Property Name="minOccurs" Value="1"/>
+      <Property Name="maxOccurs" Value="1"/>
+      <Property Name="LABEL" Value="Application"/>
+      <Property Name="nillable" Value="false"/>
+      <Property Name="originalName" Value="application"/>
+      <Property Name="targetNamespace"
+                Value="http://xmlns.oracle.com/bpm/bpmobject/BusinessObjects/LoanApplication"/>
+    </Properties>
+  </AccessorAttribute>
+  <AccessorAttribute id="property" IsCollection="true"
+                     BeanClass="ViewLoanApplication_ViewLoanApplicationHumanTask.PropertyInfoType"
+                     CollectionBeanClass="ViewLoanApplication_ViewLoanApplicationHumanTask.PropertyInfoType_property_Operations">
+    <Properties>
+      <Property Name="nextSiblingNamespace"
+                Value="http://xmlns.oracle.com/bpm/bpmobject/BusinessObjects/LoanApplication"/>
+      <Property Name="nextSibling" Value="loan"/>
+      <Property Name="minOccurs" Value="1"/>
+      <Property Name="maxOccurs" Value="1"/>
+      <Property Name="LABEL" Value="Property"/>
+      <Property Name="nillable" Value="false"/>
+      <Property Name="originalName" Value="property"/>
+      <Property Name="targetNamespace"
+                Value="http://xmlns.oracle.com/bpm/bpmobject/BusinessObjects/LoanApplication"/>
+    </Properties>
+  </AccessorAttribute>
+  <AccessorAttribute id="loan" IsCollection="true"
+                     BeanClass="ViewLoanApplication_ViewLoanApplicationHumanTask.LoanInfoType"
+                     CollectionBeanClass="ViewLoanApplication_ViewLoanApplicationHumanTask.LoanInfoType_loan_Operations">
+    <Properties>
+      <Property Name="nextSiblingNamespace"
+                Value="http://xmlns.oracle.com/bpm/bpmobject/BusinessObjects/LoanApplication"/>
+      <Property Name="nextSibling" Value="administration"/>
+      <Property Name="minOccurs" Value="1"/>
+      <Property Name="maxOccurs" Value="1"/>
+      <Property Name="LABEL" Value="Loan"/>
+      <Property Name="nillable" Value="false"/>
+      <Property Name="originalName" Value="loan"/>
+      <Property Name="targetNamespace"
+                Value="http://xmlns.oracle.com/bpm/bpmobject/BusinessObjects/LoanApplication"/>
+    </Properties>
+  </AccessorAttribute>
+  <AccessorAttribute id="administration" IsCollection="true"
+                     BeanClass="ViewLoanApplication_ViewLoanApplicationHumanTask.AdministrationInfoType"
+                     CollectionBeanClass="ViewLoanApplication_ViewLoanApplicationHumanTask.AdministrationInfoType_administration_Operations">
+    <Properties>
+      <Property Name="nextSiblingNamespace"
+                Value="http://xmlns.oracle.com/bpm/bpmobject/BusinessObjects/LoanApplication"/>
+      <Property Name="nextSibling" Value="insuranceQuoteRequired"/>
+      <Property Name="minOccurs" Value="1"/>
+      <Property Name="maxOccurs" Value="1"/>
+      <Property Name="LABEL" Value="Administration"/>
+      <Property Name="nillable" Value="true"/>
+      <Property Name="originalName" Value="administration"/>
+      <Property Name="targetNamespace"
+                Value="http://xmlns.oracle.com/bpm/bpmobject/BusinessObjects/LoanApplication"/>
+    </Properties>
+  </AccessorAttribute>
+</JavaBean>

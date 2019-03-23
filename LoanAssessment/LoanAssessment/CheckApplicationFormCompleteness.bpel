@@ -1,0 +1,157 @@
+<?xml version = "1.0" encoding = "UTF-8" ?>
+<!--
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  Oracle JDeveloper BPEL Designer 
+  
+  Created: Sun Mar 16 22:19:05 EST 2014
+  Author:  Administrator
+  Type: BPEL 2.0 Process
+  Purpose: Synchronous BPEL Process
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+-->
+<process name="CheckApplicationFormCompleteness"
+               targetNamespace="http://xmlns.oracle.com/Loan_Assessment/Loan_Assessment/CheckApplicationFormCompleteness"
+               xmlns="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
+               xmlns:client="http://xmlns.oracle.com/Loan_Assessment/Loan_Assessment/CheckApplicationFormCompleteness"
+               xmlns:ora="http://schemas.oracle.com/xpath/extension"
+               xmlns:bpelx="http://schemas.oracle.com/bpel/extension"
+         xmlns:bpel="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
+         xmlns:ns1="http://xmlns.oracle.com/bpm/bpmobject/BusinessObjects/LoanApplication"
+         xmlns:ns11="http://xmlns.oracle.com/bpm/bpmobject/BusinessObjects/AdministrationInfo"
+         xmlns:ns3="http://xmlns.oracle.com/bpm/bpmobject/BusinessObjects/IdentificationInfo"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns:ns5="http://xmlns.oracle.com/bpm/bpmobject/BusinessObjects/AddressInfo"
+         xmlns:ns10="http://xmlns.oracle.com/bpm/bpmobject/BusinessObjects/LoanInfo"
+         xmlns:ns9="http://xmlns.oracle.com/bpm/bpmobject/BusinessObjects/PropertyInfo"
+         xmlns:ns4="http://xmlns.oracle.com/bpm/bpmobject/BusinessObjects/ContactInfo"
+         xmlns:ns2="http://xmlns.oracle.com/bpm/bpmobject/BusinessObjects/ApplicationInfo"
+         xmlns:ns8="http://xmlns.oracle.com/bpm/bpmobject/BusinessObjects/BankAccountInfo"
+         xmlns:ns6="http://xmlns.oracle.com/bpm/bpmobject/BusinessObjects/FinancialInfo"
+         xmlns:ns7="http://xmlns.oracle.com/bpm/bpmobject/BusinessObjects/JobInfo"
+         xmlns:bpws="http://schemas.xmlsoap.org/ws/2003/03/business-process/"
+         xmlns:xp20="http://www.oracle.com/XSL/Transform/java/oracle.tip.pc.services.functions.Xpath20"
+         xmlns:bpm="http://xmlns.oracle.com/bpmn20/extensions"
+         xmlns:oraext="http://www.oracle.com/XSL/Transform/java/oracle.tip.pc.services.functions.ExtFunc"
+         xmlns:dvm="http://www.oracle.com/XSL/Transform/java/oracle.tip.dvm.LookupValue"
+         xmlns:hwf="http://xmlns.oracle.com/bpel/workflow/xpath"
+         xmlns:ids="http://xmlns.oracle.com/bpel/services/IdentityService/xpath"
+         xmlns:xdk="http://schemas.oracle.com/bpel/extension/xpath/function/xdk"
+         xmlns:xref="http://www.oracle.com/XSL/Transform/java/oracle.tip.xref.xpath.XRefXPathFunctions"
+         xmlns:ldap="http://schemas.oracle.com/xpath/extension/ldap"
+         xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+    <import namespace="http://xmlns.oracle.com/Loan_Assessment/Loan_Assessment/CheckApplicationFormCompleteness" location="CheckApplicationFormCompleteness.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <import location="org.w3c.dom.Element" importType="http://schemas.oracle.com/bpel/extension/java" />
+    <import location="java.util.regex.Matcher" importType="http://schemas.oracle.com/bpel/extension/java" />
+    <import location="java.util.regex.Pattern" importType="http://schemas.oracle.com/bpel/extension/java" />
+    
+    <!-- 
+      ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        PARTNERLINKS                                                      
+        List of services participating in this BPEL process               
+      ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    --> 
+  <partnerLinks>
+    <!-- 
+      The 'client' role represents the requester of this service. It is 
+      used for callback. The location and correlation information associated
+      with the client role are automatically set using WS-Addressing.
+    -->
+    <partnerLink name="checkapplicationformcompleteness_client" partnerLinkType="client:CheckApplicationFormCompleteness" myRole="CheckApplicationFormCompletenessProvider"/>
+  </partnerLinks>
+
+  <!-- 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+      VARIABLES                                                        
+      List of messages and XML documents used within this BPEL process 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  -->
+  <variables>
+    <!-- Reference to the message passed as input during initiation -->
+    <variable name="inputVariable" messageType="client:CheckApplicationFormCompletenessRequestMessage"/>
+
+    <!-- Reference to the message that will be returned to the requester-->
+    <variable name="outputVariable" messageType="client:CheckApplicationFormCompletenessResponseMessage">
+    </variable>
+    <variable name="errorMessage"
+              messageType="client:CheckApplicationFormCompletenessResponseMessage"/>
+  </variables>
+
+  <!-- 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+     ORCHESTRATION LOGIC                                               
+     Set of activities coordinating the flow of messages across the    
+     services integrated within this business process                  
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  -->
+  <sequence name="main">
+
+    <!-- Receive input from requestor. (Note: This maps to operation defined in CheckApplicationFormCompleteness.wsdl) -->
+    <receive name="receiveInput" partnerLink="checkapplicationformcompleteness_client" portType="client:CheckApplicationFormCompleteness" operation="process" variable="inputVariable" createInstance="yes"/>
+    <assign name="Assign1">
+      <copy>
+        <from>$inputVariable.payload/ns1:application/ns2:identification/ns3:firstName</from>
+        <to>$outputVariable.payload/client:result</to>
+      </copy>
+    </assign>
+        
+    <extensionActivity>    
+      <bpelx:exec name="Java_Embedding1" language="java">
+        <![CDATA[org.w3c.dom.Element element;                 
+              
+try {              
+    element = (org.w3c.dom.Element)getVariableData("inputVariable","payload","/ns1:LoanApplication/ns1:application/ns2:identification/ns3:firstName");                   
+    String firstName = element.getFirstChild().getNodeValue();              
+               
+    addAuditTrailEntry("element First name: " + element.getTextContent());           
+    addAuditTrailEntry("First name = " + firstName);           
+                      
+    element = (org.w3c.dom.Element)getVariableData("inputVariable","payload","/ns1:LoanApplication/ns1:application/ns2:identification/ns3:lastName");                   
+    String lastName = element.getFirstChild().getNodeValue();                
+           
+    addAuditTrailEntry("element Last name: " + element.getTextContent());           
+    addAuditTrailEntry("Last name = " + lastName);        
+       
+    String EMAIL_PATTERN = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@" + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";        
+    Pattern pattern = Pattern.compile(EMAIL_PATTERN);       
+    Matcher matcher;       
+    element = (org.w3c.dom.Element)getVariableData("inputVariable","payload","/ns1:LoanApplication/ns1:application/ns2:contact/ns4:email");                   
+    String emailAddr = element.getFirstChild().getNodeValue();   
+ 
+    addAuditTrailEntry("element Email: " + element.getTextContent());           
+    addAuditTrailEntry("Email = " + emailAddr); 
+ 
+    matcher = pattern.matcher(emailAddr);  
+    boolean emailValid = matcher.matches();       
+      
+    String errorMsg = "";      
+      
+    if (firstName.equals("")) {      
+        errorMsg += "First Name is empty; ";      
+    }      
+      
+    if (lastName.equals("")) {      
+        errorMsg += "Last Name is empty; ";      
+    }      
+      
+    if (!emailValid) {      
+        errorMsg += "Email address is invalid; ";      
+    }      
+              
+    setVariableData("outputVariable","payload", "/client:processResponse/client:errorMessage", errorMsg);     
+     
+    if (!errorMsg.equals("")) {                  
+        setVariableData("outputVariable","payload", "/client:processResponse/client:result","incomplete");                  
+    } else {                  
+        setVariableData("outputVariable","payload", "/client:processResponse/client:result","complete");                  
+    }              
+} catch (Exception ex) {              
+    addAuditTrailEntry(ex.getMessage());              
+}]]>
+      </bpelx:exec>
+    </extensionActivity>
+    <!-- Generate reply to synchronous request -->
+    <reply name="replyOutput" partnerLink="checkapplicationformcompleteness_client" portType="client:CheckApplicationFormCompleteness" operation="process"
+           variable="outputVariable"/>
+  </sequence>
+</process>

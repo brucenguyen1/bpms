@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?bpmo version="11.1.1.7.0.0.8" build="0.8" fullName="BusinessObjects.LoanInfo" modifiers="268435456"?>
+<!--########################################################################################-->
+<!--####                                                                                ####-->
+<!--####          THIS IS AN AUTO GENERATED FILE. PLEASE DO NOT MANUALLY MODIFY         ####-->
+<!--#### CHANGES TO THIS FILE MAY PRODUCE UNEXPECTED BEHAVIOR AND WOULD BE OVERWRITTEN  ####-->
+<!--####                                                                                ####-->
+<!--########################################################################################-->
+<xs:schema targetNamespace="http://xmlns.oracle.com/bpm/bpmobject/BusinessObjects/LoanInfo" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema"  xmlns="http://xmlns.oracle.com/bpm/bpmobject/BusinessObjects/LoanInfo"  xmlns:bpmo="http://xmlns.oracle.com/bpm/bpmobject/" >
+    <xs:complexType name="LoanInfoType">
+        <xs:sequence>
+            <xs:element name="amount" default="0.000" type="xs:decimal"/>
+            <xs:element name="startDate" default="2014-06-26T08:00:01.995000+10:00" type="xs:dateTime"/>
+            <xs:element name="interestRate" default="0.000" type="xs:decimal"/>
+            <xs:element name="interestType" default="" type="xs:string"/>
+            <xs:element name="duration" default="0.000" type="xs:decimal"/>
+            <xs:element name="endDate" default="2014-06-26T08:00:57.711000+10:00" type="xs:dateTime"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="LoanInfo" type="LoanInfoType"/>
+</xs:schema>

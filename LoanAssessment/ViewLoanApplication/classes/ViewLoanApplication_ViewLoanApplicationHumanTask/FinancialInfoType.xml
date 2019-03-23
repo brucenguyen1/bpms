@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<JavaBean xmlns="http://xmlns.oracle.com/adfm/beanmodel" version="11.1.1.64.93"
+          id="FinancialInfoType"
+          Package="ViewLoanApplication_ViewLoanApplicationHumanTask"
+          BeanClass="ViewLoanApplication_ViewLoanApplicationHumanTask.FinancialInfoType"
+          isJavaBased="false">
+  <AccessorAttribute id="jobInfo" IsCollection="true"
+                     BeanClass="ViewLoanApplication_ViewLoanApplicationHumanTask.JobInfoType"
+                     CollectionBeanClass="ViewLoanApplication_ViewLoanApplicationHumanTask.JobInfoType_jobInfo_Operations">
+    <Properties>
+      <Property Name="nextSiblingNamespace"
+                Value="http://xmlns.oracle.com/bpm/bpmobject/BusinessObjects/FinancialInfo"/>
+      <Property Name="nextSibling" Value="bankAccounts"/>
+      <Property Name="minOccurs" Value="1"/>
+      <Property Name="maxOccurs" Value="1"/>
+      <Property Name="LABEL" Value="Job Info"/>
+      <Property Name="nillable" Value="false"/>
+      <Property Name="originalName" Value="jobInfo"/>
+      <Property Name="targetNamespace"
+                Value="http://xmlns.oracle.com/bpm/bpmobject/BusinessObjects/FinancialInfo"/>
+    </Properties>
+  </AccessorAttribute>
+  <AccessorAttribute id="bankAccounts" IsCollection="true"
+                     BeanClass="ViewLoanApplication_ViewLoanApplicationHumanTask.BankAccountInfoType"
+                     CollectionBeanClass="ViewLoanApplication_ViewLoanApplicationHumanTask.BankAccountInfoType_bankAccounts_Operations">
+    <Properties>
+      <Property Name="minOccurs" Value="1"/>
+      <Property Name="maxOccurs" Value="2147483640"/>
+      <Property Name="LABEL" Value="Bank Accounts"/>
+      <Property Name="nillable" Value="false"/>
+      <Property Name="originalName" Value="bankAccounts"/>
+      <Property Name="targetNamespace"
+                Value="http://xmlns.oracle.com/bpm/bpmobject/BusinessObjects/FinancialInfo"/>
+    </Properties>
+  </AccessorAttribute>
+</JavaBean>

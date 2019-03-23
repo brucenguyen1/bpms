@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<JavaBean xmlns="http://xmlns.oracle.com/adfm/beanmodel" version="11.1.1.64.93"
+          id="AppraisePropertyHumanTaskPayloadType"
+          Package="AppraisePropertyForm_AppraisePropertyHumanTask"
+          BeanClass="AppraisePropertyForm_AppraisePropertyHumanTask.AppraisePropertyHumanTaskPayloadType"
+          isJavaBased="false">
+  <AccessorAttribute id="LoanApplication" IsCollection="true"
+                     BeanClass="AppraisePropertyForm_AppraisePropertyHumanTask.LoanApplicationType"
+                     CollectionBeanClass="AppraisePropertyForm_AppraisePropertyHumanTask.LoanApplicationType_LoanApplication_Operations">
+    <Properties>
+      <Property Name="nextSiblingNamespace"
+                Value="http://xmlns.oracle.com/bpm/bpmobject/BusinessObjects/PropertyAppraisal"/>
+      <Property Name="nextSibling" Value="PropertyAppraisal"/>
+      <Property Name="minOccurs" Value="1"/>
+      <Property Name="maxOccurs" Value="1"/>
+      <Property Name="LABEL" Value="Loan Application"/>
+      <Property Name="nillable" Value="false"/>
+      <Property Name="originalName" Value="LoanApplication"/>
+      <Property Name="targetNamespace"
+                Value="http://xmlns.oracle.com/bpm/bpmobject/BusinessObjects/LoanApplication"/>
+    </Properties>
+  </AccessorAttribute>
+  <AccessorAttribute id="PropertyAppraisal" IsCollection="true"
+                     BeanClass="AppraisePropertyForm_AppraisePropertyHumanTask.PropertyAppraisalType"
+                     CollectionBeanClass="AppraisePropertyForm_AppraisePropertyHumanTask.PropertyAppraisalType_PropertyAppraisal_Operations">
+    <Properties>
+      <Property Name="minOccurs" Value="1"/>
+      <Property Name="maxOccurs" Value="1"/>
+      <Property Name="LABEL" Value="Property Appraisal"/>
+      <Property Name="nillable" Value="false"/>
+      <Property Name="originalName" Value="PropertyAppraisal"/>
+      <Property Name="targetNamespace"
+                Value="http://xmlns.oracle.com/bpm/bpmobject/BusinessObjects/PropertyAppraisal"/>
+    </Properties>
+  </AccessorAttribute>
+</JavaBean>

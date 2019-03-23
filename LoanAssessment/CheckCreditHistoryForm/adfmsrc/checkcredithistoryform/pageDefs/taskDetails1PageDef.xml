@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93" id="taskDetails1PageDef"
+                Package="checkcredithistoryform.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <methodIterator Binds="getTaskDetails.result"
+                    DataControl="CheckCreditHistoryForm_AssessCreditHistoryHumanTask"
+                    RangeSize="25"
+                    BeanClass="CheckCreditHistoryForm_AssessCreditHistoryHumanTask.getTaskDetails"
+                    id="getTaskDetailsIterator"/>
+    <accessorIterator MasterBinding="getTaskDetailsIterator" Binds="task"
+                      RangeSize="25"
+                      DataControl="CheckCreditHistoryForm_AssessCreditHistoryHumanTask"
+                      BeanClass="CheckCreditHistoryForm_AssessCreditHistoryHumanTask.task"
+                      id="taskIterator" StateValidation="false"/>
+    <accessorIterator MasterBinding="taskIterator" Binds="systemAttributes"
+                      RangeSize="25"
+                      DataControl="CheckCreditHistoryForm_AssessCreditHistoryHumanTask"
+                      BeanClass="CheckCreditHistoryForm_AssessCreditHistoryHumanTask.systemAttributesType"
+                      id="systemAttributesIterator"/>
+    <accessorIterator MasterBinding="systemAttributesIterator"
+                      Binds="systemActions" RangeSize="50"
+                      DataControl="CheckCreditHistoryForm_AssessCreditHistoryHumanTask"
+                      BeanClass="CheckCreditHistoryForm_AssessCreditHistoryHumanTask.actionType"
+                      id="systemActionsIterator" StateValidation="false"/>
+    <accessorIterator MasterBinding="systemAttributesIterator"
+                      Binds="customActions" RangeSize="25"
+                      DataControl="CheckCreditHistoryForm_AssessCreditHistoryHumanTask"
+                      BeanClass="CheckCreditHistoryForm_AssessCreditHistoryHumanTask.actionType"
+                      id="customActionsIterator"/>
+    <accessorIterator MasterBinding="taskIterator" Binds="payload"
+                      RangeSize="25"
+                      DataControl="CheckCreditHistoryForm_AssessCreditHistoryHumanTask"
+                      BeanClass="CheckCreditHistoryForm_AssessCreditHistoryHumanTask.AssessCreditHistoryHumanTaskPayloadType"
+                      id="payloadIterator"/>
+    <accessorIterator MasterBinding="payloadIterator" Binds="LoanApplication"
+                      RangeSize="25"
+                      DataControl="CheckCreditHistoryForm_AssessCreditHistoryHumanTask"
+                      BeanClass="CheckCreditHistoryForm_AssessCreditHistoryHumanTask.LoanApplicationType"
+                      id="LoanApplicationIterator"/>
+    <accessorIterator MasterBinding="LoanApplicationIterator"
+                      Binds="administration" RangeSize="25"
+                      DataControl="CheckCreditHistoryForm_AssessCreditHistoryHumanTask"
+                      BeanClass="CheckCreditHistoryForm_AssessCreditHistoryHumanTask.AdministrationInfoType"
+                      id="administrationIterator"/>
+    <accessorIterator MasterBinding="LoanApplicationIterator"
+                      Binds="application" RangeSize="25"
+                      DataControl="CheckCreditHistoryForm_AssessCreditHistoryHumanTask"
+                      BeanClass="CheckCreditHistoryForm_AssessCreditHistoryHumanTask.ApplicationInfoType"
+                      id="applicationIterator"/>
+    <accessorIterator MasterBinding="applicationIterator" Binds="identification"
+                      RangeSize="25"
+                      DataControl="CheckCreditHistoryForm_AssessCreditHistoryHumanTask"
+                      BeanClass="CheckCreditHistoryForm_AssessCreditHistoryHumanTask.IdentificationInfoType"
+                      id="identificationIterator"/>
+    <accessorIterator MasterBinding="applicationIterator" Binds="contact"
+                      RangeSize="25"
+                      DataControl="CheckCreditHistoryForm_AssessCreditHistoryHumanTask"
+                      BeanClass="CheckCreditHistoryForm_AssessCreditHistoryHumanTask.ContactInfoType"
+                      id="contactIterator"/>
+    <accessorIterator MasterBinding="applicationIterator" Binds="currentAddress"
+                      RangeSize="25"
+                      DataControl="CheckCreditHistoryForm_AssessCreditHistoryHumanTask"
+                      BeanClass="CheckCreditHistoryForm_AssessCreditHistoryHumanTask.AddressInfoType"
+                      id="currentAddressIterator"/>
+    <accessorIterator MasterBinding="applicationIterator" Binds="financialInfo"
+                      RangeSize="25"
+                      DataControl="CheckCreditHistoryForm_AssessCreditHistoryHumanTask"
+                      BeanClass="CheckCreditHistoryForm_AssessCreditHistoryHumanTask.FinancialInfoType"
+                      id="financialInfoIterator"/>
+    <accessorIterator MasterBinding="financialInfoIterator" Binds="jobInfo"
+                      RangeSize="25"
+                      DataControl="CheckCreditHistoryForm_AssessCreditHistoryHumanTask"
+                      BeanClass="CheckCreditHistoryForm_AssessCreditHistoryHumanTask.JobInfoType"
+                      id="jobInfoIterator"/>
+    <accessorIterator MasterBinding="financialInfoIterator" Binds="bankAccounts"
+                      RangeSize="25"
+                      DataControl="CheckCreditHistoryForm_AssessCreditHistoryHumanTask"
+                      BeanClass="CheckCreditHistoryForm_AssessCreditHistoryHumanTask.BankAccountInfoType"
+                      id="bankAccountsIterator"/>
+    <accessorIterator MasterBinding="payloadIterator"
+                      Binds="CreditHistoryReport" RangeSize="25"
+                      DataControl="CheckCreditHistoryForm_AssessCreditHistoryHumanTask"
+                      BeanClass="CheckCreditHistoryForm_AssessCreditHistoryHumanTask.CreditHistoryReportType"
+                      id="CreditHistoryReportIterator"/>
+    <accessorIterator MasterBinding="CreditHistoryReportIterator"
+                      Binds="loanApplicationHistory" RangeSize="25"
+                      DataControl="CheckCreditHistoryForm_AssessCreditHistoryHumanTask"
+                      BeanClass="CheckCreditHistoryForm_AssessCreditHistoryHumanTask.LoanInfoType1"
+                      id="loanApplicationHistoryIterator"/>
+  </executables>
+  <bindings>
+    <methodAction id="getTaskDetails" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="getTaskDetails"
+                  IsViewObjectMethod="false"
+                  DataControl="CheckCreditHistoryForm_AssessCreditHistoryHumanTask"
+                  InstanceName="CheckCreditHistoryForm_AssessCreditHistoryHumanTask"
+                  ReturnName="data.CheckCreditHistoryForm_AssessCreditHistoryHumanTask.methodResults.getTaskDetails_CheckCreditHistoryForm_AssessCreditHistoryHumanTask_getTaskDetails_result">
+      <NamedData NDName="bpmWorklistContext" NDType="java.lang.String"/>
+      <NamedData NDName="bpmWorklistTaskId" NDType="java.lang.String"/>
+      <NamedData NDName="bpmWorklistTaskVersion" NDType="java.lang.String"/>
+    </methodAction>
+    <methodAction IterBinding="taskIterator" id="UpdateAction"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="UpdateAction" IsViewObjectMethod="false"
+                  DataControl="CheckCreditHistoryForm_AssessCreditHistoryHumanTask"
+                  InstanceName="bindings.taskIterator.currentRow.dataProvider"
+                  IsLocalObjectReference="true">
+      <NamedData NDName="action" NDType="java.lang.String"/>
+    </methodAction>
+    <methodAction IterBinding="taskIterator" id="update"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="update" IsViewObjectMethod="false"
+                  DataControl="CheckCreditHistoryForm_AssessCreditHistoryHumanTask"
+                  InstanceName="bindings.taskIterator.currentRow.dataProvider"
+                  IsLocalObjectReference="true"/>
+    <navigationlist IterBinding="systemActionsIterator"
+                    ListOperMode="navigation" ListIter="systemActionsIterator"
+                    id="systemActions">
+      <AttrNames>
+        <Item Value="action"/>
+        <Item Value="displayName"/>
+      </AttrNames>
+    </navigationlist>
+    <attributeValues IterBinding="systemAttributesIterator"
+                     id="digitalSignatureRequired">
+      <AttrNames>
+        <Item Value="digitalSignatureRequired"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="systemAttributesIterator"
+                     id="passwordRequiredOnUpdate">
+      <AttrNames>
+        <Item Value="passwordRequiredOnUpdate"/>
+      </AttrNames>
+    </attributeValues>
+    <navigationlist IterBinding="customActionsIterator"
+                    ListOperMode="navigation" ListIter="customActionsIterator"
+                    id="customActions">
+      <AttrNames>
+        <Item Value="action"/>
+        <Item Value="displayName"/>
+      </AttrNames>
+    </navigationlist>
+    <methodAction IterBinding="taskIterator" id="Claim"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="Claim" IsViewObjectMethod="false"
+                  DataControl="CheckCreditHistoryForm_AssessCreditHistoryHumanTask"
+                  InstanceName="bindings.taskIterator.currentRow.dataProvider"
+                  IsLocalObjectReference="true"/>
+    <methodAction IterBinding="taskIterator" id="Acknowledge"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="Acknowledge" IsViewObjectMethod="false"
+                  DataControl="CheckCreditHistoryForm_AssessCreditHistoryHumanTask"
+                  InstanceName="bindings.taskIterator.currentRow.dataProvider"
+                  IsLocalObjectReference="true"/>
+    <methodAction IterBinding="taskIterator" id="Resume"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="Resume" IsViewObjectMethod="false"
+                  DataControl="CheckCreditHistoryForm_AssessCreditHistoryHumanTask"
+                  InstanceName="bindings.taskIterator.currentRow.dataProvider"
+                  IsLocalObjectReference="true"/>
+    <methodAction IterBinding="taskIterator" id="Withdraw"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="Withdraw" IsViewObjectMethod="false"
+                  DataControl="CheckCreditHistoryForm_AssessCreditHistoryHumanTask"
+                  InstanceName="bindings.taskIterator.currentRow.dataProvider"
+                  IsLocalObjectReference="true"/>
+    <methodAction IterBinding="taskIterator" id="OK" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="OK"
+                  IsViewObjectMethod="false"
+                  DataControl="CheckCreditHistoryForm_AssessCreditHistoryHumanTask"
+                  InstanceName="bindings.taskIterator.currentRow.dataProvider"
+                  IsLocalObjectReference="true"/>
+    <attributeValues IterBinding="administrationIterator"
+                     id="applicationIdentifer">
+      <AttrNames>
+        <Item Value="applicationIdentifer"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="identificationIterator" id="firstName">
+      <AttrNames>
+        <Item Value="firstName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="identificationIterator" id="lastName">
+      <AttrNames>
+        <Item Value="lastName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="identificationIterator"
+                     id="identificationNumber">
+      <AttrNames>
+        <Item Value="identificationNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="identificationIterator"
+                     id="identificationType">
+      <AttrNames>
+        <Item Value="identificationType"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="contactIterator" id="email">
+      <AttrNames>
+        <Item Value="email"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="contactIterator" id="homePhone">
+      <AttrNames>
+        <Item Value="homePhone"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="contactIterator" id="cellPhone">
+      <AttrNames>
+        <Item Value="cellPhone"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="currentAddressIterator" id="streetName">
+      <AttrNames>
+        <Item Value="streetName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="currentAddressIterator" id="streetNumber">
+      <AttrNames>
+        <Item Value="streetNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="currentAddressIterator" id="city">
+      <AttrNames>
+        <Item Value="city"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="currentAddressIterator" id="postalCode">
+      <AttrNames>
+        <Item Value="postalCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="currentAddressIterator" id="state">
+      <AttrNames>
+        <Item Value="state"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="currentAddressIterator" id="surburb">
+      <AttrNames>
+        <Item Value="surburb"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="currentAddressIterator" id="durationOfStay">
+      <AttrNames>
+        <Item Value="durationOfStay"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="jobInfoIterator" id="currentEmployer">
+      <AttrNames>
+        <Item Value="currentEmployer"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="jobInfoIterator" id="monthlyNetRevenue">
+      <AttrNames>
+        <Item Value="monthlyNetRevenue"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="jobInfoIterator" id="jobTitle">
+      <AttrNames>
+        <Item Value="jobTitle"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="bankAccountsIterator" id="bankAccounts">
+      <nodeDefinition DefName="CheckCreditHistoryForm_AssessCreditHistoryHumanTask.BankAccountInfoType"
+                      Name="bankAccounts0">
+        <AttrNames>
+          <Item Value="accountNumber"/>
+          <Item Value="accountType"/>
+          <Item Value="bankName"/>
+          <Item Value="accountBalance"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="loanApplicationHistoryIterator"
+          id="loanApplicationHistory">
+      <nodeDefinition DefName="CheckCreditHistoryForm_AssessCreditHistoryHumanTask.LoanInfoType1"
+                      Name="loanApplicationHistory0">
+        <AttrNames>
+          <Item Value="amount"/>
+          <Item Value="startDate"/>
+          <Item Value="interestRate"/>
+          <Item Value="interestType"/>
+          <Item Value="duration"/>
+          <Item Value="endDate"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <list IterBinding="CreditHistoryReportIterator" id="creditAssessment"
+          DTSupportsMRU="true" StaticList="true">
+      <AttrNames>
+        <Item Value="creditAssessment"/>
+      </AttrNames>
+      <ValueList>
+        <Item Value="B"/>
+        <Item Value="BB"/>
+        <Item Value="BBB"/>
+        <Item Value="A"/>
+        <Item Value="AA"/>
+        <Item Value="AAA"/>
+      </ValueList>
+    </list>
+    <methodAction id="getTaskDetails1" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="getTaskDetails"
+                  IsViewObjectMethod="false"
+                  DataControl="PrepareInsuranceQuoteForm_PrepareInsuranceQuoteHumanTask"
+                  InstanceName="PrepareInsuranceQuoteForm_PrepareInsuranceQuoteHumanTask"
+                  ReturnName="data.PrepareInsuranceQuoteForm_PrepareInsuranceQuoteHumanTask.methodResults.getTaskDetails_PrepareInsuranceQuoteForm_PrepareInsuranceQuoteHumanTask_getTaskDetails_result">
+      <NamedData NDName="bpmWorklistContext" NDType="java.lang.String"/>
+      <NamedData NDName="bpmWorklistTaskId" NDType="java.lang.String"/>
+      <NamedData NDName="bpmWorklistTaskVersion" NDType="java.lang.String"/>
+    </methodAction>
+    <attributeValues IterBinding="CreditHistoryReportIterator"
+                     id="financialOfficerIdentifier">
+      <AttrNames>
+        <Item Value="financialOfficerIdentifier"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

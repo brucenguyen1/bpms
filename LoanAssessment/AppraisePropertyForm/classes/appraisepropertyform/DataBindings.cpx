@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application"
+             version="11.1.1.64.93" id="DataBindings" SeparateXMLFiles="false"
+             Package="appraisepropertyform" ClientType="Generic">
+  <pageMap>
+    <page path="/taskDetails1.jspx"
+          usageId="appraisepropertyform_taskDetails1PageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="appraisepropertyform_taskDetails1PageDef"
+          path="appraisepropertyform.pageDefs.taskDetails1PageDef"/>
+  </pageDefinitionUsages>
+  <dataControlUsages>
+    <dc id="CheckCreditHistoryForm_CheckCreditHistoryHumanTask"
+        path="checkcredithistoryform.CheckCreditHistoryForm_CheckCreditHistoryHumanTask"/>
+    <dc id="AppraisePropertyForm_AppraisePropertyHumanTask"
+        path="appraisepropertyform.AppraisePropertyForm_AppraisePropertyHumanTask"/>
+  </dataControlUsages>
+</Application>

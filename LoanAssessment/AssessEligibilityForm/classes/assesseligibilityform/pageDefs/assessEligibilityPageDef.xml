@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93" id="assessEligibilityPageDef"
+                Package="assesseligibilityform.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <methodIterator Binds="getTaskDetails.result"
+                    DataControl="AssessEligibilityForm_AssessEligibilityHumanTask"
+                    RangeSize="25"
+                    BeanClass="AssessEligibilityForm_AssessEligibilityHumanTask.getTaskDetails"
+                    id="getTaskDetailsIterator"/>
+    <accessorIterator MasterBinding="getTaskDetailsIterator" Binds="task"
+                      RangeSize="25"
+                      DataControl="AssessEligibilityForm_AssessEligibilityHumanTask"
+                      BeanClass="AssessEligibilityForm_AssessEligibilityHumanTask.task"
+                      id="taskIterator" StateValidation="false"/>
+    <accessorIterator MasterBinding="taskIterator" Binds="systemAttributes"
+                      RangeSize="25"
+                      DataControl="AssessEligibilityForm_AssessEligibilityHumanTask"
+                      BeanClass="AssessEligibilityForm_AssessEligibilityHumanTask.systemAttributesType"
+                      id="systemAttributesIterator"/>
+    <accessorIterator MasterBinding="systemAttributesIterator"
+                      Binds="systemActions" RangeSize="50"
+                      DataControl="AssessEligibilityForm_AssessEligibilityHumanTask"
+                      BeanClass="AssessEligibilityForm_AssessEligibilityHumanTask.actionType"
+                      id="systemActionsIterator" StateValidation="false"/>
+    <accessorIterator MasterBinding="taskIterator" Binds="payload"
+                      RangeSize="25"
+                      DataControl="AssessEligibilityForm_AssessEligibilityHumanTask"
+                      BeanClass="AssessEligibilityForm_AssessEligibilityHumanTask.AssessEligibilityHumanTaskPayloadType"
+                      id="payloadIterator"/>
+    <accessorIterator MasterBinding="payloadIterator" Binds="LoanApplication"
+                      RangeSize="25"
+                      DataControl="AssessEligibilityForm_AssessEligibilityHumanTask"
+                      BeanClass="AssessEligibilityForm_AssessEligibilityHumanTask.LoanApplicationType"
+                      id="LoanApplicationIterator"/>
+    <accessorIterator MasterBinding="LoanApplicationIterator"
+                      Binds="administration" RangeSize="25"
+                      DataControl="AssessEligibilityForm_AssessEligibilityHumanTask"
+                      BeanClass="AssessEligibilityForm_AssessEligibilityHumanTask.AdministrationInfoType"
+                      id="administrationIterator"/>
+    <accessorIterator MasterBinding="LoanApplicationIterator" Binds="loan"
+                      RangeSize="25"
+                      DataControl="AssessEligibilityForm_AssessEligibilityHumanTask"
+                      BeanClass="AssessEligibilityForm_AssessEligibilityHumanTask.LoanInfoType"
+                      id="loanIterator"/>
+    <accessorIterator MasterBinding="LoanApplicationIterator"
+                      Binds="application" RangeSize="25"
+                      DataControl="AssessEligibilityForm_AssessEligibilityHumanTask"
+                      BeanClass="AssessEligibilityForm_AssessEligibilityHumanTask.ApplicationInfoType"
+                      id="applicationIterator"/>
+    <accessorIterator MasterBinding="applicationIterator" Binds="financialInfo"
+                      RangeSize="25"
+                      DataControl="AssessEligibilityForm_AssessEligibilityHumanTask"
+                      BeanClass="AssessEligibilityForm_AssessEligibilityHumanTask.FinancialInfoType"
+                      id="financialInfoIterator"/>
+    <accessorIterator MasterBinding="financialInfoIterator" Binds="jobInfo"
+                      RangeSize="25"
+                      DataControl="AssessEligibilityForm_AssessEligibilityHumanTask"
+                      BeanClass="AssessEligibilityForm_AssessEligibilityHumanTask.JobInfoType"
+                      id="jobInfoIterator"/>
+    <accessorIterator MasterBinding="payloadIterator" Binds="RiskAssessment"
+                      RangeSize="25"
+                      DataControl="AssessEligibilityForm_AssessEligibilityHumanTask"
+                      BeanClass="AssessEligibilityForm_AssessEligibilityHumanTask.RiskAssessmentType"
+                      id="RiskAssessmentIterator"/>
+    <accessorIterator MasterBinding="payloadIterator" Binds="PropertyAppraisal"
+                      RangeSize="25"
+                      DataControl="AssessEligibilityForm_AssessEligibilityHumanTask"
+                      BeanClass="AssessEligibilityForm_AssessEligibilityHumanTask.PropertyAppraisalType"
+                      id="PropertyAppraisalIterator"/>
+    <accessorIterator MasterBinding="systemAttributesIterator"
+                      Binds="customActions" RangeSize="25"
+                      DataControl="AssessEligibilityForm_AssessEligibilityHumanTask"
+                      BeanClass="AssessEligibilityForm_AssessEligibilityHumanTask.actionType"
+                      id="customActionsIterator"/>
+  </executables>
+  <bindings>
+    <methodAction id="getTaskDetails" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="getTaskDetails"
+                  IsViewObjectMethod="false"
+                  DataControl="AssessEligibilityForm_AssessEligibilityHumanTask"
+                  InstanceName="AssessEligibilityForm_AssessEligibilityHumanTask"
+                  ReturnName="data.AssessEligibilityForm_AssessEligibilityHumanTask.methodResults.getTaskDetails_AssessEligibilityForm_AssessEligibilityHumanTask_getTaskDetails_result">
+      <NamedData NDName="bpmWorklistContext" NDType="java.lang.String"/>
+      <NamedData NDName="bpmWorklistTaskId" NDType="java.lang.String"/>
+      <NamedData NDName="bpmWorklistTaskVersion" NDType="java.lang.String"/>
+    </methodAction>
+    <methodAction IterBinding="taskIterator" id="UpdateAction"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="UpdateAction" IsViewObjectMethod="false"
+                  DataControl="AssessEligibilityForm_AssessEligibilityHumanTask"
+                  InstanceName="bindings.taskIterator.currentRow.dataProvider"
+                  IsLocalObjectReference="true">
+      <NamedData NDName="action" NDType="java.lang.String"/>
+    </methodAction>
+    <navigationlist IterBinding="systemActionsIterator"
+                    ListOperMode="navigation" ListIter="systemActionsIterator"
+                    id="systemActions">
+      <AttrNames>
+        <Item Value="action"/>
+        <Item Value="displayName"/>
+      </AttrNames>
+    </navigationlist>
+    <attributeValues IterBinding="systemAttributesIterator"
+                     id="digitalSignatureRequired">
+      <AttrNames>
+        <Item Value="digitalSignatureRequired"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="systemAttributesIterator"
+                     id="passwordRequiredOnUpdate">
+      <AttrNames>
+        <Item Value="passwordRequiredOnUpdate"/>
+      </AttrNames>
+    </attributeValues>
+    <methodAction IterBinding="taskIterator" id="Claim"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="Claim" IsViewObjectMethod="false"
+                  DataControl="AssessEligibilityForm_AssessEligibilityHumanTask"
+                  InstanceName="bindings.taskIterator.currentRow.dataProvider"
+                  IsLocalObjectReference="true"/>
+    <methodAction IterBinding="taskIterator" id="Acknowledge"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="Acknowledge" IsViewObjectMethod="false"
+                  DataControl="AssessEligibilityForm_AssessEligibilityHumanTask"
+                  InstanceName="bindings.taskIterator.currentRow.dataProvider"
+                  IsLocalObjectReference="true"/>
+    <methodAction IterBinding="taskIterator" id="Resume"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="Resume" IsViewObjectMethod="false"
+                  DataControl="AssessEligibilityForm_AssessEligibilityHumanTask"
+                  InstanceName="bindings.taskIterator.currentRow.dataProvider"
+                  IsLocalObjectReference="true"/>
+    <methodAction IterBinding="taskIterator" id="Withdraw"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="Withdraw" IsViewObjectMethod="false"
+                  DataControl="AssessEligibilityForm_AssessEligibilityHumanTask"
+                  InstanceName="bindings.taskIterator.currentRow.dataProvider"
+                  IsLocalObjectReference="true"/>
+    <attributeValues IterBinding="administrationIterator"
+                     id="applicationIdentifer">
+      <AttrNames>
+        <Item Value="applicationIdentifer"/>
+      </AttrNames>
+    </attributeValues>
+    <button IterBinding="administrationIterator" id="eligibility"
+            DTSupportsMRU="false" StaticList="true">
+      <AttrNames>
+        <Item Value="eligibility"/>
+      </AttrNames>
+      <ValueList>
+        <Item Value="true"/>
+        <Item Value="false"/>
+      </ValueList>
+    </button>
+    <attributeValues IterBinding="administrationIterator"
+                     id="applicationStatusComment">
+      <AttrNames>
+        <Item Value="applicationStatusComment"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="loanIterator" id="amount">
+      <AttrNames>
+        <Item Value="amount"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="loanIterator" id="startDate">
+      <AttrNames>
+        <Item Value="startDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="loanIterator" id="interestRate">
+      <AttrNames>
+        <Item Value="interestRate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="loanIterator" id="interestType">
+      <AttrNames>
+        <Item Value="interestType"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="loanIterator" id="duration">
+      <AttrNames>
+        <Item Value="duration"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="loanIterator" id="endDate">
+      <AttrNames>
+        <Item Value="endDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="jobInfoIterator" id="currentEmployer">
+      <AttrNames>
+        <Item Value="currentEmployer"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="jobInfoIterator" id="monthlyNetRevenue">
+      <AttrNames>
+        <Item Value="monthlyNetRevenue"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="jobInfoIterator" id="jobTitle">
+      <AttrNames>
+        <Item Value="jobTitle"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="RiskAssessmentIterator" id="riskWeight">
+      <AttrNames>
+        <Item Value="riskWeight"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PropertyAppraisalIterator"
+                     id="propertyAppraiserIdentifier">
+      <AttrNames>
+        <Item Value="propertyAppraiserIdentifier"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PropertyAppraisalIterator"
+                     id="estimateMarketValue">
+      <AttrNames>
+        <Item Value="estimateMarketValue"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PropertyAppraisalIterator"
+                     id="propertyComment">
+      <AttrNames>
+        <Item Value="propertyComment"/>
+      </AttrNames>
+    </attributeValues>
+    <methodAction IterBinding="taskIterator" id="SUBMIT"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="SUBMIT" IsViewObjectMethod="false"
+                  DataControl="AssessEligibilityForm_AssessEligibilityHumanTask"
+                  InstanceName="bindings.taskIterator.currentRow.dataProvider"
+                  IsLocalObjectReference="true"/>
+    <methodAction IterBinding="taskIterator" id="update"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="update" IsViewObjectMethod="false"
+                  DataControl="AssessEligibilityForm_AssessEligibilityHumanTask"
+                  InstanceName="bindings.taskIterator.currentRow.dataProvider"
+                  IsLocalObjectReference="true"/>
+    <navigationlist IterBinding="customActionsIterator"
+                    ListOperMode="navigation" ListIter="customActionsIterator"
+                    id="customActions">
+      <AttrNames>
+        <Item Value="action"/>
+        <Item Value="displayName"/>
+      </AttrNames>
+    </navigationlist>
+    <methodAction IterBinding="taskIterator" id="OK" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="OK"
+                  IsViewObjectMethod="false"
+                  DataControl="AssessEligibilityForm_AssessEligibilityHumanTask"
+                  InstanceName="bindings.taskIterator.currentRow.dataProvider"
+                  IsLocalObjectReference="true"/>
+    <attributeValues IterBinding="administrationIterator"
+                     id="loanOfficerIdentifier">
+      <AttrNames>
+        <Item Value="loanOfficerIdentifier"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

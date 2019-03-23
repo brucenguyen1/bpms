@@ -1,0 +1,356 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<?oracleBPM version="11.1.1.7.0.0.8" fileRevision="20120217"?>
+<processDocumentation xmlns="http://xmlns.oracle.com/bpm/taskMetadataService/processDocumentation">
+    <component name="LoanAssessment">
+        <topicDocumentations>
+            <topicDocumentation name="LoanAssessment">
+                <labels>
+                    <label locale="en">Loan Assessment</label>
+                </labels>
+                <descriptions>
+                    <description locale="en">Loan Assessment</description>
+                </descriptions>
+            </topicDocumentation>
+            <topicDocumentation name="ACT9333833818447">
+                <labels>
+                    <label locale="en">Appraise property</label>
+                </labels>
+                <descriptions>
+                    <description locale="en"></description>
+                </descriptions>
+            </topicDocumentation>
+            <topicDocumentation name="ACT9333894309764">
+                <labels>
+                    <label locale="en">Assess eligibility</label>
+                </labels>
+                <descriptions>
+                    <description locale="en"></description>
+                </descriptions>
+            </topicDocumentation>
+            <topicDocumentation name="ACT9333903485718">
+                <labels>
+                    <label locale="en">Prepare and send acceptance pack</label>
+                </labels>
+                <descriptions>
+                    <description locale="en"></description>
+                </descriptions>
+            </topicDocumentation>
+            <topicDocumentation name="ACT9333991028194">
+                <labels>
+                    <label locale="en">Prepare and send home insurance quote</label>
+                </labels>
+                <descriptions>
+                    <description locale="en"></description>
+                </descriptions>
+            </topicDocumentation>
+            <topicDocumentation name="ACT9334002583148">
+                <labels>
+                    <label locale="en">Verify repayment agreement</label>
+                </labels>
+                <descriptions>
+                    <description locale="en"></description>
+                </descriptions>
+            </topicDocumentation>
+            <topicDocumentation name="ACT9334004288188">
+                <labels>
+                    <label locale="en">Take final decision</label>
+                </labels>
+                <descriptions>
+                    <description locale="en"></description>
+                </descriptions>
+            </topicDocumentation>
+            <topicDocumentation name="ACT9389898960268">
+                <labels>
+                    <label locale="en">Enter Application Form</label>
+                </labels>
+                <descriptions>
+                    <description locale="en"></description>
+                </descriptions>
+            </topicDocumentation>
+            <topicDocumentation name="ACT9390113771589">
+                <labels>
+                    <label locale="en">Update Rejected Status</label>
+                </labels>
+                <descriptions>
+                    <description locale="en"></description>
+                </descriptions>
+            </topicDocumentation>
+            <topicDocumentation name="ACT933507091070">
+                <labels>
+                    <label locale="en">Check application form completeness</label>
+                </labels>
+                <descriptions>
+                    <description locale="en"></description>
+                </descriptions>
+            </topicDocumentation>
+            <topicDocumentation name="ACT10199508902124">
+                <labels>
+                    <label locale="en">Initialize Data</label>
+                </labels>
+                <descriptions>
+                    <description locale="en"></description>
+                </descriptions>
+            </topicDocumentation>
+            <topicDocumentation name="ACT10201678993877">
+                <labels>
+                    <label locale="en">AssessLoanRisk</label>
+                </labels>
+                <descriptions>
+                    <description locale="en"></description>
+                </descriptions>
+            </topicDocumentation>
+            <topicDocumentation name="ACT10211135676090">
+                <labels>
+                    <label locale="en">Update Eligible Status</label>
+                </labels>
+                <descriptions>
+                    <description locale="en"></description>
+                </descriptions>
+            </topicDocumentation>
+            <topicDocumentation name="ACT10211271308340">
+                <labels>
+                    <label locale="en">Approval status</label>
+                </labels>
+                <descriptions>
+                    <description locale="en"></description>
+                </descriptions>
+            </topicDocumentation>
+            <topicDocumentation name="ACT10211275114527">
+                <labels>
+                    <label locale="en">Rejected status</label>
+                </labels>
+                <descriptions>
+                    <description locale="en"></description>
+                </descriptions>
+            </topicDocumentation>
+            <topicDocumentation name="ACT1021402872426">
+                <labels>
+                    <label locale="en">AssessCreditHistory</label>
+                </labels>
+                <descriptions>
+                    <description locale="en"></description>
+                </descriptions>
+            </topicDocumentation>
+            <topicDocumentation name="ACT10224938069261">
+                <labels>
+                    <label locale="en">Update TimeOut status</label>
+                </labels>
+                <descriptions>
+                    <description locale="en"></description>
+                </descriptions>
+            </topicDocumentation>
+            <topicDocumentation name="ACT10409579451711">
+                <labels>
+                    <label locale="en">Reject Email - Illegibility</label>
+                </labels>
+                <descriptions>
+                    <description locale="en"></description>
+                </descriptions>
+            </topicDocumentation>
+            <topicDocumentation name="ACT10409608377155">
+                <labels>
+                    <label locale="en">Cancel Application Email</label>
+                </labels>
+                <descriptions>
+                    <description locale="en"></description>
+                </descriptions>
+            </topicDocumentation>
+            <topicDocumentation name="ACT10430554506328">
+                <labels>
+                    <label locale="en">Approval Email</label>
+                </labels>
+                <descriptions>
+                    <description locale="en"></description>
+                </descriptions>
+            </topicDocumentation>
+            <topicDocumentation name="ACT10430555954535">
+                <labels>
+                    <label locale="en">Rejection Email</label>
+                </labels>
+                <descriptions>
+                    <description locale="en"></description>
+                </descriptions>
+            </topicDocumentation>
+            <topicDocumentation name="EVT9333513156271">
+                <labels>
+                    <label locale="en">Start</label>
+                </labels>
+                <descriptions>
+                    <description locale="en"></description>
+                </descriptions>
+            </topicDocumentation>
+            <topicDocumentation name="EVT1040958718904">
+                <labels>
+                    <label locale="en">End - Illeligibility</label>
+                </labels>
+                <descriptions>
+                    <description locale="en"></description>
+                </descriptions>
+            </topicDocumentation>
+            <topicDocumentation name="EVT10409611172731">
+                <labels>
+                    <label locale="en">End - Cancel</label>
+                </labels>
+                <descriptions>
+                    <description locale="en"></description>
+                </descriptions>
+            </topicDocumentation>
+            <topicDocumentation name="EVT10412934699073">
+                <labels>
+                    <label locale="en">End-Timeout</label>
+                </labels>
+                <descriptions>
+                    <description locale="en"></description>
+                </descriptions>
+            </topicDocumentation>
+            <topicDocumentation name="EVT10409624081893">
+                <labels>
+                    <label locale="en">End-Complete</label>
+                </labels>
+                <descriptions>
+                    <description locale="en"></description>
+                </descriptions>
+            </topicDocumentation>
+            <topicDocumentation name="EVT10206330112411">
+                <labels>
+                    <label locale="en">RepaymentAgreeementTimeout</label>
+                </labels>
+                <descriptions>
+                    <description locale="en"></description>
+                </descriptions>
+            </topicDocumentation>
+            <topicDocumentation name="EVT10419601777771">
+                <labels>
+                    <label locale="en">Timeout</label>
+                </labels>
+                <descriptions>
+                    <description locale="en"></description>
+                </descriptions>
+            </topicDocumentation>
+            <topicDocumentation name="GTW9333803575384">
+                <labels>
+                    <label locale="en">Form complete?</label>
+                </labels>
+                <descriptions>
+                    <description locale="en"></description>
+                </descriptions>
+            </topicDocumentation>
+            <topicDocumentation name="GTW9333823960684">
+                <labels>
+                    <label locale="en">Check</label>
+                </labels>
+                <descriptions>
+                    <description locale="en"></description>
+                </descriptions>
+            </topicDocumentation>
+            <topicDocumentation name="GTW9333824739118">
+                <labels>
+                    <label locale="en">Check Merge</label>
+                </labels>
+                <descriptions>
+                    <description locale="en"></description>
+                </descriptions>
+            </topicDocumentation>
+            <topicDocumentation name="GTW9333898050580">
+                <labels>
+                    <label locale="en">Eligible?</label>
+                </labels>
+                <descriptions>
+                    <description locale="en"></description>
+                </descriptions>
+            </topicDocumentation>
+            <topicDocumentation name="GTW9333983384161">
+                <labels>
+                    <label locale="en">Quote requested?</label>
+                </labels>
+                <descriptions>
+                    <description locale="en"></description>
+                </descriptions>
+            </topicDocumentation>
+            <topicDocumentation name="GTW9333987115644">
+                <labels>
+                    <label locale="en">QuoteRequested Merge</label>
+                </labels>
+                <descriptions>
+                    <description locale="en"></description>
+                </descriptions>
+            </topicDocumentation>
+            <topicDocumentation name="GTW10211266522385">
+                <labels>
+                    <label locale="en">Status</label>
+                </labels>
+                <descriptions>
+                    <description locale="en"></description>
+                </descriptions>
+            </topicDocumentation>
+            <topicDocumentation name="GTW10430562742555">
+                <labels>
+                    <label locale="en">StatusMerge</label>
+                </labels>
+                <descriptions>
+                    <description locale="en"></description>
+                </descriptions>
+            </topicDocumentation>
+            <topicDocumentation name="sf32"/>
+            <topicDocumentation name="sf65">
+                <descriptions>
+                    <description locale="en"></description>
+                </descriptions>
+            </topicDocumentation>
+            <topicDocumentation name="sf134"/>
+            <topicDocumentation name="sf142"/>
+            <topicDocumentation name="sf166"/>
+            <topicDocumentation name="sf174"/>
+            <topicDocumentation name="sf194"/>
+            <topicDocumentation name="sf203"/>
+            <topicDocumentation name="sf220">
+                <descriptions>
+                    <description locale="en"></description>
+                </descriptions>
+            </topicDocumentation>
+            <topicDocumentation name="sf238"/>
+            <topicDocumentation name="sf240">
+                <descriptions>
+                    <description locale="en"></description>
+                </descriptions>
+            </topicDocumentation>
+            <topicDocumentation name="sf242">
+                <descriptions>
+                    <description locale="en"></description>
+                </descriptions>
+            </topicDocumentation>
+            <topicDocumentation name="sf262"/>
+            <topicDocumentation name="sf283"/>
+            <topicDocumentation name="sf285"/>
+            <topicDocumentation name="sf287"/>
+            <topicDocumentation name="sf50"/>
+            <topicDocumentation name="sf338"/>
+            <topicDocumentation name="sf191"/>
+            <topicDocumentation name="sf26"/>
+            <topicDocumentation name="sf107">
+                <descriptions>
+                    <description locale="en"></description>
+                </descriptions>
+            </topicDocumentation>
+            <topicDocumentation name="sf29"/>
+            <topicDocumentation name="sf113"/>
+            <topicDocumentation name="sf116">
+                <descriptions>
+                    <description locale="en"></description>
+                </descriptions>
+            </topicDocumentation>
+            <topicDocumentation name="sf36"/>
+            <topicDocumentation name="sf239"/>
+            <topicDocumentation name="sf42"/>
+            <topicDocumentation name="sf45"/>
+            <topicDocumentation name="sf47"/>
+            <topicDocumentation name="sf49"/>
+            <topicDocumentation name="sf53"/>
+            <topicDocumentation name="sf119"/>
+            <topicDocumentation name="sf84"/>
+            <topicDocumentation name="sf87"/>
+            <topicDocumentation name="sf92"/>
+            <topicDocumentation name="sf95"/>
+        </topicDocumentations>
+    </component>
+</processDocumentation>

@@ -1,0 +1,13 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<schema targetNamespace="http://xmlns.oracle.com/bpel/workflow/task" xmlns:tns="http://xmlns.oracle.com/bpel/workflow/task" attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:ns1="http://xmlns.oracle.com/bpm/bpmobject/BusinessObjects/LoanApplication" xmlns:ns0="http://xmlns.oracle.com/bpm/bpmobject/BusinessObjects/AgreementSummary" xmlns:ns2="http://xmlns.oracle.com/bpm/bpmobject/BusinessObjects/PropertyAppraisal">
+   <import namespace="http://xmlns.oracle.com/bpm/bpmobject/BusinessObjects/AgreementSummary" schemaLocation="AgreementSummary.xsd"/>
+   <import namespace="http://xmlns.oracle.com/bpm/bpmobject/BusinessObjects/LoanApplication" schemaLocation="../SCA-INF/classes/businessCatalog/BusinessObjects/LoanApplication.xsd"/>
+   <import namespace="http://xmlns.oracle.com/bpm/bpmobject/BusinessObjects/PropertyAppraisal" schemaLocation="../SCA-INF/classes/businessCatalog/BusinessObjects/PropertyAppraisal.xsd"/>
+   <complexType name="TakeFinalDecisionHumanTaskPayloadType">
+      <sequence>
+         <element ref="ns0:AgreementSummary"/>
+         <element ref="ns1:LoanApplication"/>
+         <element ref="ns2:PropertyAppraisal"/>
+      </sequence>
+   </complexType>
+</schema>

@@ -1,0 +1,6 @@
+<ns3:IdentificationInfo xmlns:ns3="http://xmlns.oracle.com/bpm/bpmobject/BusinessObjects/IdentificationInfo">
+    <ns3:firstName>Bruce</ns3:firstName>
+    <ns3:lastName>Nguyen</ns3:lastName>
+    <ns3:identificationNumber>0123456789</ns3:identificationNumber>
+    <ns3:identificationType>Passport Number</ns3:identificationType>
+</ns3:IdentificationInfo>

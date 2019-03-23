@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<JavaBean xmlns="http://xmlns.oracle.com/adfm/beanmodel" version="11.1.1.64.93"
+          id="ApplicationInfoType"
+          Package="TakeFinalDecisionForm_TakeFinalDecisionHumanTask"
+          BeanClass="TakeFinalDecisionForm_TakeFinalDecisionHumanTask.ApplicationInfoType"
+          isJavaBased="false">
+  <AccessorAttribute id="identification" IsCollection="true"
+                     BeanClass="TakeFinalDecisionForm_TakeFinalDecisionHumanTask.IdentificationInfoType"
+                     CollectionBeanClass="TakeFinalDecisionForm_TakeFinalDecisionHumanTask.IdentificationInfoType_identification_Operations">
+    <Properties>
+      <Property Name="nextSiblingNamespace"
+                Value="http://xmlns.oracle.com/bpm/bpmobject/BusinessObjects/ApplicationInfo"/>
+      <Property Name="nextSibling" Value="contact"/>
+      <Property Name="minOccurs" Value="1"/>
+      <Property Name="maxOccurs" Value="1"/>
+      <Property Name="LABEL" Value="Identification"/>
+      <Property Name="nillable" Value="false"/>
+      <Property Name="originalName" Value="identification"/>
+      <Property Name="targetNamespace"
+                Value="http://xmlns.oracle.com/bpm/bpmobject/BusinessObjects/ApplicationInfo"/>
+    </Properties>
+  </AccessorAttribute>
+  <AccessorAttribute id="contact" IsCollection="true"
+                     BeanClass="TakeFinalDecisionForm_TakeFinalDecisionHumanTask.ContactInfoType"
+                     CollectionBeanClass="TakeFinalDecisionForm_TakeFinalDecisionHumanTask.ContactInfoType_contact_Operations">
+    <Properties>
+      <Property Name="nextSiblingNamespace"
+                Value="http://xmlns.oracle.com/bpm/bpmobject/BusinessObjects/ApplicationInfo"/>
+      <Property Name="nextSibling" Value="currentAddress"/>
+      <Property Name="minOccurs" Value="1"/>
+      <Property Name="maxOccurs" Value="1"/>
+      <Property Name="LABEL" Value="Contact"/>
+      <Property Name="nillable" Value="false"/>
+      <Property Name="originalName" Value="contact"/>
+      <Property Name="targetNamespace"
+                Value="http://xmlns.oracle.com/bpm/bpmobject/BusinessObjects/ApplicationInfo"/>
+    </Properties>
+  </AccessorAttribute>
+  <AccessorAttribute id="currentAddress" IsCollection="true"
+                     BeanClass="TakeFinalDecisionForm_TakeFinalDecisionHumanTask.AddressInfoType"
+                     CollectionBeanClass="TakeFinalDecisionForm_TakeFinalDecisionHumanTask.AddressInfoType_currentAddress_Operations">
+    <Properties>
+      <Property Name="nextSiblingNamespace"
+                Value="http://xmlns.oracle.com/bpm/bpmobject/BusinessObjects/ApplicationInfo"/>
+      <Property Name="nextSibling" Value="previousAddress"/>
+      <Property Name="minOccurs" Value="1"/>
+      <Property Name="maxOccurs" Value="1"/>
+      <Property Name="LABEL" Value="Current Address"/>
+      <Property Name="nillable" Value="false"/>
+      <Property Name="originalName" Value="currentAddress"/>
+      <Property Name="targetNamespace"
+                Value="http://xmlns.oracle.com/bpm/bpmobject/BusinessObjects/ApplicationInfo"/>
+    </Properties>
+  </AccessorAttribute>
+  <AccessorAttribute id="previousAddress" IsCollection="true"
+                     BeanClass="TakeFinalDecisionForm_TakeFinalDecisionHumanTask.AddressInfoType"
+                     CollectionBeanClass="TakeFinalDecisionForm_TakeFinalDecisionHumanTask.AddressInfoType_previousAddress_Operations">
+    <Properties>
+      <Property Name="nextSiblingNamespace"
+                Value="http://xmlns.oracle.com/bpm/bpmobject/BusinessObjects/ApplicationInfo"/>
+      <Property Name="nextSibling" Value="financialInfo"/>
+      <Property Name="minOccurs" Value="1"/>
+      <Property Name="maxOccurs" Value="1"/>
+      <Property Name="LABEL" Value="Previous Address"/>
+      <Property Name="nillable" Value="true"/>
+      <Property Name="originalName" Value="previousAddress"/>
+      <Property Name="targetNamespace"
+                Value="http://xmlns.oracle.com/bpm/bpmobject/BusinessObjects/ApplicationInfo"/>
+    </Properties>
+  </AccessorAttribute>
+  <AccessorAttribute id="financialInfo" IsCollection="true"
+                     BeanClass="TakeFinalDecisionForm_TakeFinalDecisionHumanTask.FinancialInfoType"
+                     CollectionBeanClass="TakeFinalDecisionForm_TakeFinalDecisionHumanTask.FinancialInfoType_financialInfo_Operations">
+    <Properties>
+      <Property Name="minOccurs" Value="1"/>
+      <Property Name="maxOccurs" Value="1"/>
+      <Property Name="LABEL" Value="Financial Info"/>
+      <Property Name="nillable" Value="false"/>
+      <Property Name="originalName" Value="financialInfo"/>
+      <Property Name="targetNamespace"
+                Value="http://xmlns.oracle.com/bpm/bpmobject/BusinessObjects/ApplicationInfo"/>
+    </Properties>
+  </AccessorAttribute>
+</JavaBean>

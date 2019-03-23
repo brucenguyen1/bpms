@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<JavaBean xmlns="http://xmlns.oracle.com/adfm/beanmodel" version="11.1.1.64.93"
+          id="EnterApplicationFormHumanTaskPayloadType"
+          Package="EnterAppForm_EnterApplicationFormHumanTask"
+          BeanClass="EnterAppForm_EnterApplicationFormHumanTask.EnterApplicationFormHumanTaskPayloadType"
+          isJavaBased="false">
+  <AccessorAttribute id="LoanApplication" IsCollection="true"
+                     BeanClass="EnterAppForm_EnterApplicationFormHumanTask.LoanApplicationType"
+                     CollectionBeanClass="EnterAppForm_EnterApplicationFormHumanTask.LoanApplicationType_LoanApplication_Operations">
+    <Properties>
+      <Property Name="minOccurs" Value="1"/>
+      <Property Name="maxOccurs" Value="1"/>
+      <Property Name="LABEL" Value="Loan Application"/>
+      <Property Name="nillable" Value="false"/>
+      <Property Name="originalName" Value="LoanApplication"/>
+      <Property Name="targetNamespace"
+                Value="http://xmlns.oracle.com/bpm/bpmobject/BusinessObjects/LoanApplication"/>
+    </Properties>
+  </AccessorAttribute>
+</JavaBean>

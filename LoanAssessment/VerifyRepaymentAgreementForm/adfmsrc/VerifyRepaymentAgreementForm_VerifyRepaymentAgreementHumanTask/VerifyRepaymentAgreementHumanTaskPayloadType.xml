@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<JavaBean xmlns="http://xmlns.oracle.com/adfm/beanmodel" version="11.1.1.64.93"
+          id="VerifyRepaymentAgreementHumanTaskPayloadType"
+          Package="VerifyRepaymentAgreementForm_VerifyRepaymentAgreementHumanTask"
+          BeanClass="VerifyRepaymentAgreementForm_VerifyRepaymentAgreementHumanTask.VerifyRepaymentAgreementHumanTaskPayloadType"
+          isJavaBased="false">
+  <AccessorAttribute id="RepaymentAgreement" IsCollection="true"
+                     BeanClass="VerifyRepaymentAgreementForm_VerifyRepaymentAgreementHumanTask.RepaymentAgreementType"
+                     CollectionBeanClass="VerifyRepaymentAgreementForm_VerifyRepaymentAgreementHumanTask.RepaymentAgreementType_RepaymentAgreement_Operations">
+    <Properties>
+      <Property Name="nextSiblingNamespace"
+                Value="http://xmlns.oracle.com/bpm/bpmobject/BusinessObjects/AgreementSummary"/>
+      <Property Name="nextSibling" Value="AgreementSummary"/>
+      <Property Name="minOccurs" Value="1"/>
+      <Property Name="maxOccurs" Value="1"/>
+      <Property Name="LABEL" Value="Repayment Agreement"/>
+      <Property Name="nillable" Value="false"/>
+      <Property Name="originalName" Value="RepaymentAgreement"/>
+      <Property Name="targetNamespace"
+                Value="http://xmlns.oracle.com/bpm/bpmobject/BusinessObjects/RepaymentAgreement"/>
+    </Properties>
+  </AccessorAttribute>
+  <AccessorAttribute id="AgreementSummary" IsCollection="true"
+                     BeanClass="VerifyRepaymentAgreementForm_VerifyRepaymentAgreementHumanTask.AgreementSummaryType"
+                     CollectionBeanClass="VerifyRepaymentAgreementForm_VerifyRepaymentAgreementHumanTask.AgreementSummaryType_AgreementSummary_Operations">
+    <Properties>
+      <Property Name="minOccurs" Value="1"/>
+      <Property Name="maxOccurs" Value="1"/>
+      <Property Name="LABEL" Value="Agreement Summary"/>
+      <Property Name="nillable" Value="false"/>
+      <Property Name="originalName" Value="AgreementSummary"/>
+      <Property Name="targetNamespace"
+                Value="http://xmlns.oracle.com/bpm/bpmobject/BusinessObjects/AgreementSummary"/>
+    </Properties>
+  </AccessorAttribute>
+  <AccessorAttribute id="LoanApplication" IsCollection="true"
+                     BeanClass="VerifyRepaymentAgreementForm_VerifyRepaymentAgreementHumanTask.LoanApplicationType"
+                     CollectionBeanClass="VerifyRepaymentAgreementForm_VerifyRepaymentAgreementHumanTask.LoanApplicationType_LoanApplication_Operations">
+    <Properties>
+      <Property Name="minOccurs" Value="1"/>
+      <Property Name="maxOccurs" Value="1"/>
+      <Property Name="LABEL" Value="Loan Application"/>
+      <Property Name="nillable" Value="false"/>
+      <Property Name="originalName" Value="LoanApplication"/>
+      <Property Name="targetNamespace"
+                Value="http://xmlns.oracle.com/bpm/bpmobject/BusinessObjects/LoanApplication"/>
+    </Properties>
+  </AccessorAttribute>
+</JavaBean>

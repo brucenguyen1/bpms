@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<JavaBean xmlns="http://xmlns.oracle.com/adfm/beanmodel" version="11.1.1.64.93"
+          id="FinancialInfoType"
+          Package="TakeFinalDecisionForm_TakeFinalDecisionHumanTask"
+          BeanClass="TakeFinalDecisionForm_TakeFinalDecisionHumanTask.FinancialInfoType"
+          isJavaBased="false">
+  <AccessorAttribute id="jobInfo" IsCollection="true"
+                     BeanClass="TakeFinalDecisionForm_TakeFinalDecisionHumanTask.JobInfoType"
+                     CollectionBeanClass="TakeFinalDecisionForm_TakeFinalDecisionHumanTask.JobInfoType_jobInfo_Operations">
+    <Properties>
+      <Property Name="nextSiblingNamespace"
+                Value="http://xmlns.oracle.com/bpm/bpmobject/BusinessObjects/FinancialInfo"/>
+      <Property Name="nextSibling" Value="bankAccounts"/>
+      <Property Name="minOccurs" Value="1"/>
+      <Property Name="maxOccurs" Value="1"/>
+      <Property Name="LABEL" Value="Job Info"/>
+      <Property Name="nillable" Value="false"/>
+      <Property Name="originalName" Value="jobInfo"/>
+      <Property Name="targetNamespace"
+                Value="http://xmlns.oracle.com/bpm/bpmobject/BusinessObjects/FinancialInfo"/>
+    </Properties>
+  </AccessorAttribute>
+  <AccessorAttribute id="bankAccounts" IsCollection="true"
+                     BeanClass="TakeFinalDecisionForm_TakeFinalDecisionHumanTask.BankAccountInfoType"
+                     CollectionBeanClass="TakeFinalDecisionForm_TakeFinalDecisionHumanTask.BankAccountInfoType_bankAccounts_Operations">
+    <Properties>
+      <Property Name="minOccurs" Value="1"/>
+      <Property Name="maxOccurs" Value="2147483640"/>
+      <Property Name="LABEL" Value="Bank Accounts"/>
+      <Property Name="nillable" Value="false"/>
+      <Property Name="originalName" Value="bankAccounts"/>
+      <Property Name="targetNamespace"
+                Value="http://xmlns.oracle.com/bpm/bpmobject/BusinessObjects/FinancialInfo"/>
+    </Properties>
+  </AccessorAttribute>
+</JavaBean>

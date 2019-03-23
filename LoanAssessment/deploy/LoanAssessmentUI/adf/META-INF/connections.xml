@@ -1,0 +1,45 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<References xmlns="http://xmlns.oracle.com/adf/jndi">
+   <Reference name="BPMConnection01" className="oracle.bpm.fusion.studio.mds.resourcepalette.BPMConnectionProvider" credentialStoreKey="BPMConnection01" xmlns="">
+      <Factory className="oracle.bpm.fusion.studio.mds.resourcepalette.BPMConnectionProviderFactory"/>
+      <RefAddresses>
+         <StringRefAddr addrType="useAppServerUsrPass">
+            <Contents>true</Contents>
+         </StringRefAddr>
+         <StringRefAddr addrType="user">
+            <Contents/>
+         </StringRefAddr>
+         <SecureRefAddr addrType="password"/>
+         <StringRefAddr addrType="connectionName">
+            <Contents>BPMConnection01</Contents>
+         </StringRefAddr>
+         <StringRefAddr addrType="soaInfraServer">
+            <Contents>wflab02</Contents>
+         </StringRefAddr>
+         <StringRefAddr addrType="bpmRepositoryServer">
+            <Contents>wflab02_SOA_MDS</Contents>
+         </StringRefAddr>
+      </RefAddresses>
+   </Reference>
+   <Reference name="BPMConnection0" className="oracle.bpm.fusion.studio.mds.resourcepalette.BPMConnectionProvider" credentialStoreKey="BPMConnection0" xmlns="">
+      <Factory className="oracle.bpm.fusion.studio.mds.resourcepalette.BPMConnectionProviderFactory"/>
+      <RefAddresses>
+         <StringRefAddr addrType="useAppServerUsrPass">
+            <Contents>true</Contents>
+         </StringRefAddr>
+         <StringRefAddr addrType="user">
+            <Contents/>
+         </StringRefAddr>
+         <SecureRefAddr addrType="password"/>
+         <StringRefAddr addrType="connectionName">
+            <Contents>BPMConnection0</Contents>
+         </StringRefAddr>
+         <StringRefAddr addrType="soaInfraServer">
+            <Contents>MyAppServerConnection</Contents>
+         </StringRefAddr>
+         <StringRefAddr addrType="bpmRepositoryServer">
+            <Contents>MDSConnection2</Contents>
+         </StringRefAddr>
+      </RefAddresses>
+   </Reference>
+</References>

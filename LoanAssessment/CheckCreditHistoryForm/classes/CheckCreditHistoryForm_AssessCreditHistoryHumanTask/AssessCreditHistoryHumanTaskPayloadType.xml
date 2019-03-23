@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<JavaBean xmlns="http://xmlns.oracle.com/adfm/beanmodel" version="11.1.1.64.93"
+          id="AssessCreditHistoryHumanTaskPayloadType"
+          Package="CheckCreditHistoryForm_AssessCreditHistoryHumanTask"
+          BeanClass="CheckCreditHistoryForm_AssessCreditHistoryHumanTask.AssessCreditHistoryHumanTaskPayloadType"
+          isJavaBased="false">
+  <AccessorAttribute id="LoanApplication" IsCollection="true"
+                     BeanClass="CheckCreditHistoryForm_AssessCreditHistoryHumanTask.LoanApplicationType"
+                     CollectionBeanClass="CheckCreditHistoryForm_AssessCreditHistoryHumanTask.LoanApplicationType_LoanApplication_Operations">
+    <Properties>
+      <Property Name="minOccurs" Value="1"/>
+      <Property Name="maxOccurs" Value="1"/>
+      <Property Name="LABEL" Value="Loan Application"/>
+      <Property Name="nillable" Value="false"/>
+      <Property Name="originalName" Value="LoanApplication"/>
+      <Property Name="targetNamespace"
+                Value="http://xmlns.oracle.com/bpm/bpmobject/BusinessObjects/LoanApplication"/>
+    </Properties>
+  </AccessorAttribute>
+  <AccessorAttribute id="CreditHistoryReport" IsCollection="true"
+                     BeanClass="CheckCreditHistoryForm_AssessCreditHistoryHumanTask.CreditHistoryReportType"
+                     CollectionBeanClass="CheckCreditHistoryForm_AssessCreditHistoryHumanTask.CreditHistoryReportType_CreditHistoryReport_Operations">
+    <Properties>
+      <Property Name="minOccurs" Value="1"/>
+      <Property Name="maxOccurs" Value="1"/>
+      <Property Name="LABEL" Value="Credit History Report"/>
+      <Property Name="nillable" Value="false"/>
+      <Property Name="originalName" Value="CreditHistoryReport"/>
+      <Property Name="targetNamespace"
+                Value="http://xmlns.oracle.com/bpm/bpmobject/BusinessObjects/CreditHistoryReport"/>
+    </Properties>
+  </AccessorAttribute>
+</JavaBean>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application"
+             version="11.1.1.64.93" id="DataBindings" SeparateXMLFiles="false"
+             Package="assesseligibilityform" ClientType="Generic">
+  <pageMap>
+    <page path="/AssessEligibilityHumanTask_Form.jspx"
+          usageId="assesseligibilityform_AssessEligibilityHumanTask_FormPageDef"/>
+    <page path="/assessEligibility.jspx"
+          usageId="assesseligibilityform_assessEligibilityPageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="assesseligibilityform_AssessEligibilityHumanTask_FormPageDef"
+          path="assesseligibilityform.pageDefs.AssessEligibilityHumanTask_FormPageDef"/>
+    <page id="assesseligibilityform_assessEligibilityPageDef"
+          path="assesseligibilityform.pageDefs.assessEligibilityPageDef"/>
+  </pageDefinitionUsages>
+  <dataControlUsages>
+    <dc id="AssessEligibilityForm_AssessEligibilityHumanTask"
+        path="assesseligibilityform.AssessEligibilityForm_AssessEligibilityHumanTask"/>
+  </dataControlUsages>
+</Application>

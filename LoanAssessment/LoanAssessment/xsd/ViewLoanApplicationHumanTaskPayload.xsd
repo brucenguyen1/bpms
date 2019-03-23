@@ -1,0 +1,21 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<schema targetNamespace="http://xmlns.oracle.com/bpel/workflow/task" xmlns:tns="http://xmlns.oracle.com/bpel/workflow/task" attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:ns5="http://xmlns.oracle.com/bpm/bpmobject/BusinessObjects/RepaymentAgreement" xmlns:ns0="http://xmlns.oracle.com/bpm/bpmobject/BusinessObjects/LoanApplication" xmlns:ns1="http://xmlns.oracle.com/bpm/bpmobject/BusinessObjects/AgreementSummary" xmlns:ns6="http://xmlns.oracle.com/bpm/bpmobject/BusinessObjects/RiskAssessment" xmlns:ns2="http://xmlns.oracle.com/bpm/bpmobject/BusinessObjects/CreditHistoryReport" xmlns:ns4="http://xmlns.oracle.com/bpm/bpmobject/BusinessObjects/PropertyAppraisal" xmlns:ns3="http://xmlns.oracle.com/bpm/bpmobject/BusinessObjects/HomeInsuranceQuote">
+   <import namespace="http://xmlns.oracle.com/bpm/bpmobject/BusinessObjects/LoanApplication" schemaLocation="../SCA-INF/classes/businessCatalog/BusinessObjects/LoanApplication.xsd"/>
+   <import namespace="http://xmlns.oracle.com/bpm/bpmobject/BusinessObjects/AgreementSummary" schemaLocation="../SCA-INF/classes/businessCatalog/BusinessObjects/AgreementSummary.xsd"/>
+   <import namespace="http://xmlns.oracle.com/bpm/bpmobject/BusinessObjects/CreditHistoryReport" schemaLocation="../SCA-INF/classes/businessCatalog/BusinessObjects/CreditHistoryReport.xsd"/>
+   <import namespace="http://xmlns.oracle.com/bpm/bpmobject/BusinessObjects/HomeInsuranceQuote" schemaLocation="../SCA-INF/classes/businessCatalog/BusinessObjects/HomeInsuranceQuote.xsd"/>
+   <import namespace="http://xmlns.oracle.com/bpm/bpmobject/BusinessObjects/PropertyAppraisal" schemaLocation="../SCA-INF/classes/businessCatalog/BusinessObjects/PropertyAppraisal.xsd"/>
+   <import namespace="http://xmlns.oracle.com/bpm/bpmobject/BusinessObjects/RepaymentAgreement" schemaLocation="../SCA-INF/classes/businessCatalog/BusinessObjects/RepaymentAgreement.xsd"/>
+   <import namespace="http://xmlns.oracle.com/bpm/bpmobject/BusinessObjects/RiskAssessment" schemaLocation="../SCA-INF/classes/businessCatalog/BusinessObjects/RiskAssessment.xsd"/>
+   <complexType name="ViewLoanApplicationHumanTaskPayloadType">
+      <sequence>
+         <element ref="ns0:LoanApplication"/>
+         <element ref="ns1:AgreementSummary"/>
+         <element ref="ns2:CreditHistoryReport"/>
+         <element ref="ns3:HomeInsuranceQuote"/>
+         <element ref="ns4:PropertyAppraisal"/>
+         <element ref="ns5:RepaymentAgreement"/>
+         <element ref="ns6:RiskAssessment"/>
+      </sequence>
+   </complexType>
+</schema>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application"
+             version="11.1.1.64.93" id="DataBindings" SeparateXMLFiles="false"
+             Package="verifyrepaymentagreementform" ClientType="Generic">
+  <pageMap>
+    <page path="/verifyRepaymentAgreement.jspx"
+          usageId="verifyrepaymentagreementform_verifyRepaymentAgreementPageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="verifyrepaymentagreementform_verifyRepaymentAgreementPageDef"
+          path="verifyrepaymentagreementform.pageDefs.verifyRepaymentAgreementPageDef"/>
+  </pageDefinitionUsages>
+  <dataControlUsages>
+    <dc id="VerifyRepaymentAgreementForm_VerifyRepaymentAgreementHumanTask"
+        path="verifyrepaymentagreementform.VerifyRepaymentAgreementForm_VerifyRepaymentAgreementHumanTask"/>
+  </dataControlUsages>
+</Application>

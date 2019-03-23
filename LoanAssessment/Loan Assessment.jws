@@ -1,0 +1,428 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<jws:workspace xmlns:jws="http://xmlns.oracle.com/ide/project">
+   <value n="application-package-prefix" v="com.empdirectory"/>
+   <value n="appTemplateId" v="BPMApplicationTemplate"/>
+   <hash n="component-versions">
+      <value n="oracle.adf.share.dt.migration.jps.JaznCredStoreMigratorHelper" v="11.1.1.1.0"/>
+      <value n="oracle.adfdt.controller.adfc.source.migration.SavePointDataSourceForWLSMigrator" v="11.1.1.1.0"/>
+      <value n="oracle.adfdtinternal.model.ide.security.wizard.AdfSecurityMigrator" v="11.1.1.1.0.13"/>
+      <value n="oracle.ide.model.Project" v="11.1.1.1.0"/>
+      <value n="oracle.jdevimpl.deploy.ear.OarMigratorHelper" v="11.1.1.1.0"/>
+      <value n="oracle.jdevimpl.deploy.mar.MarMigratorHelper" v="11.1.1.1.0"/>
+      <value n="oracle.jdevimpl.xml.oc4j.jps.JpsConfigMigratorHelper" v="11.1.1.1.0.1"/>
+      <value n="oracle.jdevimpl.xml.wl.WeblogicMigratorHelper" v="11.1.1.1.0"/>
+      <value n="oracle.mds.internal.dt.ide.migrator.MDSConfigMigratorHelper" v="11.1.1.0.5313"/>
+   </hash>
+   <list n="listOfChildren">
+      <hash><url n="URL" path="AppraisePropertyForm/AppraisePropertyForm.jpr"/></hash>
+      <hash><url n="URL" path="AssessEligibilityForm/AssessEligibilityForm.jpr"/></hash>
+      <hash><url n="URL" path="CheckCreditHistoryForm/CheckCreditHistoryForm.jpr"/></hash>
+      <hash><url n="URL" path="EnterAppForm/EnterAppForm.jpr"/></hash>
+      <hash><url n="URL" path="LoanAssessment/Loan Assessment.jpr"/></hash>
+      <hash><url n="URL" path="PrepareAcceptancePackForm/PrepareAcceptancePackForm.jpr"/></hash>
+      <hash><url n="URL" path="PrepareInsuranceQuoteForm/PrepareInsuranceQuoteForm.jpr"/></hash>
+      <hash><url n="URL" path="Project1/Project1.jpr"/></hash>
+      <hash><url n="URL" path="TakeFinalDecisionForm/TakeFinalDecisionForm.jpr"/></hash>
+      <hash><url n="URL" path="VerifyRepaymentAgreementForm/VerifyRepaymentAgreementForm.jpr"/></hash>
+      <hash><url n="URL" path="ViewLoanApplication/ViewLoanApplication.jpr"/></hash>
+   </list>
+   <hash n="oracle.jdeveloper.deploy.dt.DeploymentProfiles">
+      <hash n="profileDefinitions">
+         <hash n="CheckCreditHistoryForm">
+            <hash n="archiveOptions">
+               <value n="hasManifest" v="false"/>
+            </hash>
+            <hash n="dependencies">
+               <list n="dependencyList">
+                  <hash>
+                     <value n="adapterClass" v="oracle.jdevimpl.deploy.common.DefaultProfileDependable"/>
+                     <url n="ownerURL" path="CheckCreditHistoryForm/CheckCreditHistoryForm.jpr"/>
+                     <value n="profileName" v="CheckCreditHistoryForm"/>
+                  </hash>
+               </list>
+            </hash>
+            <url n="earURL" path="deploy/CheckCreditHistoryForm.ear"/>
+            <value n="enterpriseAppName" v="CheckCreditHistoryForm"/>
+            <hash n="fileGroups">
+               <list n="groups">
+                  <hash>
+                     <list n="contributors">
+                        <hash>
+                           <value n="type" v="9"/>
+                        </hash>
+                     </list>
+                     <value n="displayName" v="Application Descriptors"/>
+                     <hash n="filters">
+                        <list n="rules"/>
+                     </hash>
+                     <value n="internalName" v="ear-metainf"/>
+                     <value n="type" v="1"/>
+                  </hash>
+                  <hash>
+                     <value n="displayName" v="Application Libraries"/>
+                     <hash n="filters">
+                        <list n="rules">
+                           <hash>
+                              <value n="pattern" v="**"/>
+                           </hash>
+                        </list>
+                     </hash>
+                     <value n="internalName" v="libraries"/>
+                     <value n="targetWithinJar" v="lib"/>
+                     <value n="type" v="3"/>
+                  </hash>
+               </list>
+            </hash>
+            <hash n="libraryDependencies">
+               <value n="IncludeLibrariesFromOtherContainers" v="true"/>
+            </hash>
+            <value n="profileClass" v="oracle.jdeveloper.deploy.ear.EarProfile"/>
+            <value n="profileName" v="CheckCreditHistoryForm"/>
+         </hash>
+         <hash n="CheckCreditHistoryForm2">
+            <hash n="archiveOptions">
+               <value n="hasManifest" v="false"/>
+            </hash>
+            <hash n="dependencies">
+               <list n="dependencyList">
+                  <hash>
+                     <value n="adapterClass" v="oracle.jdevimpl.deploy.common.DefaultProfileDependable"/>
+                     <url n="ownerURL" path="CheckCreditHistoryForm2/CheckCreditHistoryForm2.jpr"/>
+                     <value n="profileName" v="CheckCreditHistoryForm2"/>
+                  </hash>
+               </list>
+            </hash>
+            <url n="earURL" path="deploy/CheckCreditHistoryForm2.ear"/>
+            <value n="enterpriseAppName" v="CheckCreditHistoryForm2"/>
+            <hash n="fileGroups">
+               <list n="groups">
+                  <hash>
+                     <list n="contributors">
+                        <hash>
+                           <value n="type" v="9"/>
+                        </hash>
+                     </list>
+                     <value n="displayName" v="Application Descriptors"/>
+                     <hash n="filters">
+                        <list n="rules"/>
+                     </hash>
+                     <value n="internalName" v="ear-metainf"/>
+                     <value n="type" v="1"/>
+                  </hash>
+                  <hash>
+                     <value n="displayName" v="Application Libraries"/>
+                     <hash n="filters">
+                        <list n="rules">
+                           <hash>
+                              <value n="pattern" v="**"/>
+                           </hash>
+                        </list>
+                     </hash>
+                     <value n="internalName" v="libraries"/>
+                     <value n="targetWithinJar" v="lib"/>
+                     <value n="type" v="3"/>
+                  </hash>
+               </list>
+            </hash>
+            <hash n="libraryDependencies">
+               <value n="IncludeLibrariesFromOtherContainers" v="true"/>
+            </hash>
+            <value n="profileClass" v="oracle.jdeveloper.deploy.ear.EarProfile"/>
+            <value n="profileName" v="CheckCreditHistoryForm2"/>
+         </hash>
+         <hash n="Loan Assessment">
+            <hash n="archiveOptions">
+               <value n="hasManifest" v="false"/>
+            </hash>
+            <hash n="dependencies">
+               <list n="dependencyList">
+                  <hash>
+                     <value n="adapterClass" v="oracle.jdevimpl.deploy.common.DefaultProfileDependable"/>
+                     <url n="ownerURL" path="CheckCreditHistoryForm/CheckCreditHistoryForm.jpr"/>
+                     <value n="profileName" v="CheckCreditHistoryForm"/>
+                  </hash>
+                  <hash>
+                     <value n="adapterClass" v="oracle.jdevimpl.deploy.common.DefaultProfileDependable"/>
+                     <url n="ownerURL" path="PrepareInsuranceQuoteForm/PrepareInsuranceQuoteForm.jpr"/>
+                     <value n="profileName" v="PrepareInsuranceQuoteForm"/>
+                  </hash>
+                  <hash>
+                     <value n="adapterClass" v="oracle.jdevimpl.deploy.common.DefaultProfileDependable"/>
+                     <url n="ownerURL" path="PrepareAcceptancePackForm/PrepareAcceptancePackForm.jpr"/>
+                     <value n="profileName" v="PrepareAcceptancePackForm"/>
+                  </hash>
+                  <hash>
+                     <value n="adapterClass" v="oracle.jdevimpl.deploy.common.DefaultProfileDependable"/>
+                     <url n="ownerURL" path="AppraisePropertyForm/AppraisePropertyForm.jpr"/>
+                     <value n="profileName" v="AppraisePropertyForm"/>
+                  </hash>
+                  <hash>
+                     <value n="adapterClass" v="oracle.jdevimpl.deploy.common.DefaultProfileDependable"/>
+                     <url n="ownerURL" path="VerifyRepaymentAgreementForm/VerifyRepaymentAgreementForm.jpr"/>
+                     <value n="profileName" v="VerifyRepaymentAgreementForm"/>
+                  </hash>
+                  <hash>
+                     <value n="adapterClass" v="oracle.jdevimpl.deploy.common.DefaultProfileDependable"/>
+                     <url n="ownerURL" path="TakeFinalDecisionForm/TakeFinalDecisionForm.jpr"/>
+                     <value n="profileName" v="TakeFinalDecisionForm"/>
+                  </hash>
+                  <hash>
+                     <value n="adapterClass" v="oracle.jdevimpl.deploy.common.DefaultProfileDependable"/>
+                     <url n="ownerURL" path="AssessEligibilityForm/AssessEligibilityForm.jpr"/>
+                     <value n="profileName" v="AssessEligibilityForm"/>
+                  </hash>
+                  <hash>
+                     <value n="adapterClass" v="oracle.jdevimpl.deploy.common.DefaultProfileDependable"/>
+                     <url n="ownerURL" path="EnterAppForm/EnterAppForm.jpr"/>
+                     <value n="profileName" v="EnterAppForm"/>
+                  </hash>
+               </list>
+            </hash>
+            <url n="earURL" path="deploy/Loan Assessment.ear"/>
+            <value n="enterpriseAppName" v="Loan Assessment"/>
+            <hash n="fileGroups">
+               <list n="groups">
+                  <hash>
+                     <list n="contributors">
+                        <hash>
+                           <value n="type" v="9"/>
+                        </hash>
+                     </list>
+                     <value n="displayName" v="Application Descriptors"/>
+                     <hash n="filters">
+                        <list n="rules"/>
+                     </hash>
+                     <value n="internalName" v="ear-metainf"/>
+                     <value n="type" v="1"/>
+                  </hash>
+                  <hash>
+                     <value n="displayName" v="Application Libraries"/>
+                     <hash n="filters">
+                        <list n="rules">
+                           <hash>
+                              <value n="pattern" v="**"/>
+                           </hash>
+                        </list>
+                     </hash>
+                     <value n="internalName" v="libraries"/>
+                     <value n="targetWithinJar" v="lib"/>
+                     <value n="type" v="3"/>
+                  </hash>
+               </list>
+            </hash>
+            <hash n="libraryDependencies">
+               <value n="IncludeLibrariesFromOtherContainers" v="true"/>
+            </hash>
+            <value n="profileClass" v="oracle.jdeveloper.deploy.ear.EarProfile"/>
+            <value n="profileName" v="Loan Assessment"/>
+         </hash>
+         <hash n="LoanAssessmentUI">
+            <hash n="archiveOptions">
+               <value n="hasManifest" v="false"/>
+            </hash>
+            <hash n="dependencies">
+               <list n="dependencyList">
+                  <hash>
+                     <value n="adapterClass" v="oracle.jdevimpl.deploy.common.DefaultProfileDependable"/>
+                     <url n="ownerURL" path="CheckCreditHistoryForm/CheckCreditHistoryForm.jpr"/>
+                     <value n="profileName" v="CheckCreditHistoryForm"/>
+                  </hash>
+                  <hash>
+                     <value n="adapterClass" v="oracle.jdevimpl.deploy.common.DefaultProfileDependable"/>
+                     <url n="ownerURL" path="PrepareInsuranceQuoteForm/PrepareInsuranceQuoteForm.jpr"/>
+                     <value n="profileName" v="PrepareInsuranceQuoteForm"/>
+                  </hash>
+                  <hash>
+                     <value n="adapterClass" v="oracle.jdevimpl.deploy.common.DefaultProfileDependable"/>
+                     <url n="ownerURL" path="PrepareAcceptancePackForm/PrepareAcceptancePackForm.jpr"/>
+                     <value n="profileName" v="PrepareAcceptancePackForm"/>
+                  </hash>
+                  <hash>
+                     <value n="adapterClass" v="oracle.jdevimpl.deploy.common.DefaultProfileDependable"/>
+                     <url n="ownerURL" path="AppraisePropertyForm/AppraisePropertyForm.jpr"/>
+                     <value n="profileName" v="AppraisePropertyForm"/>
+                  </hash>
+                  <hash>
+                     <value n="adapterClass" v="oracle.jdevimpl.deploy.common.DefaultProfileDependable"/>
+                     <url n="ownerURL" path="ViewLoanApplication/ViewLoanApplication.jpr"/>
+                     <value n="profileName" v="ViewLoanApplication"/>
+                  </hash>
+                  <hash>
+                     <value n="adapterClass" v="oracle.jdevimpl.deploy.common.DefaultProfileDependable"/>
+                     <url n="ownerURL" path="VerifyRepaymentAgreementForm/VerifyRepaymentAgreementForm.jpr"/>
+                     <value n="profileName" v="VerifyRepaymentAgreementForm"/>
+                  </hash>
+                  <hash>
+                     <value n="adapterClass" v="oracle.jdevimpl.deploy.common.DefaultProfileDependable"/>
+                     <url n="ownerURL" path="TakeFinalDecisionForm/TakeFinalDecisionForm.jpr"/>
+                     <value n="profileName" v="TakeFinalDecisionForm"/>
+                  </hash>
+                  <hash>
+                     <value n="adapterClass" v="oracle.jdevimpl.deploy.common.DefaultProfileDependable"/>
+                     <url n="ownerURL" path="AssessEligibilityForm/AssessEligibilityForm.jpr"/>
+                     <value n="profileName" v="AssessEligibilityForm"/>
+                  </hash>
+                  <hash>
+                     <value n="adapterClass" v="oracle.jdevimpl.deploy.common.DefaultProfileDependable"/>
+                     <url n="ownerURL" path="EnterAppForm/EnterAppForm.jpr"/>
+                     <value n="profileName" v="EnterAppForm"/>
+                  </hash>
+               </list>
+            </hash>
+            <url n="earURL" path="deploy/LoanAssessmentUI.ear"/>
+            <value n="enterpriseAppName" v="LoanAssessmentUI"/>
+            <hash n="fileGroups">
+               <list n="groups">
+                  <hash>
+                     <list n="contributors">
+                        <hash>
+                           <value n="type" v="9"/>
+                        </hash>
+                     </list>
+                     <value n="displayName" v="Application Descriptors"/>
+                     <hash n="filters">
+                        <list n="rules"/>
+                     </hash>
+                     <value n="internalName" v="ear-metainf"/>
+                     <value n="type" v="1"/>
+                  </hash>
+                  <hash>
+                     <value n="displayName" v="Application Libraries"/>
+                     <hash n="filters">
+                        <list n="rules">
+                           <hash>
+                              <value n="pattern" v="**"/>
+                           </hash>
+                        </list>
+                     </hash>
+                     <value n="internalName" v="libraries"/>
+                     <value n="targetWithinJar" v="lib"/>
+                     <value n="type" v="3"/>
+                  </hash>
+               </list>
+            </hash>
+            <hash n="libraryDependencies">
+               <value n="IncludeLibrariesFromOtherContainers" v="true"/>
+            </hash>
+            <value n="profileClass" v="oracle.jdeveloper.deploy.ear.EarProfile"/>
+            <value n="profileName" v="LoanAssessmentUI"/>
+         </hash>
+         <hash n="VerifyRepaymentAgreementForm">
+            <hash n="archiveOptions">
+               <value n="hasManifest" v="false"/>
+            </hash>
+            <hash n="dependencies">
+               <list n="dependencyList">
+                  <hash>
+                     <value n="adapterClass" v="oracle.jdevimpl.deploy.common.DefaultProfileDependable"/>
+                     <url n="ownerURL" path="VerifyRepaymentAgreementForm/VerifyRepaymentAgreementForm.jpr"/>
+                     <value n="profileName" v="VerifyRepaymentAgreementForm"/>
+                  </hash>
+               </list>
+            </hash>
+            <url n="earURL" path="deploy/VerifyRepaymentAgreementForm.ear"/>
+            <value n="enterpriseAppName" v="VerifyRepaymentAgreementForm"/>
+            <hash n="fileGroups">
+               <list n="groups">
+                  <hash>
+                     <list n="contributors">
+                        <hash>
+                           <value n="type" v="9"/>
+                        </hash>
+                     </list>
+                     <value n="displayName" v="Application Descriptors"/>
+                     <hash n="filters">
+                        <list n="rules"/>
+                     </hash>
+                     <value n="internalName" v="ear-metainf"/>
+                     <value n="type" v="1"/>
+                  </hash>
+                  <hash>
+                     <value n="displayName" v="Application Libraries"/>
+                     <hash n="filters">
+                        <list n="rules">
+                           <hash>
+                              <value n="pattern" v="**"/>
+                           </hash>
+                        </list>
+                     </hash>
+                     <value n="internalName" v="libraries"/>
+                     <value n="targetWithinJar" v="lib"/>
+                     <value n="type" v="3"/>
+                  </hash>
+               </list>
+            </hash>
+            <hash n="libraryDependencies">
+               <value n="IncludeLibrariesFromOtherContainers" v="true"/>
+            </hash>
+            <value n="profileClass" v="oracle.jdeveloper.deploy.ear.EarProfile"/>
+            <value n="profileName" v="VerifyRepaymentAgreementForm"/>
+         </hash>
+         <hash n="ViewLoanApplication">
+            <hash n="archiveOptions">
+               <value n="hasManifest" v="false"/>
+            </hash>
+            <hash n="dependencies">
+               <list n="dependencyList">
+                  <hash>
+                     <value n="adapterClass" v="oracle.jdevimpl.deploy.common.DefaultProfileDependable"/>
+                     <url n="ownerURL" path="ViewLoanApplication/ViewLoanApplication.jpr"/>
+                     <value n="profileName" v="ViewLoanApplication"/>
+                  </hash>
+               </list>
+            </hash>
+            <url n="earURL" path="deploy/ViewLoanApplication.ear"/>
+            <value n="enterpriseAppName" v="ViewLoanApplication"/>
+            <hash n="fileGroups">
+               <list n="groups">
+                  <hash>
+                     <list n="contributors">
+                        <hash>
+                           <value n="type" v="9"/>
+                        </hash>
+                     </list>
+                     <value n="displayName" v="Application Descriptors"/>
+                     <hash n="filters">
+                        <list n="rules"/>
+                     </hash>
+                     <value n="internalName" v="ear-metainf"/>
+                     <value n="type" v="1"/>
+                  </hash>
+                  <hash>
+                     <value n="displayName" v="Application Libraries"/>
+                     <hash n="filters">
+                        <list n="rules">
+                           <hash>
+                              <value n="pattern" v="**"/>
+                           </hash>
+                        </list>
+                     </hash>
+                     <value n="internalName" v="libraries"/>
+                     <value n="targetWithinJar" v="lib"/>
+                     <value n="type" v="3"/>
+                  </hash>
+               </list>
+            </hash>
+            <hash n="libraryDependencies">
+               <value n="IncludeLibrariesFromOtherContainers" v="true"/>
+            </hash>
+            <value n="profileClass" v="oracle.jdeveloper.deploy.ear.EarProfile"/>
+            <value n="profileName" v="ViewLoanApplication"/>
+         </hash>
+      </hash>
+      <list n="profileList">
+         <string v="VerifyRepaymentAgreementForm"/>
+         <string v="Loan Assessment"/>
+         <string v="CheckCreditHistoryForm"/>
+         <string v="CheckCreditHistoryForm2"/>
+         <string v="ViewLoanApplication"/>
+         <string v="LoanAssessmentUI"/>
+      </list>
+      <value n="Weblogic-JDBC-Auto-Sync-Key" v="false"/>
+   </hash>
+   <hash n="oracle.mds.internal.dt.ide.CustOptions">
+      <list n="customizationLibraries">
+         <hash/>
+      </list>
+   </hash>
+</jws:workspace>
